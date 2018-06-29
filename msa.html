@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+
+<!--http://localhost:8080/RIGO/design.html-->
+<html lang="en">
+
+
+	<head>
+		<meta charset="utf-8">
+		<title>US Map</title>
+		<script src="https://d3js.org/d3.v4.js"></script>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+		<script src="bootstrap.min.js"></script>
+		<script src="textures.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+		<script type="text/javascript" src="topojson.v2.min.js"></script>
+		<script src="https://d3js.org/queue.v1.min.js"></script>
+		<script type="text/javascript" src="d3-tip.js"></script>
+<style>
+			p {
+				text-align: center;
+			}
+			
+			
+			#national-info {
+				text-align:center ; 
+				display:block;
+			}
+			
+			.buttons {
+				margin-right: 15px;
+				margin-bottom:20px;
+			}
+			
+			.list-group-item {
+				color:#045a8d;
+			}
+			
+			#us-state-div {
+				text-align: center; 
+				display:inline-block;
+			}
+			
+			#state-info {
+				text-align:center; 
+				display:block;
+			}
+			
+
+			
+			#legend {
+				padding-top: 20px;
+			}
+			
+			#state-info{
+				display: inline-block;
+			}
+			
+			/*  Dashboard Layout/Appearence CSS */
+        #dashboard {
+            width: 75%;
+            height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+			padding-top: 20px;
+        }
+        
+        /* Instructions and explaination accordion */
+        #instructions {
+            margin-left: 10px;
+            width: 300px;
+            height: 100%;
+            float: left;
+            font-size: 14px;
+        }
+        
+       .accordion-container{
+          position: relative;
+
+          height: auto;
+          margin: 20px auto;
+        }
+        .accordion-container > h2{
+          text-align: center;
+          color: #fff;
+          padding-bottom: 5px;
+          margin-bottom: 30px;
+          border-bottom: 1px solid #ddd;
+        }
+        .set{
+          position: relative;
+          width: 100%;
+          
+          background-color: #f5f5f5;
+        }
+        .set > a{
+          display: block;
+          padding: 10px 15px;
+          text-decoration: none;
+          color: #555;
+          font-weight: 600;
+          border-bottom: 1px solid #ddd;
+          -webkit-transition:all 0.2s linear;
+          -moz-transition:all 0.2s linear;
+          transition:all 0.2s linear;
+        }
+        .set > a i{
+          position:relative;
+          float: right;
+          margin-top:4px;
+          color: #666;
+        }
+        .set > a.active{
+          background-color:#3399cc;
+          color: #fff;
+        }
+        .set > a.active i{
+          color: #fff;
+        }
+        .content{
+          position:relative;
+          width: 100%;
+          overflow-y: scroll;
+          max-height: 100px;
+          background-color: #fff;
+          border-bottom: 1px solid #ddd;
+          display:none;
+        }
+        .content p{
+          padding: 10px 15px;
+          margin: 0;
+          color: #333;
+        }
+        
+        /* Animated statistics section */
+        #comparison {
+            width: 300px;
+            height: 100%;
+            float: left;
+            padding-top: 10px;
+			margin-left:80px;
+
+        }
+        
+        .stats {
+		    margin-left: 35%;
+
+        }
+        
+        .counter {
+            font-size:50px;
+            margin-left: 27%;
+        }
+        
+        #msaCounter {
+            color: #facb00;
+        }
+        
+        #rigoCounter {
+           color: #00aaf9; 
+        }
+        
+        /* Donut chart section */
+        #affiliation {
+           width: 300px;
+            height: 100%;
+            float: left;
+            text-align: center;
+            font-size: 100%;
+			margin-left:100px;
+        }
+        
+         #donutChart {
+             margin: 12px auto 0 auto;
+            position: relative;
+        }
+
+        .legend {
+            font-size: 8px;
+        }
+        
+           
+        
+        .tooltip {
+                  background: #eee;
+                  box-shadow: 0 0 5px #999999;
+                  color: #333;
+                  display: none;
+                  font-size: 8px;
+                  left: 130px;
+                  padding: 10px;
+                  position: absolute;
+                  text-align: center;
+                  top: 95px;
+                  width: 80px;
+                  z-index: 10;
+         }
+        
+            .chart div {
+              font-size: 14px;
+              font-weight: 600;
+              text-align: left;
+              padding: 3px;
+              margin: 1px;
+              color: white;
+
+		</style>
+	</head>
+
+	<body>
+		<div class="container"> 
+			<div class="page-header">
+				<center>
+					<h1>Exploring Regional Governance in the United States</h1>
+				</center>
+			</div>
+		</div>
+			<div class="col-md-12" id="dashboard">
+   <script type="text/javascript">
+        
+        window.onload=dashboardUpdate();
+
+        function dashboardUpdate() {
+            
+       
+            // ***** DONUT CHART SECTION *****
+            
+            // Create variable to hold category counts
+            var singleRIGO = 0;
+            var singleMSA = 0;
+            var singleRIGOandMSA = 0;
+            var multipleRIGO = 0;
+            var multipleRIGOandMSA = 0;
+            var noAffiliation = 0;
+            var totalCounties = 0;
+            
+            
+            // Access tsv file with RIGO/MSA data
+            d3.tsv("County_Muni_RIGO_Boundaries.tsv", function(data) {
+
+                // Iterate through rows determining which counts to increase
+                
+                data.forEach(function(d) {
+                    // Increase County Tally
+                    totalCounties++;
+                    // One RIGO and MSA Affiliation
+                    if (d.RIGOCodeNo != 99 && d.RIGO2 == 0 && d.Muni == 1) {
+                        singleRIGOandMSA++
+                    // Multiple RIGO and MSA Affiliation    
+                    } else if (d.RIGOCodeNo != 99 && d.RIGO2 != 0 && d.Muni == 1) {
+                        multipleRIGOandMSA++   
+                    // Single RIGO Affiliation    
+                    } else if (d.RIGOCodeNo != 99 && d.RIGO2 == 0 && d.Muni == 0) {
+                        singleRIGO++
+                    // Multiple RIGO Affiliation    
+                    } else if (d.RIGOCodeNo != 99 && d.RIGO2 != 0 && d.Muni == 0) {
+                        multipleRIGO++  
+                    // Single MSA Affiliation    
+                    } else if (d.RIGOCodeNo == 99 && d.RIGO2 == 0 && d.Muni == 1) {
+                        singleMSA++
+                    // No Affiliation
+                    } else if (d.RIGOCodeNo == 99 && d.RIGO2 == 0 && d.Muni == 0) {
+                        noAffiliation++
+                    }  
+                });
+                
+            var countsJSON = [
+                             { countName: "Single RIGO", count: singleRIGO },
+                             { countName: "Single MSA", count: singleMSA },
+                             { countName: "Both RIGO & MSA", count: singleRIGOandMSA },
+                             { countName: "Multiple RIGOs", count: multipleRIGO },
+                             { countName: "Multiple RIGOs & MSA", count: multipleRIGOandMSA },
+                             { countName: "No Affilation", count: noAffiliation }
+                            ];
+            
+            var donutWidth = 200;
+            var donutHeight = 200;
+            var donutRadius = Math.min(donutWidth, donutHeight) / 2;
+            var donutHole = 25;
+
+            var color = d3.scaleOrdinal()
+                .range(["#B0C7EB","#F1D629","#9EE082","#2F76B9","#3CA110","#F3B5D3"]);
+
+            var svg = d3.select('#donutChart')
+              .append('svg')
+              .attr('width', donutWidth)
+              .attr('height', donutHeight)
+              .append('g')
+              .attr('transform', 'translate(' + (donutWidth / 2) +  ',' + (donutHeight / 2) + ')');
+            
+            var arc = d3.arc()
+              .innerRadius(donutRadius - donutHole)
+              .outerRadius(donutRadius); 
+            
+            var pie = d3.pie()
+              .padAngle(.01)
+              .value(function(d) { 
+                  return d.count; 
+                })
+              .sort(null);
+                
+            var tooltip = d3.select('#donutChart')  
+                .append('div')
+                .attr('class', 'tooltip');                                   
+
+            tooltip.append('div')                                          
+                .attr('class', 'label');                                     
+
+            tooltip.append('div')                                          
+              .attr('class', 'count');                                     
+
+            tooltip.append('div')                                          
+              .attr('class', 'percent');                                      
+
+            countsJSON.forEach(function(d) {
+                d.enabled = true;
+            });
+                
+            var path = svg.selectAll('path')
+              .data(pie(countsJSON))
+              .enter()
+              .append('path')
+              .attr('d', arc)
+              .attr('fill', function(d, i) {
+                return color(d.data.countName);
+               })
+               .each(function(d) {
+                   this._current = d;
+               }); 
+                
+                
+            path.on('mouseover', function(d) { 
+                d3.select(this).style('opacity', .5);
+                var total = d3.sum(countsJSON.map(function(d) {               
+                    return (d.enabled) ? d.count : 0;                                           
+                })); 
+                
+                var percent = Math.round(1000 * d.data.count / total) / 10; 
+                
+                tooltip.select('.label').html(d.data.countName);               
+                tooltip.select('.count').html(function() {
+                    if (d.data.count > 1){
+                        return d.data.count + " Counties";
+                    } else {
+                        return d.data.count + " County";
+                    }
+                });                          
+                tooltip
+                    .style('display', 'block');                         
+          });                                                          
+                            
+          path.on('mouseout', function() { 
+            d3.select(this).style('opacity', 1);  
+            tooltip.style('display', 'none');                           
+          });                                                           
+    
+                
+            var legendRectSize = 10;
+            var legendSpacing = 4;
+            
+            var legend = svg.selectAll('.legend')
+              .data(color.domain())
+              .enter()
+              .append('g')
+              .attr('class', 'legend')
+              .attr('transform', function(d, i) {
+                var height = legendRectSize + legendSpacing;
+                var offset =  height * color.domain().length / 2;
+                var horz = -3 * legendRectSize;
+                var vert = i * height - offset;
+                return 'translate(' + horz + ',' + vert + ')';
+              });    
+                
+             legend.append('rect')
+                  .attr('width', legendRectSize)
+                  .attr('height', legendRectSize)
+                  .style('fill', color)
+                  .style('stroke', color)
+                  .on("click", function(countName) {
+                      var rect = d3.select(this);
+                      var enabled = true;
+                      var totalEnabled = d3.sum(countsJSON.map(function(d) {
+                        return (d.enabled) ? 1 : 0;
+                      }));
+
+                      if (rect.attr('class') === 'disabled') {
+                        rect.attr('class', '');
+                      } else {
+                        if (totalEnabled < 2) return;
+                        rect.attr('class', 'disabled');
+                        enabled = false;
+                      }
+
+                      pie.value(function(d) {
+                        if (d.countName === countName) d.enabled = enabled;
+                        return (d.enabled) ? d.count : 0;
+                      });
+
+                      path = path.data(pie(countsJSON));
+
+                      path.transition()
+                        .duration(750)
+                        .attrTween('d', function(d) {
+                          var interpolate = d3.interpolate(this._current, d);
+                          this._current = interpolate(0);
+                          return function(t) {
+                            return arc(interpolate(t));
+                          };
+                        });       
+             });
+                
+            
+            legend.append('text')
+              .attr('x', legendRectSize + legendSpacing)
+              .attr('y', legendRectSize - legendSpacing)
+              .text(function(d) { return d; });
+  
+            });  // End of Donut Chart
+            
+            
+         // ***** STATS SECTION *****
+            var totalRIGO;
+            var totalMSA;
+            
+            d3.tsv("counties.tsv", function (data) {
+                // Count Unique RIGOs
+                var distinctRIGO = d3.map(data, function(d) {
+                    return d.rgo_code;   
+                });
+                totalRIGO = Object.keys(distinctRIGO).length;  
+                
+                // Count Unique MSAs
+                var distinctMSA = d3.map(data, function(d) {
+                    return d.msa_code;
+                });     
+                totalMSA = Object.keys(distinctMSA).length; 
+                
+                
+               //jQerry Counter animation script from
+                // https://codepen.io/hi-im-si/pen/uhxFn
+              $("#rigoCounter").attr("data-count", totalRIGO);  
+              $("#msaCounter").attr("data-count", totalMSA)    
+              
+                
+               $('.counter').each(function() {
+                  var $this = $(this),
+                      countTo = $this.attr('data-count');
+
+                  $({ countNum: $this.text()}).animate({
+                    countNum: countTo
+                  },
+
+                  {
+
+                    duration: 1000,
+                    easing:'linear',
+                    step: function() {
+                      $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                      $this.text(this.countNum);
+                      //alert('finished');
+                    }
+
+                  });  
+
+
+
+                });
+
+       
+                    
+            }); // End of Animated Stats
+            
+            // INSTRUCTION ACCORDION //
+            // Source: https://codepen.io/vikasverma93/pen/raxGaM //
+            
+           $(document).ready(function(){
+              $(".set > a").on("click", function(){
+                if($(this).hasClass('active')){
+                  $(this).removeClass("active");
+                  $(this).siblings('.content').slideUp(200);
+                  $(".set > a i").removeClass("fa-minus").addClass("fa-plus");
+                }else{
+                  $(".set > a i").removeClass("fa-minus").addClass("fa-plus");
+                $(this).find("i").removeClass("fa-plus").addClass("fa-minus");
+                $(".set > a").removeClass("active");
+                $(this).addClass("active");
+                $('.content').slideUp(200);
+                $(this).siblings('.content').slideDown(200);
+                }
+
+              });
+            });
+
+            
+            
+        } // End dashboardUpdate
+        
+
+        
+    </script>
+				
+        <div id="instructions">
+             <div class="accordion-container">
+          <div class="set">
+            <a href="#">
+              How to Use the Map 
+              <i class="fa fa-plus"></i>
+            </a>
+            <div class="content scrollable">
+              <p>
+                    The left pane contains a national view. You can view the national distribution of RIGOs, MSAs, or a combined RIGO and MSA view by clicking the corresponding buttons.
+                </p>
+                <p>
+                    The right pane features a state view with a dropdown menu to select a specific state. You can also select to view either RIGOs, MSAs, or both in this section
+                </p>
+                <p>
+                     Hovering your mouse over a county (or municipality in New England) gives you information about the RIGO/MSA to which it belongs.
+                </p>
+            </div>
+          </div>
+          <div class="set">
+            <a href="#">
+              What is a RIGO? 
+              <i class="fa fa-plus"></i>
+            </a>
+            <div class="content">
+               <p>
+                   <u>Regional Intergovernmental Organization (RIGO)</u> <br/><br/>
+                    An organization constituted by the local governments within that region and supported by active engagement of that region’s civic sector, its’ business community, and citizens and citizen groups.
+                </p>
+            </div>
+          </div>
+          <div class="set">
+            <a href="#">
+              What is an MSA? 
+              <i class="fa fa-plus"></i>
+            </a>
+            <div class="content">
+                <p>
+                   <u>Metropolitan Statistical Area (MSA)</u> <br/><br/>
+                    A region designated by the U.S. federal government for the purpose of grouping counties on the basis of economic, commuting, and population patterns.
+                </p>
+            </div>
+          </div>
+          <div class="set">
+            <a href="#">
+              More Information 
+              <i class="fa fa-plus"></i> 
+            </a>
+            <div class="content">
+                <p>
+                 If you are interested in learning more about RIGOs check out the  <a href="http://www.metrostudies.pitt.edu/RIGO"  target="_blank">Center for Metorpolitan Studies</a> main page. <br/><br/>
+                  Have ideas for updates, additions, or revisions?<br/>
+                    Please share them with us by contacting Jay Rickabaugh at <a href="mailto:jar140@pitt.edu"> jar140@pitt.edu</a>    
+                </p>
+                   .
+            </div>
+          </div>
+        </div>
+        </div>
+        
+       
+        
+        <div id="comparison"> 
+            <div class="stats">
+                Total Number of RIGOs
+                <div id="rigoCounter" class="counter" data-count="0">0</div>
+            </div>
+             <div class="stats">
+                Total Number of MSAs
+                <div id="msaCounter" class="counter" data-count="0">0</div>
+            </div>
+            
+        </div>
+        
+        <div id="affiliation">
+          <div id="donutChart"></div>
+        </div>
+	</div>	
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8">					
+					<div class="card" >
+						<div class="card-header">
+							<h4>The U.S. Map</h4>
+						</div>
+						<div class="card-body" >
+							<div class="row">
+								<div class="col-sm-4" id="national-info">
+									<span class="glyphicon glyphicon-info-sign"> </span> 
+									<div class="btn-group" data-toggle="buttons-radio" >
+										<div class="buttons">
+											<a href="rigo.html" class="btn btn-primary" data-toggle="button" type="button">RIGO</a> 
+											<a href="msa.html" class="btn btn-primary" data-toggle="button" type="button">MSA</a>
+											<a href="both.html" class="btn btn-primary" data-toggle="button" type="button">Both</a> 
+										</div>
+									</div>
+									
+									<h6>MSA Infromation</h6>
+									<ul class="list-group list-group-flush">
+    <li class="list-group-item">State Name: <br> <span id="info_MSA_state" style="color:#ED9A2A" ><em>Select MSA</em>
+                                    </span> </li>
+    <li class="list-group-item">MSA Name: <br> <span id="info_MSA_name" style="color:#ED9A2A" ><em>Select MSA</em>
+                                    </span></li>
+    <li class="list-group-item">MSA Population: <br><span id="info_MSA_population" style="color:#ED9A2A" ><em>Select MSA</em>
+                                    </span></li>
+        
+  </ul>
+								</div><!--end of information column-->
+								<div class="col-sm-8"id="national-map">
+									<script>
+										
+										var margin = {top: 10, right: 0, bottom: 10, left: 0};
+										var width = $("#national-map").width();
+										var mapRatio = .5;
+										var height = width * mapRatio;
+										var w = 100;
+										var h = 10;
+
+										var svg = d3.select("#national-map").append("svg")
+											.attr("width", width)
+											.attr("height", height + margin.top + margin.bottom)
+											.append("g")
+											//.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+										
+										var g1 = svg.append('g');
+
+										var projection =  d3.geoAlbersUsa()
+											.scale(width)
+											.translate([width / 2, height / 2]);
+
+
+            MsaName =d3.map();
+            msaDic = {};
+            population =d3.map();
+            countyandMSAname = {};
+
+function insertAfter(referenceNode, newNode) {
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+
+
+              var color = d3.scaleThreshold()
+                    .domain([55273,100000, 500000, 1000000,5000000,15000000])
+                      .range(["#FFF9CF","#FFF685", "#FFFD38", "#FED631", "#FDB92C","#ED9A2A"]);
+   
+    var color_c= ["#FFF9CF","#FFF685", "#FFFD38", "#FED631", "#FDB92C","#ED9A2A"]; 
+
+var path = d3.geoPath()
+    .projection(projection);
+
+
+d3.json("drawStateBorders.json", function(drawStateBorders){
+g1.append("path")
+      .datum(topojson.feature(drawStateBorders, drawStateBorders.objects.us))
+      .attr("fill", "none")
+      .attr("stroke-width","2.5")
+      .attr("d", path)
+      .attr("stroke","black");
+    });
+
+
+            d3.csv("County and Muni MSA.csv", function(csv) {
+              
+              csv.forEach(function(row) {
+
+                  population.set(row.MSA, row.MSAPOP);
+              if(countyandMSAname[row.MSA]==null)
+                              {
+                                countyandMSAname[row.MSA]=new Array();
+                                countyandMSAname[row.MSA].push((row.MSA));
+                                countyandMSAname[row.MSA].push((row.State));
+                                countyandMSAname[row.MSA].push((row.MSAPOP));
+                                countyandMSAname[row.MSA].push((row.Place));
+
+
+
+                                
+                              }
+                  
+                });
+
+              csv.forEach(function(row)
+               {
+                if(row.MSA != "Not Applicable")
+                {
+                  if(msaDic[row.MSA]==null)
+                  {
+                    msaDic[row.MSA]=new Array();
+                    msaDic[row.MSA].push(parseInt(row.Code));
+                  }
+                  else
+                  {
+                   msaDic[row.MSA].push(parseInt(row.Code));
+
+                  }
+
+                  if(MsaName.get(row.MSA)==undefined)
+                  {
+
+                    MsaName.set(row.MSA,row.MSA);
+                  }
+                }
+              });
+});
+                queue()
+                  .defer(d3.json, 'us.topo.json')
+                  .defer(d3.json, 'vt.topo.json')
+                  .defer(d3.json, 'ma.topo.json')
+                  .defer(d3.json, 'nh.topo.json')
+                  .defer(d3.json, 'ri.topo.json')
+                  .defer(d3.json, 'ct.topo.json')
+                  .await(USAMSA); 
+                  
+                 function USAMSA(error, us, vt, ma, nh, ri, ct){
+
+
+                g1.append("path")
+                      .datum(topojson.feature(us, us.objects.collection))
+                      .attr("fill", "none")
+                      .attr("d", path)
+                      .attr("stroke-width",0.5)
+                      .attr("stroke","gray");
+                
+                
+
+                for(keys in msaDic){
+
+                   g1.append("path")
+                      .datum(topojson.merge(us, us.objects.collection.geometries.filter(function(d) {
+                        return msaDic[keys].includes(parseInt(d.properties.fips));
+                      })))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){  
+                                return keys;
+                            }) 
+                      .style("cursor", "pointer")
+                      .on('click',zoom)
+                      .on('mouseover', hover)
+                      .on('mouseout', nohover);
+
+                }
+
+                  g1.append("path")
+                      .data(topojson.feature(vt, vt.objects.vt).features)
+                      .attr("fill", "lightgray")
+                      .attr("d", path)
+                      .attr("stroke-width",0.5)
+                      .attr("stroke","white");
+
+                for(keys in msaDic){
+                   g1.append("path")
+                      .datum(topojson.merge(vt, vt.objects.vt.geometries.filter(function(d) {
+                        return msaDic[keys].includes(parseInt(d.id));})))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            }) 
+                      .style("cursor", "pointer") 
+                      .on('click',zoom)
+                      .on('mouseover', hover)
+                      .on("mouseout", nohover);
+                }
+
+                g1.append("path")
+                      .data(topojson.feature(ma, ma.objects.ma).features)
+                      .attr("fill", "lightgray")
+                      .attr("d", path)
+                      .attr("stroke-width",0.5)
+                      .attr("stroke","white");
+
+                for(keys in msaDic){
+                   g1.append("path")
+                      .datum(topojson.merge(ma, ma.objects.ma.geometries.filter(function(d) {
+                        return msaDic[keys].includes(parseInt(d.id));})))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            })
+                      .style("cursor", "pointer")  
+                      .on('click',zoom)
+                      .on('mouseover', hover)
+                      .on("mouseout", nohover);
+                }
+
+                g1.append("path")
+                      .data(topojson.feature(nh, nh.objects.nh).features)
+                      .attr("fill", "lightgray")
+                      .attr("d", path)
+                      .attr("stroke-width",0.5)
+                      .attr("stroke","white");
+
+                for(keys in msaDic){
+                   g1.append("path")
+                      .datum(topojson.merge(nh, nh.objects.nh.geometries.filter(function(d) {
+                        return msaDic[keys].includes(parseInt(d.id));})))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            })
+                      .style("cursor", "pointer")  
+                     .on('click',zoom)
+                      .on('mouseover', hover)
+                      .on("mouseout", nohover);
+                }
+
+                g1.append("path")
+                      .data(topojson.feature(ri, ri.objects.ri).features)
+                      .attr("fill", "lightgray")
+                      .attr("d", path)
+                      .attr("stroke-width",0.5)
+                      .attr("stroke","white");
+
+                for(keys in msaDic){
+                   g1.append("path")
+                      .datum(topojson.merge(ri, ri.objects.ri.geometries.filter(function(d) {
+                        return msaDic[keys].includes(parseInt(d.id));})))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            }) 
+                      .style("cursor", "pointer") 
+                     .on('click',zoom) 
+                      .on('mouseover', hover)
+                      .on("mouseout", nohover);
+                }
+
+                g1.append("path")
+                      .data(topojson.feature(ct, ct.objects.ct).features)
+                      .attr("fill", "lightgray")
+                      .attr("d", path)
+                      .attr("stroke-width",0.5)
+                      .attr("stroke","white");
+
+                for(keys in msaDic){
+                   g1.append("path")
+                      .datum(topojson.merge(ct, ct.objects.ct.geometries.filter(function(d) {
+                        return msaDic[keys].includes(parseInt(d.id));})))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            })
+                      .style("cursor", "pointer")  
+                      .on('click',zoom)
+                      .on('mouseover', hover)
+                      .on("mouseout", nohover);
+                }
+
+				var centered;
+  
+
+                          function zoom(d){
+                            var zoomSettings = {
+                            duration: 300,
+                            ease: d3.easeCubicOut,
+                            zoomLevel: 4
+                          }; 
+                           var x;
+                            var y;
+                            var zoomLevel;
+
+                            if(d && centered !== d){
+                              var centroid = path.centroid(d);
+                              x = centroid [0];
+                              y = centroid [1];
+
+                              zoomLevel=zoomSettings.zoomLevel;
+                              centered = d;
+                            }else{
+                              x = width/2;
+                              y = height / 2;
+                              zoomLevel = 1;
+                              centered = null;
+                            }
+
+                            g1.transition()
+                             .duration(zoomSettings.duration)
+                             .ease(zoomSettings.ease)
+                             .attr("transform", "translate(" + width/2 +","+ height/2 +")scale(" + zoomLevel + ")translate("+ -x +","+ -y +")");
+                          }
+              
+              
+						  
+					function hover()
+                      {
+                      d3.select(this).attr("stroke","red");
+                      d3.select("#info_MSA_population").html(countyandMSAname[d3.select(this).attr('id')][2]);
+                      d3.select("#info_MSA_name").html(countyandMSAname[d3.select(this).attr('id')][0]);
+                      d3.select("#info_MSA_state").html(countyandMSAname[d3.select(this).attr('id')][1]);
+                      } 
+
+                      function nohover()
+                      {
+                      d3.select(this).attr("stroke","black");
+                      }
+
+						  
+						  };
+     
+	 var div1=document.getElementById("national_map");
+var div2=document.getElementById("us_state_div");
+insertAfter(div1, div2);
+
+									</script>	
+								</div><!--end of map column-->
+							</div><!--end of map row-->
+							</div>
+						</div><!--end of card-body-->
+						<div class="row">
+								<div class="col-md-12" id="legend">
+								<script>
+								var margin2 = {top: 0, right: 0, bottom: 0, left: 0};
+var width2 = $("#legend").width();
+var mapRatio2 = .3;
+var height2 = width2 * mapRatio2;
+var w = 100;
+var h = 7;
+
+var svgLeg = d3.select("#legend").append("svg")
+    .attr("width", width2)
+    .attr("height", height2)
+    .append("g")
+    //.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+var color_c= ["#FFF9CF","#FFF685", "#FFFD38", "#FED631", "#FDB92C","#ED9A2A"]; 
+
+var g2 = svgLeg.append('g');
+
+var projection2 =  d3.geoAlbersUsa()
+    .scale(width2)
+    .translate([width2 / 2, height2 / 2]);
+
+            MsaName =d3.map();
+            msaDic = {};
+            population =d3.map();
+            countyandMSAname = {};
+
+var path2 = d3.geoPath()
+    .projection(projection2);
+
+//var svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
+
+              queue()
+                  .defer(d3.json, 'us.topo.json')
+                  .defer(d3.json, 'vt.topo.json')
+                  .defer(d3.json, 'ma.topo.json')
+                  .defer(d3.json, 'nh.topo.json')
+                  .defer(d3.json, 'ri.topo.json')
+                  .defer(d3.json, 'ct.topo.json')
+                  .await(USAMSA); 
+                  
+                 function USAMSA(error, us, vt, ma, nh, ri, ct){
+
+ 
+
+
+                   
+
+var legendGroup = g2.selectAll("legend")
+                            .data(color_c)
+                            .enter().append("g");
+
+                        legendGroup.append("rect")
+                            .attr("x", function(d, i){ return ((i+1.3)*w*1.02);})             
+                            .attr("y", 17)
+                            .attr("width", w)
+                            .attr("height", h)
+                            .attr("fill", function(d){ return d;})
+                            .attr("opacity", 0.7);
+
+                        legendGroup.append("text")
+                            .attr("x", function(d, i){ return ((1.3)*w*1.02);})             
+                            .attr("y", 10)
+                            .attr("font-size", "15px") 
+                            .attr("font-weight", "Bold")
+                            .text("MSA Population");
+
+                        legendGroup.append("text")
+                            .attr("x", function(d, i){ return ((1.3)*w*1.02);})             
+                            .attr("y", 40)
+                            .attr("font-size", "12px") 
+                            .text("Low Population");
+
+                            
+                        legendGroup.append("text")
+                            .attr("x", function(d, i){ return ((5.1+1.3)*w*1.02);})             
+                            .attr("y", 40)
+                            .attr("font-size", "12px") 
+                            .text("High Population");
+
+                       legendGroup.append("text")
+                            .attr("x", function(d, i){ return ((2.5)*w*0.50);})             
+                            .attr("y", 70)
+                            .attr("font-size", "15px") 
+                            .attr("font-weight", "Bold")
+                            .text("MSA Boundaries");
+
+                        legendGroup.append("polyline")     
+                            .attr("fill", "#FDB92C")
+                            .attr("stroke","black")
+                            .attr("stroke-width", 2)
+                            .style("stroke", "black")
+                            .attr("points", "20,30  40,60  60,30  20,10 20,30")
+                            .attr("transform", "translate("+((.3+2.5)*w*0.5)+","+(80)+")");
+
+
+                        legendGroup.append("text")
+                            .attr("x", function(d, i){ return ((.8+2.5)*w*1.05);})             
+                            .attr("y", 70)
+                            .attr("font-size", "15px") 
+                            .attr("font-weight", "Bold")
+                            .text("Counties Boundaries");
+
+
+                        legendGroup.append("polyline")     
+                            .attr("fill", "#FDB92C")
+                            .attr("stroke-width", 0.5)
+                            .style("stroke", "gray")
+                            .attr("points", "20,30  40,60  60,30  20,10 20,30")
+                            .attr("transform", "translate("+((1.1+2.5)*w*1.05)+","+(80)+")");
+
+
+                        legendGroup.append("text")
+                            .attr("x", function(d, i){ return ((3.0+2.5)*w*1.05);})             
+                            .attr("y", 70)
+                            .attr("font-size", "15px") 
+                            .attr("font-weight", "Bold")
+                            .text("Not Applicable Counties");
+
+                        legendGroup.append("polyline")     
+                            .attr("fill", "white")
+                            .attr("stroke-width", 0.5)
+                            .style("stroke", "gray")
+                            .attr("points", "20,30  40,60  60,30  20,10 20,30")
+                            .attr("transform", "translate("+((3.3+2.5)*w*1.05)+","+(80)+")");
+
+}; 
+									</script>
+								</div>
+					</div><!--end of card-->
+				</div>
+
+			<div class="col-md-4" >
+			
+				<div  class="card" >
+					<div class="card-header">
+						<h4>State Map</h4>
+					</div>
+					<div class="card-body" >
+												</div>
+						<div class="row col-md-12" id="state-info">
+							<select id="stateview">
+								<option value="01">Alabama</option>
+								<option value="02">Alaska</option>
+								<option value="04">Arizona</option>
+								<option value="05">Arkansas</option>
+								<option value="06">California</option>
+								<option value="08">Colorado</option>
+								<option value="09">Connecticut</option>
+								<option value="10">Delaware</option>
+								<option value="11">District Of Columbia</option>
+								<option value="12">Florida</option>
+								<option value="13">Georgia</option>
+								<option value="15">Hawaii</option>
+								<option value="16">Idaho</option>
+								<option value="17">Illinois</option>
+								<option value="18">Indiana</option>
+								<option value="19">Iowa</option>
+								<option value="20">Kansas</option>
+								<option value="21">Kentucky</option>
+								<option value="22">Louisiana</option>
+								<option value="23">Maine</option>
+								<option value="24">Maryland</option>
+								<option value="25">Massachusetts</option>
+								<option value="26">Michigan</option>
+								<option value="27">Minnesota</option>
+								<option value="28">Mississippi</option>
+								<option value="29">Missouri</option>
+								<option value="30">Montana</option>
+								<option value="31">Nebraska</option>
+								<option value="32">Nevada</option>
+								<option value="33">New Hampshire</option>
+								<option value="34">New Jersey</option>
+								<option value="35">New Mexico</option>
+								<option value="36">New York</option>
+								<option value="37">North Carolina</option>
+								<option value="38">North Dakota</option>
+								<option value="39">Ohio</option>
+								<option value="40">Oklahoma</option>
+								<option value="41">Oregon</option>
+								<option value="42">Pennsylvania</option>
+								<option value="44">Rhode Island</option>
+								<option value="45">South Carolina</option>
+								<option value="46">South Dakota</option>
+								<option value="47">Tennessee</option>
+								<option value="48">Texas</option>
+								<option value="49">Utah</option>
+								<option value="50">Vermont</option>
+								<option value="51">Virginia</option>
+								<option value="53">Washington</option>
+								<option value="54">West Virginia</option>
+								<option value="55">Wisconsin</option>
+								<option value="56">Wyoming</option>
+							</select>
+							</br>
+							</br>
+							<!-- <div class="btn-group" data-toggle="buttons-radio" > -->
+								<!-- <div class="buttons"> -->
+									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="RIGO">RIGO</button>  -->
+									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="MSA">MSA</button> -->
+									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="Both">Both</button>  -->
+								<!-- </div> -->
+							<!-- </div> -->
+							
+							<h6>County Information</h6>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item">County Name:<br> <span id="CountyName" style="color:#ED9A2A">Select County</span></li>
+							<li class="list-group-item">MSA Name: <br> <span id="MSAName" style="color:#ED9A2A">Select County</span></li>
+							</ul>	
+						</div>
+						<div class="row" >
+						<div class="col-md-12" id="us_state_div" >
+						<script>
+var margin = {top: 10, right: 10, bottom: 10, left: 10};
+								var width = $("#us_state_div").width();
+								var mapRatio = .5;
+								var height = width*mapRatio;
+								var w = 100;
+								var h = 10;
+
+								var svg2 = d3.select("#us_state_div").append("svg")
+									.attr("width", width + margin.left + margin.right)
+									.attr("height", height + margin.top + margin.bottom)
+									.append("g")
+									.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+    var color = d3.scaleThreshold()
+                    .domain([55273,100000, 500000, 1000000,5000000,15000000])
+                      .range(["#FFF9CF","#FFF685", "#FFFD38", "#FED631", "#FDB92C","#ED9A2A"]);
+
+                          MsaName =d3.map();
+                          msaDic = {};
+                          population =d3.map();
+                          countyandMSAname = {};
+
+
+            var g = svg2.append('g');
+
+
+            d3.csv("County and Muni MSA.csv", function(csv) {
+              
+              csv.forEach(function(row) {
+
+                population.set(row.Code, row.MSAPOP);
+
+                   if(countyandMSAname[row.Code]==null)
+                              {
+                                countyandMSAname[row.Code]=new Array();
+                                countyandMSAname[row.Code].push((row.MSA));
+                                countyandMSAname[row.Code].push((row.Place));
+                                countyandMSAname[row.Code].push(parseInt(row.MSAPOP));
+
+                                
+                              }
+                              
+                  
+                });
+              csv.forEach(function(row)
+               {
+                if(row.MSA != "Not Applicable")
+                {
+                  if(msaDic[row.MSA]==null)
+                  {
+                    msaDic[row.MSA]=new Array();
+                    msaDic[row.MSA].push(parseInt(row.Code));
+                  }
+                  else
+                  {
+                    msaDic[row.MSA].push(parseInt(row.Code));
+                  }
+
+                  if(MsaName.get(row.MSA)==undefined)
+                  {
+
+                    MsaName.set(row.MSA,row.MSA);
+                  }
+                }
+              });
+});
+
+            var selected = localStorage.getItem('selected');
+            if (selected) {
+              $("#stateview").val(selected);
+            }
+
+            $("#stateview").change(function() {
+              localStorage.setItem('selected', $(this).val());
+              location.reload();
+            });
+
+          var vt1=50,ma1=25,nh1=33,ri1=44,ct1=09;              
+           queue()
+                  .defer(d3.json, 'us.topo.json')
+                  .defer(d3.json, 'vt.topo.json')
+                  .defer(d3.json, 'ma.topo.json')
+                  .defer(d3.json, 'nh.topo.json')
+                  .defer(d3.json, 'ri.topo.json')
+                  .defer(d3.json, 'ct.topo.json')
+                  .await(USAMSA);  
+
+              
+
+              function USAMSA(error, json, vt, ma, nh, ri, ct){
+               
+
+                  
+/* =============================================== Start Texture and Projection Section ===========================================================*/
+
+
+                      var myData = topojson.feature(json, {
+                        type: "GeometryCollection",
+                        geometries: json.objects.collection.geometries.filter(function(d) { return parseInt(d.properties.state_fips) == selected;
+                        })});
+
+                      var projection = d3.geoAlbersUsa()
+                        .fitExtent([[20, 20], [width, height]], myData);
+
+                      var path = d3.geoPath()
+                        .projection(projection);
+/* =============================================== End Texture and Projection Section ============================================================= */
+
+
+/* ======================================================== Start New England Section ==============================================================*/
+
+// Vermont State
+ // Vermont State
+      if(selected == vt1){
+
+                for(keys in msaDic){
+                   g.append("path")
+                      .datum(topojson.merge(vt, vt.objects.vt.geometries.filter(function(d) {
+                    if(vt1 == selected)
+                    {
+                    return msaDic[keys].includes(parseInt(d.id));
+                  }
+                  })))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            }); 
+                }
+                 g.append("g")
+                   .attr("id", "state")
+                   .selectAll("path")
+                   .data(topojson.feature(vt, vt.objects.vt).features)
+                   .enter().append("path")
+                   .attr("d", path)
+                   .attr("id",function(d) { return d.id; })
+                   .attr("stroke","black")
+                   .attr("stroke-width", "0.5")
+                   .attr("fill-opacity", 0.000009)
+                   .attr("fill", "white")
+                   .style("cursor", "pointer")    
+                  .on('click',clicked) 
+                  .on('mouseover', hover)
+                  .on('mouseout', nohover);
+                }
+                                // Massachusetts State
+     else if(selected == ma1){     
+     
+
+                for(keys in msaDic){
+                   g.append("path")
+                      .datum(topojson.merge(ma, ma.objects.ma.geometries.filter(function(d) {
+                    if(ma1 == selected)
+                    {
+                    return msaDic[keys].includes(parseInt(d.id));
+                  }
+                  })))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            });
+                }
+                 g.append("g")
+                   .attr("id", "state")
+                   .selectAll("path")
+                   .data(topojson.feature(ma, ma.objects.ma).features)
+                   .enter().append("path")
+                   .attr("d", path)
+                   .attr("id",function(d) { return d.id; })
+                   .attr("stroke","black")
+                   .attr("stroke-width", "0.5")
+                   .attr("fill-opacity", 0.000009)
+                   .attr("fill", "white")   
+                   .style("cursor", "pointer")
+                  .on('click',clicked) 
+                  .on('mouseover', hover)
+                  .on('mouseout', nohover);
+
+
+              }
+                        // New Hampshire State
+      else if(selected == nh1){
+                for(keys in msaDic){
+                   g.append("path")
+                      .datum(topojson.merge(nh, nh.objects.nh.geometries.filter(function(d) {
+                    if(nh1 == selected)
+                    {
+                    return msaDic[keys].includes(parseInt(d.id));
+                  }
+                  })))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            });
+                }
+                  g.append("g")
+                   .attr("id", "state")
+                   .selectAll("path")
+                   .data(topojson.feature(nh, nh.objects.nh).features)
+                   .enter().append("path")
+                   .attr("d", path)
+                   .attr("id",function(d) { return d.id; })
+                   .attr("stroke","black")
+                   .attr("stroke-width", "0.5")
+                   .attr("fill-opacity", 0.000009)
+                   .attr("fill", "white")   
+                   .style("cursor", "pointer")
+                  .on('click',clicked) 
+                  .on('mouseover', hover)
+                  .on('mouseout', nohover);
+                            
+              }
+                                        // Rhode Island State
+      else if(selected == ri1){
+                for(keys in msaDic){
+                   g.append("path")
+                      .datum(topojson.merge(ri, ri.objects.ri.geometries.filter(function(d) {
+                    if(ri1 == selected)
+                    {
+                    return msaDic[keys].includes(parseInt(d.id));
+                  }
+                  })))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            });
+                }
+                  g.append("g")
+                   .attr("id", "state")
+                   .selectAll("path")
+                   .data(topojson.feature(ri, ri.objects.ri).features)
+                   .enter().append("path")
+                   .attr("d", path)
+                   .attr("id",function(d) { return d.id; })
+                   .attr("stroke","black")
+                   .attr("stroke-width", "0.5")
+                   .attr("fill-opacity", 0.000009)
+                   .attr("fill", "white")   
+                   .style("cursor", "pointer")
+                  .on('click',clicked) 
+                  .on('mouseover', hover)
+                  .on('mouseout', nohover);  
+      }
+                                        // Connecticut State
+    else if(selected == ct1){
+                for(keys in msaDic){
+                   g.append("path")
+                      .datum(topojson.merge(ct, ct.objects.ct.geometries.filter(function(d) {
+                    if(ct1 == selected)
+                    {
+                    return msaDic[keys].includes(parseInt(d.id));
+                  }
+                  })))
+                      .attr("d", path)
+                      .attr("stroke","black")
+                      .style("fill", function(d){return color(population.get(keys))})
+                      .attr("fill-opacity", 0.7)
+                      .attr("stroke-width", "1.5")
+                      .attr("stroke-linejoin","round")
+                      .attr("stroke-linecap","round")
+                      .attr("id", function(d){   
+                                return keys;
+                            });
+                }
+                  g.append("g")
+                   .attr("id", "state")
+                   .selectAll("path")
+                   .data(topojson.feature(ct, ct.objects.ct).features)
+                   .enter().append("path")
+                   .attr("d", path)
+                   .attr("id",function(d) { console.log(d.id); return d.id; })
+                   .attr("stroke","black")
+                   .attr("stroke-width", "0.5")
+                   .attr("fill-opacity", 0.000009)
+                   .attr("fill", "white")   
+                   .style("cursor", "pointer")
+                  .on('click',clicked) 
+                  .on('mouseover', hover)
+                  .on('mouseout', nohover);
+                  
+            }
+/* ======================================================== End New England Section ======================================================== */
+/* ======================================================  Final Layer =====================================================================*/
+          else
+          {
+            
+
+
+
+
+          for(keys in msaDic){
+               g.append("path")
+                  .datum(topojson.merge(json, json.objects.collection.geometries.filter(function(d) {
+                    if(d.properties.state_fips == selected)
+                    {
+                    return msaDic[keys].includes(parseInt(d.properties.fips));
+                  }
+                  })))
+                  .attr("d", path)
+                  .attr("stroke","black")
+                  .style("fill", function(d){return color(population.get(keys))})
+                  .attr("fill-opacity", 0.7)
+                  .attr("stroke-width", "2");
+            }
+
+              g.append("g")
+                   .attr("id", "state")
+                   .selectAll("path")
+                   .data(topojson.feature(json, json.objects.collection).features.filter(function(d) { return d.properties.state_fips == selected; }))
+                   .enter().append("path")
+                   .attr("d", path)
+                   .attr("id",function(d) { 
+                    return d.properties.fips; })
+                   .attr("stroke","black")
+                   .attr("fill-opacity", 0.000009)
+                   .attr("stroke-width", "0.5")
+                   .attr("fill", "white")
+                  .on('click',clicked) 
+                  .on('mouseover', hover)
+                  .style("cursor", "pointer")
+                  .on('mouseout', nohover);
+
+
+                   
+}
+/* ====================================================== Hover Section ====================================================== */
+                    function clicked() {
+                      
+                          d3.select("#MSAName").html(countyandMSAname[d3.select(this).attr('id')][0]);
+                          d3.select("#CountyName").html(countyandMSAname[d3.select(this).attr('id')][1]);
+                         
+                          }
+                   }
+
+                   function hover()
+                            {
+                            d3.select(this).attr("stroke","red");
+
+                            } 
+
+                   function nohover()
+                            {
+                            d3.select(this).attr("stroke","black");
+
+                            }
+
+
+
+</script> 
+						
+						</div>
+					</div>
+				</div>          
+			</div>
+		</div>
+	</body>
+</html>

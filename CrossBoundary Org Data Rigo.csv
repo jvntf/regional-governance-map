@@ -1,0 +1,554 @@
+State,Code,RIGO.Number,RIGOName,Co.MPO.Name,POPULATION,EDD,MS,1Ct,Yr,Region.Type, St ,Ai, Ex , Dv , Pl , Po , In , Ag , Ts , Ss , Ot , Mission.Vision  
+Alaska,AK01,1,Southwest Alaska Municipal Conference,,29769,1,0,0,88,9,5,5,2,1,0,2,0,0,0,0,0,
+Alaska,AK02,2,Kenai Peninsula Economic Development District,,55400,1,0,1,,9,,3,,,,,,,,,,
+Alaska,AK03,3,Southeast Conference,,60785,1,0,0,58,9,4,5,1,2,0,0,0,1,0,0,0,
+Alaska,AK04,4,Prince William Sound Economic Development District,,9636,1,0,1,91,9,,3,,,,,,,,,,a forum for the discussion of regional economic issues and to foster economic growth and responsible development
+Alaska,AK50,50,Anchorage Metropolitan Area Transportation Solutions,,380821,0,0,0,,7,,,,,,,,,,,,
+Alaska,AK51,51,Fairbanks Metropolitan Area Transportation System,,97581,0,0,1,,7,,,,,,,,,,,,
+Alaska,AK99,99,Unattached,,76239,0,0,0,,0,,,,,,,,,,,,
+Alabama,AL01,1,Northwest Alabama Regional Council of Governments,,234101,1,0,0,,1,41,7,5,3,3,1,1,13,0,15,0,officials get together to decide issues of region-wide importance and work together to solve problems that stretch beyond local government boundaries
+Alabama,AL02,2,West Alabama Regional Commission,,293927,1,0,0,63,1,46,7,5,2,4,0,1,34,0,0,0,promoting cooperation among the local governments
+Alabama,AL03,3,Regional Planning Commission of Greater Birmingham,,1105132,1,0,0,63,1,43,7,8,2,8,1,3,0,1,20,0,identify opportunities and cost effective solutions to assure physical and economic growth for everyone.
+Alabama,AL04,4,East Alabama Regional Plan and Development Commission,,470469,0,0,0,71,1,62,7,10,2,4,0,3,41,1,1,0,"providing a regional forum, building regional partnerships, promoting regional solutions, serving as a catalyst for regional progress, and responding to regional and local needs and issues"
+Alabama,AL05,5,South Central Alabama Development Commission,,111417,1,0,0,,9,26,7,2, -   ,4,0,0,20,0,0,0,
+Alabama,AL06,6,Alabama-Tombigbee Regional Commission,,194440,1,0,0,69,9,45,5,6,3,1,1,1,30,3,0,0,"promotes area-wide progress through regional planning and development concepts in such areas as local planning, economic and community development and human resources coordination."
+Alabama,AL07,7,SE Alabama Regional Planning and Dev Commission,,311060,1,0,0,69,2,16,5,6,4,0,0,0,0,1,5,0, assist communities with a number of services
+Alabama,AL08,8,South Alabama Regional Planning Commission,,633576,1,0,0,64,1,65,7,,,,,,,,,,"facilitate the deliberation and resolution of common problems and issues of member government representatives, elected and non-profit officials and private-sector leaders"
+Alabama,AL09,9,Central Alabama Regional Plan and Dev Commission,Montgomery Metropolitan Planning Organization,363237,1,0,0,,2,9,5,2,4,0,0,2,0,0,1,0,"benchmark organization for advancing regionalism and creating opportunities of mutual interest to the central Alabama region’s cities and counties, and their citizens"
+Alabama,AL10,10,Lee-Russell Council of Governments,,193194,1,0,0,67,1,33,7,4,1,5,0,0,18,5,0,0,"serves member governments by managing programs, promoting collaborative efforts, and serving as a clearinghouse"
+Alabama,AL11,11,North-Central Alabama Regional Council of Governments,,234235,1,0,0,69,2,29,5,5, -   ,5,0,0,19,0,0,0,"formulating goals, objectives, policies, and standards to guide physical, economic, and human resource development"
+Alabama,AL12,12,Top of Alabama Council of Governments,Huntsville Area MPO,634948,1,0,0,68,2,65,5,8,5,0,1,0,16,0,35,0,coordinating local governments’ responses to regional issues
+Arkansas,AR01,1,Central Arkansas Planning and Development District,Metroplan,688323,1,0,0,68,2,32,3,7, -   ,0,0,0,0,0,25,0,"provides citizens and local units of government with programs that are designed to generate community and economic development and growth, alleviate unemployment, and increase the overall quality of life"
+Arkansas,AR02,2,Northwest Arkansas Economic Development District,Northwest Arkansas Regional Planning Commission,579161,1,0,0,67,2,11,4,5,3,1,0,0,0,0,2,0, a regional forum to identify issues and opportunities
+Arkansas,AR03,3,Western Arkansas Planning and Development District,,260065,1,0,0,66,1,12,6,3,3,2,0,1,0,0,2,1,"the central catalyst for community-centered economic development that links our counties, cities and businesses"
+Arkansas,AR04,4,West Central Arkansas Planning and Development District,,313917,1,0,0,67,1,,8,,,,,,,,,,"provides its member cities and counties with technical assistance to obtain funding for public improvement projects, including infrastructure such as water, wastewater and industrial park improvements"
+Arkansas,AR05,5,Southwest Arkansas Planning and Development District,,232526,1,0,0,,9,,3,,,,,,,,,,"assist communities with planning, funding, and implementing a wide range of projects"
+Arkansas,AR06,6,Southeast Arkansas Econonic Development District,,213808,1,0,0,67,2,11,5,,,,,,,,,,
+Arkansas,AR07,7,East Arkansas Planning and Development District,,390274,1,0,0,,2,8,5,3,4,0,1,0,0,0,0,0,"prepare and develop a district over-all economic development program for long-range economic growth which includes adequate land use and transportation planning and contains a specific program for District cooperation, self-help, and public investment"
+Arkansas,AR08,8,White River Planning and Development District,,237844,1,0,0,67,9,,3,,,,,,,,,,assist local government through strategic planning for sustainable economic and community development
+Arizona,AZ01,1,Central Arizona Governments,,53597,1,0,0,75,2,16,5,5,8,2,0,1,0,0,0,0,to promote a “community of interest” and to preserve the boundaries of the region.
+Arizona,AZ02,2,Maricopa Association of Governments,,4192887,0,0,0,67,1,20,6,6,5,5,0,4,0,0,0,0,"founded in the spirit of cooperation. MAG members believe that by uniting, they can solve common problems, take an active role in long-range regional issues and address concerns that affect all of the communities."
+Arizona,AZ03,3,Northern Arizona Council of Governments,,524421,1,0,0,,2,10,6,3,2,0,0,0,1,1,2,1,"works together to address similar issues faced by the cities, towns and counties in the NACOG region"
+Arizona,AZ04,4,Pima Association of Governments,,980263,0,0,1,70,1,,6,,,,,,,,,,"takes action on policies, plans or reports that pertain to cross-jurisdictional issues on transportation, air quality, water quality, land use or human services."
+Arizona,AZ05,5,Southeastern Arizona Governments Organization,,224423,1,0,0,72,2,12,3,2,2,0,0,0,4,0,0,4,assist local governments in seeking cooperative solutions to area wide problems; to provide a forum for regional policy development
+Arizona,AZ06,6,Western Arizona Council of Governments,,416426,0,0,0,71,2,,4,,,,,,,,,,"serving its local jurisdictions, income challenged households, and vulnerable populations "
+California,CA01,1,Association of Bay Area Governments,Metropolitan Transportation Commission,7150739,0,0,0,61,2,66,5,24, -   ,26,13,3,0,0,0,0,strengthen cooperation and collaboration among local governments to provide innovative and cost effective solutions to common problems
+California,CA02,2,Association of Monterey Bay Area Governments,,732708,0,0,0,68,1,16,6,5,1,8,0,2,0,0,0,0,"provides strategic leadership and services to analyze, plan and implement regional policies for the benefit of the Counties and Cities of Monterey, San Benito and Santa Cruz, balancing local control with regional collaboration."
+California,CA03,3,Butte County Association of Governments,,220000,0,0,1,,1,12,6,5, -   ,5,1,0,0,1,0,0,a forum for the study/resolution of regional transportation issues
+California,CA04,4,Fresno Council of Governments,,930450,0,0,1,67,1,22,7,7, -   ,10,0,1,0,4,0,0,"a consensus builder, developing acceptable programs and solutions to issues that do not respect political boundaries"
+California,CA05,5,Merced County Association of Governments,,255793,0,0,1,67,1,37,5,7, -   ,5,0,1,0,11,0,13,where the cities and the county come together as equal partners to solve problems that can only be accomplished by working together
+California,CA06,6,Kern Council of Governments,,839631,0,0,1,,1,20,5,7, -   ,13,0,0,0,0,0,0,primarily created to address regional transportation issues
+California,CA07,7,Kings County Association of Governments,,152982,0,0,1,,1,6,5,3, -   ,3,0,0,0,0,0,0,
+California,CA08,8,San Joaquin Council of Governments,,685306,0,0,1,,1,19,6,2, -   ,11,0,1,0,0,0,5,"foster intergovernmental coordination, both within San Joaquin County, as well as with neighboring jurisdictions, the other regional agencies for the San Joaquin Valley, the State of California and various Federal agencies"
+California,CA09,9,Stanislaus Council of Governments,,514453,0,0,1,71,1,10,5,4, -   ,6,0,0,0,0,0,0,a public organization that works with local governments and citizens in its region by dealing with issues and needs that cross city and county boundaries.
+California,CA10,10,Tulare Association of Governments,,442179,0,0,1,71,1,12,4,8, -   ,3,0,1,0,0,0,0,"addressing congestion, coordinate regional transit,  improved air quality; responsibly use hard earned tax dollars from the passage of Measure R under the supervision of the board and citizen’s review committee; address current and future rail needs; manage the abandoned vehicle program and do a whole lot more. "
+California,CA11,11,Mendocino Council of Governments,,87841,0,0,1,72,9,9,3,5, -   ,4,0,0,0,0,0,0,
+California,CA12,12,Humboldt County Association of Governments,,134623,0,0,1,,9,5,3,3, -   ,2,0,0,0,0,0,0,
+California,CA13,13,Sacramento Area Council of Governments,,2316019,0,0,0,,1,52,5,18, -   ,5,22,5,0,2,0,0,a forum for the study and resolution of regional issues.
+California,CA14,14,San Diego Association of Governments,,3095313,0,0,1,,1,50,6,18, -   ,7,14,0,0,11,0,0,the forum for regional decision-making.
+California,CA15,15,Southern California Association of Governments,,18051534,0,0,0,65,1,137,6,35, -   ,69,20,13,0,0,0,0, facilitate a forum to develop and foster the realization of regional plans that improve the quality of life for Southern Californians
+California,CA16,16,Santa Barbara County Association of Governments,,423895,0,0,1,66,1,19,4,7, -   ,7,1,0,0,4,0,0,a forum for addressing regional and multi-jurisdictional issues. 
+California,CA17,17,San Luis Obsipo Council of Governments,,269637,0,0,0,68,1,19,5,11, -   ,6,0,0,0,0,2,0,a forum for the study and resolution of regional issues
+California,CA18,18,Superior California Economic Development,Shasta Regional Transportation Agency,245595,1,0,0,,2,2,3,2, -   ,0,0,0,0,0,0,0,"assistance in economic development planning, coordination and implementation"
+California,CA50,50,Madera County Transportation Commission,,150865,0,0,1,,7,,,,,,,,,,,,
+California,CA99,99,Unattached,,554393,0,0,0,,0,,,,,,,,,,,,
+Colorado,CO01,1,Denver Regional Council of Government,,2798757,0,0,0,55,1,,7,,,,,,,,,," where local governments collaborate to establish guidelines, set policy and allocate funding in the areas of: Transportation and Personal Mobility,Growth and Development, and Aging and Disability Resources"
+Colorado,CO02,2,Pikes Peak Area Council of Governments,,661819,0,0,0,,1,37,5,8, -   ,0,3,0,13,8,5,0," a forum for local governments to discuss issues that cross their political boundaries, identify shared opportunities and challenges, and develop collaborative strategies for action"
+Colorado,CO03,3,Northeast Colorado Association of Local Governments,,72546,0,0,0,,9,,5,,,,,,,,,,
+Colorado,CO04,4,East Central Council of Governments,,38659,1,0,0,70,9,7,5,3,1,0,0,1,1,1,0,0,
+Colorado,CO05,5,San Luis Valley Development Resources Group,,46027,1,0,0,,9,4,4,3,1,0,0,0,0,0,0,0,
+Colorado,CO06,6,Southwest Colorado Council of Governments,,91716,1,0,0,9,9,3,7,2, -   ,0,1,0,0,0,0,0,"regional leadership on behalf of governments throughout Southwest Colorado by defining regional issues, advocating for mutual goals, and administering regional programs"
+Colorado,CO07,7,Region 10 League for Economic Assistance,,100190,1,0,0,72,9,7,5,2,1,0,0,0,4,0,0,0,
+Colorado,CO08,8,Associated Governments of Northwest Colorado,Grand Junction/Mesa County MPO,247082,0,0,0,,2,,3,,,,,,,,,,"forums for education, discussion and collaborative decision making for its members on regional and national issues"
+Colorado,CO09,9,NW Colorado Council of Governments,,113576,1,0,0,78,9,33,7,7,2,0,0,1,4,3,0,16,
+Colorado,CO10,10,Southern Colorado Economic Development District,Pueblo County Council of Governments,159063,,0,1,,1,,,,,,,,,,,,
+Colorado,CO11,,,,22218,,0,0,,9,,,,,,,,,,,,
+Colorado,CO12,,,,48890,,0,0,,9,,,,,,,,,,,,
+Colorado,CO13,,,,76198,,0,0,,9,,,,,,,,,,,,
+Colorado,CO50,50,North Front Range Metropolitan Planning Organization,,552455,0,0,0,,7,,,,,,,,,,,,
+Connecticut,CT01,1,Capitol Region Council of Governments,,973959,0,0,0,85,1,26,7,5, -   ,11,4,2,0,2,0,2,"Assisting local governments and citizens in articulating, advocating and implementing the vision, needs and values of their regional community"
+Connecticut,CT02,2,Connecticut Metropolitan Council of Governments,,318004,0,0,0,,1,7,7,2, -   ,3,0,2,0,0,0,0,"work with our municipal partners to identify a range of projects, funding opportunities and best practices that are strategic to achieving our shared vision for the Region"
+Connecticut,CT03,3,Lower CT River Valley Council of Governments,,175685,0,0,0,,1,10,6,4, -   ,6,0,0,0,0,0,0,brings together local governments to coordinate land use and transportation planning on a regional basis. RiverCOG provides a forum to foster communication and collaboration among its member municipalities in identifying and addressing these and other regional issues
+Connecticut,CT04,4,Naugatuck Valley Council of Governments,,448738,0,0,0,,1,14,6,5, -   ,7,0,1,0,1,0,0,a forum for the chief elected officials of the nineteen municipalities
+Connecticut,CT05,5,Northeastern Connecticut Council of Governments,,96617,0,0,0,87,9,10,6,4, -   ,2,1,0,0,0,0,3,
+Connecticut,CT06,6,Northwest Hills Council of Governments,,115247,0,0,0,14,9,4,6,2,1,1,0,0,0,0,0,0,
+Connecticut,CT07,7,South Central Regional Council of Governments,,570001,0,0,0,85,1,6,6,2, -   ,4,0,0,0,0,0,0,dedicated to regional cooperation enabling cities and towns to work together to accomplish projects they cannot do as efficiently or cost effectively by themselves; creating a sense of pride in the region
+Connecticut,CT08,8,Southeastern Connecticut Council of Government,,286711,0,0,0,92,1,9,7,4, -   ,4,0,1,0,0,0,0,provide a basis for intergovernmental cooperation in dealing with a wide range of issues facing Southeastern Connecticut
+Connecticut,CT09,9,Western Connecticut Council of Governments,,589135,0,0,0,,1,13,7,4, -   ,6,0,3,0,0,0,0,a forum for municipalities to communicate and collaborate in addressing inter-municipal issues and needs
+DC MY VA,DC01,1,Metropolitan Washington Council of Governments,,5033206,0,1,0,57,1,130,7,27,6,58,27,7,0,0,5,0,"managing growth—and ensuring a well-maintained transportation system, clean air, water, and land, safe and healthy communities, and a vibrant economy—requires regional partnership. The Metropolitan Washington Council of Governments (COG) is the hub for this partnership. "
+Delaware,DE50,50,Wilmington Area Planning Council  DE01 MD02,,538479,0,0,1,,7,,,,,,,,,,,,
+Delaware,DE51,51,Dover / Kent County MPO,,162310,0,0,1,,7,,,,,,,,,,,,
+Delaware,DE99,99,Unattached,,197145,0,0,1,,0,,,,,,,,,,,,
+Florida,FL01,1,East Central Florida Regional Planning Council,METROPLAN Orlando,3265800,1,0,0,62,2,10,7,3,2,1,1,1,0,0,0,2,"a forum where leaders can discuss complex regional issues, develop strategic regional responses for resolving them, and build consensus for setting and accomplishing regional goals."
+Florida,FL02,2,Northeast Florida Regional Council,North Florida Transportation Planning Organization,1515656,0,0,0,77,2,9,6,5, -   ,1,1,0,0,0,0,2,"providing visionary leadership, advocacy, and coordination between counties and local, state and federal governmental agencies"
+Florida,FL03,3,South Florida Regional Council,Miami-Dade MPO,4317591,1,0,0,69,2,13,6,9, -   ,3,1,0,0,0,0,0,plan for and coordinate intergovernmental solutions to growth-related problems on greater-than-local issues
+Florida,FL04,4,South West Florida Regional Plannning Commission,,1531724,1,0,0,73,2,7,6,3, -   ,3,0,1,0,0,0,0,"acts as a regional information clearinghouse, conducts research to develop and maintain area wide goals, objectives, and policies, and assists in implementing a number of local, state, and federal programs."
+Florida,FL05,5,Tampa Bay Regional Planning Council,,3247312,1,0,0,62,2,10,5,4,2,3,0,1,0,0,0,0,"a forum to foster communication, coordination, and collaboration in identifying and addressing issues and needs regionally."
+Florida,FL06,6,Treasure Coast Regional Planning Council (Palm Beach),,1882269,1,0,0,,2,10,6,5,3,1,0,0,0,0,0,1,regional forum where elected and appointed leaders regularly come together to discuss complex regional issues; develop strategic regional responses for resolving them; and build consensus for setting and accomplishing regional goals.
+Florida,FL07,7,West Florida Regional Planning Council,,898531,1,0,0,64,2,29,7,12,7,8,0,2,0,0,0,0,planning for and coordinating intergovernmental solutions to growth-related problems
+Florida,FL08,8,Apalachee Regional Planning Council,Capital Region Transportation Planning Agency,467561,1,0,0,77,2,7,6,2, -   ,5,0,0,0,0,0,0,a forum for communication and collaboration 
+Florida,FL09,9,North Central Florida Regional Planning Council,,871396,1,0,0,,2,12,5,5, -   ,4,0,1,0,1,0,1,coordinating growth management
+Florida,FL10,10,Central Florida Regional Planning Commission,Polk County Transportation Planning Organization,803470,1,0,0,74,2,18,6,3,5,6,0,2,0,2,0,0,provide support to the citizens and counties of our region and to seek ways to improve the quality of life of the citizens of the Heartland
+Georgia,GA01,1,Atlanta Regional Commission,,4107750,1,0,0,,1,,8,,,,,,,,,,"the Regional Leader in identifying Values, developing Policies and executing Plans that matter to residents and communities that ensure Competitive Advantage and that preserve long term Sustainability."
+Georgia,GA02,2,Northwest Georgia Regional Planning Commission,,863217,1,0,0,9,2,62,5,13,6,7,0,2,22,0,12,0,regional cooperation and planning
+Georgia,GA03,3,Georgia Mountains Regional Commission,,617646,1,0,0,62,2,35,6,8,4,3,0,2,0,2,16,0,works with <area local governments> to formulate goals and strategies for area growth and development
+Georgia,GA04,4,Southwest Georgia Regional Commission,,356433,1,0,0,,2,12,4,6, -   ,4,0,2,0,0,0,0,"helped to focus this fourteen county region's leadership, attention and resources on key issues of regional consequence"
+Georgia,GA05,5,Three Rivers Regional Commission,,489781,1,0,0,,9,58,7,8,22,5,2,0,21,0,0,0,"develops, promotes, and provides comprehensive planning and development services and technical assistance that seek to make the local communities in its region better places to live and work."
+Georgia,GA06,6,Northeast Georgia Regional Commission,,574047,1,0,0,63,2,38,6,5, -   ,9,0,1,15,0,8,0,a focal point for regional issues concerning local government and to be a resource for those governments in a variety of specialized area
+Georgia,GA07,7,Middle Georgia Planning Commission,,488399,1,0,0,65,2,50,6,9,8,0,9,5,17,2,0,0,"provide local governments, on both an individual and regional basis, with professional technical assistance to improve local government service programs"
+Georgia,GA08,8,Central Savannah River Area Regional Commission,,454901,1,0,0,61,2,,5,,,,,,,,,,the convener of the region by enabling local governments to overcome political boundaries
+Georgia,GA09,9,River Valley Regional Commission,Columbus-Phenix City MPO,370887,1,0,0,,2,35,7,8,4,6,0,1,13,1,2,0,"create, promote and foster the orderly growth and economic prosperity for our region"
+Georgia,GA10,10,Heart of Georgia Altamaha Regional Commission,,303199,1,0,0,9,9,30,8,7,6,2,1,2,11,1,0,0,"provides technical assistance services to the communities of Heart of Georgia in the areas of planning, economic development, public administration, information technology, and aging services"
+Georgia,GA11,11,Southern Georgia Regional Commission,,406583,1,0,0,,2,60,6,7,7,0,0,13,18,4,9,2,a regional planning and intergovernmental coordination agency
+Georgia,GA12,12,Coastal Regional Commission,,654810,1,0,0,,2,32,6,8,2,4,0,1,14,3,0,0,"provides local and regional comprehensive planning services as well as specialized planning services in transportation, water resources, and historic preservation"
+Hawaii,HI50,50,Oahu Metropolian Planning Organization ,,953207,0,0,1,,7,,,,,,,,,,,,
+Hawaii,HI51,51,Maui MPO,,154834,0,0,1,,7,,,,,,,,,,,,
+Hawaii,HI99,99,Unattached,,252260,0,0,0,,0,,,,,,,,,,,,
+Iowa,IA01,1,Area 15 Regional Planning Commission,,101683,1,0,0,74,9,5,5,2, -   ,2,0,0,0,1,0,0,
+IA IL,IA02,2,Bi-State Regional Commission,,422435,1,1,0,66,1,20,6,5,1,7,2,5,0,0,0,0,a forum for intergovernmental cooperation and delivery of regional programs 
+Iowa,IA03,3,Chariton Valley Planning & Development Council of Governments,,36158,0,0,0,7,9,2,5,2, -   ,0,0,0,0,0,0,0,
+Iowa,IA04,4,East Central Intergovernmental Association,,198880,1,0,0,74,1,8,6,4,2,0,0,0,0,2,0,0,We exist because of the need for local governments facing similar problems to cooperate in finding solutions
+Iowa,IA05,5,East Central Iowa Council of Governments,,444648,1,0,0,73,2,13,7,3,6,3,0,0,0,1,0,0,an ideal vehicle for addressing planning issues that require a regional perspective. 
+Iowa,IA06,6,Iowa Northland Regional Council of Governments,,216083,1,0,0,,1,13,7,3,1,5,0,1,0,2,1,0,Emphasis is placed on intergovernmental communication and cooperation
+Iowa,IA07,7,MIDAS Council of Governments,,93710,1,0,0,71,9,8,3,5, -   ,2,0,0,0,1,0,0,
+Iowa,IA08,8,North Iowa Area Council of Governments,,127258,1,0,0,,9,13,5,5,3,3,0,0,0,2,0,0,
+Iowa,IA09,9,Northwest Iowa Planning and Development Commission,,139462,1,0,0,,9,9,3,3, -   ,3,0,0,0,0,3,0,
+Iowa,IA10,10,Region 6 Planning Commission,,77096,1,0,0,74,9,7,4,4, -   ,1,0,0,0,1,1,0,"provide member communities with professional services in the areas of comprehensive planning, access to federal and state transportation funding, housing assistance, public transit services, and grant writing and administration"
+Iowa,IA11,11,Region XII Council of Governments,,140806,1,0,0,73,9,22,4,8,4,2,0,0,0,6,2,0,
+IA NE,IA12,12,Siouxland Interstate Metropolitan Planning Council,,176568,1,1,0,65,1,15,8,5,1,2,1,1,0,2,1,2," a catalyst for regional cooperation, uniting local governments of the Tri-State Siouxland Region into an effective Council of Governments"
+Iowa,IA13,13,Southeast Iowa Regional Planning Commission,,107719,1,0,0,73,9,17,4,5,3,5,0,0,0,4,0,0,
+Iowa,IA14,14,Southern Iowa Council of Governments,,69115,1,0,0,73,9,5,6,3, -   ,2,0,0,0,0,0,0,To provide a forum for common concerns and issues
+Iowa,IA15,15,Southwest Iowa Planning Council,,183381,1,0,0,75,9,18,4,4,7,6,0,0,0,0,1,0,promote regional cooperation as well as to serve the counties and cities within our region
+Iowa,IA16,16,Upper Explorerland Regional Planning Commission,,83961,1,0,0,72,9,22,6,5,16,1,0,0,0,0,0,0,recognized as an ideal vehicle for addressing issues that require a regional perspective
+Iowa,IA50,50,Des Moines Area Metropolitan Planning Organization,,476865,0,0,0,,7,,,,,,,,,,,,
+Iowa,IA51,51,Ames Area MPO,,89542,0,0,1,,7,,,,,,,,,,,,
+Iowa,IA99,99,Unattached,,96457,0,0,0,,0,,,,,,,,,,,,
+Idaho,ID01,1,Community Planning Association of Southwest Idaho,,581288,0,0,0,,1,16,8,6, -   ,7,2,1,0,0,0,0,a forum for regional collaboration
+Idaho,ID02,2,Southeast Idaho Council of Governments,,166284,1,0,0,,1,13,7,3,4,0,0,0,6,0,0,0,connect the communities of Southeast Idaho  useful resources
+Idaho,ID03,3,East Central Planning and Development Association,,207499,1,0,0,76,2,7,3, -   ,6,0,0,0,0,0,0,1, project financing and administration services for municipalities
+Idaho,ID04,4,Panhandle Area Council,Kootenai MPO,212393,1,0,0,72,2,7,5,2,4,0,0,0,0,0,0,1,promote and assist economic development
+Idaho,ID05,5,Clearwater Economic Development Association,,105358,1,0,0,,2,6,5,2,4,0,0,0,0,0,0,0,
+Idaho,ID06,6,Region IV Development Association,,185790,1,0,0,75,9,8,3,2,6,0,0,0,0,0,0,0,the Association assumes both a leadership role and a supportive role. Region IV Development is a tool to be utilized by our cities and counties in their efforts to improve their communities
+Idaho,ID99,99,Unattached,,108970,0,0,0,,0,,,,,,,,,,,,
+Illinois,IL01,1,Chicago Metropolitan Agency for Planning,,8431386,0,0,0,5,1,92,7,30, -   ,19,36,7,0,0,0,0,"developed and now guides implementation of the GO TO 2040 comprehensive regional plan.  GO TO establishes coordinated strategies that help the region's 284 communities address transportation, housing, economic development, open space, the environment, and other quality-of-life issues. 
+"
+Illinois,IL02,2,Western Illinois Regional Council,,166742,1,0,0,,9,,6,,,,,,,,,,provides technical assistance to local governments and elected officials
+Illinois,IL03,3,North Central Illinois Council of Governments,,223605,1,0,0,79,9,7,6,3,2,2,0,0,0,0,0,0,meet the needs of local officials by helping improve and strengthen their communities and the region
+Illinois,IL04,4,Blackhawk Hills Regional Council,,233802,1,0,0,,9,3,5,2, -   ,0,1,0,0,0,0,0,assist the people and local agencies of northwest Illinois in developing and implementing a regional outlook
+Illinois,IL05,5,Two Rivers Regional Council of Public Officials,,98014,1,0,0,74,9,,5,,,,,,,,,,"seek, through mutual agreement, solutions to mutual challenges for the benefit of all citizens, to provide and opportunity for all units of local governments in the region to cooperate in the solution of problems, and to develop policies and plans that are common and regional in nature"
+Illinois,IL06,6,Tri-County Regional Planning Commission,,360552,0,0,0,58,1,9,5,3, -   ,4,0,2,0,0,0,0,"promote intergovernmental cooperation, regional planning, and a vision for the future"
+Illinois,IL07,7,Southeastern Illinois Regional Planning and Development Commission,,47749,1,0,0,,9,6,3,4,1,0,0,0,0,1,0,0,
+Illinois,IL08,8,Greater Wabash Regional Planning Commission,,102976,1,0,0,,9,3,5,1,2,0,0,0,0,0,0,0,
+Illinois,IL09,9,South Central Illinois Regional Planning and Development Commission,,119332,1,0,0,,9,6,3,4, -   ,1,0,1,0,0,0,0,
+Illinois,IL10,10,Champaign County Regional Planning Commission,,363214,0,0,0,66,1,5,7,3,1,0,0,0,0,0,1,0,intergovernmental membership organization that provides and administers a variety of services 
+Illinois,IL11,11,Southern Five Regional Planning District and Development Commission,,60218,1,0,0,76,9,5,4,3,1,1,0,0,0,0,0,0,
+Illinois,IL12,12,Springfield-Sangamon Regional Planning Commission,,197465,0,0,1,,1,5,7,3, -   ,0,0,0,0,0,1,1,
+Illinois,IL13,13,Mclean County Regional Planning Commission,,169572,0,0,1,,1,5,6,5, -   ,0,0,0,0,0,0,0,regionalism is the cornerstone and our unique regional perspective provides us the vantage point to address issues that extend beyond traditional boundaries - catalyst for building consensus; forums that facilitate regional dialogue; our planning process promotes regional unity
+Illinois,IL14,14,Greater Egypt Regional Planning and Development Commission,,227313,1,0,0,61,1,7,5,3,2,1,0,0,0,1,0,0,providing technical assistance and comprehensive planning
+Illinois,IL15,15,Rockford Metropolitan Agency for Planning,,349431,0,0,0,6,1,8,4,2, -   ,0,0,0,0,6,0,0,
+Illinois,IL50,50,DeKalb Sycamore Area Transportation Study,,105160,0,0,1,,7,,,,,,,,,,,,
+Illinois,IL51,51,Kankakee County Regional Planning Commission,,113449,0,0,1,,7,,,,,,,,,,,,
+Illinois,IL52,52,Decatur Urbanized Area Transportation Study,,110768,0,0,1,,7,,,,,,,,,,,,
+Illinois,IL99,99,Unattached,,563123,0,0,0,,0,,,,,,,,,,,,
+Indiana,IN01,1,East Central Indiana Regional Planning Commission,,271213,0,0,0,9,2,2,3,1,1,0,0,0,0,0,0,0,help local governments advance economic growth and development in their communities
+Indiana,IN02,2,Indiana 15 Regional Planning Commission,,125577,0,0,0,73,9,7,3,5, -   ,0,0,2,0,0,0,0,
+Indiana,IN03,3,Kankakee-Iroquios Regional Planning Commission,,146647,1,0,0,73,9,39,7,3,3,0,0,0,0,0,33,0,
+Indiana,IN04,4,Madison County Council of Governments,,131636,1,0,1,69,1,14,6,2,1,7,1,3,0,0,0,0,
+Indiana,IN05,5,Michiana Area Council of Governments,,588899,0,0,0,,1,18,5,5, -   ,8,0,4,0,1,0,0,"a regional intergovernmental agency established to foster cooperative, coordinated and comprehensive planning activities"
+Indiana,IN06,6,Northeastern Indiana Regional Coordinating Council,,459575,1,0,0,,1,13,5,2,1,10,0,0,0,0,0,0,perform general purpose planning on a regional basis
+Indiana,IN07,7,Northwestern Indiana Regional Planning Commission,,771815,0,0,0,65,1,25,5,8,2,8,1,1,0,3,0,2,a forum that enables the citizens of Northwest Indiana to address regional issues 
+Indiana,IN08,8,Regiona III-A Economic Dev District and Regional Planning Commission,,222153,0,0,0,74,9,7,5,2,2,2,0,1,0,0,0,0,etain and strengthen local home rule while continuing our total resources for regional challenges beyond our individual capabilities
+Indiana,IN09,9,Southeastern Indiana Regional Planning Commission,,249822,1,0,0,,9,5,5,3,1,0,0,0,0,0,1,0,serves a range of communities and organizations
+Indiana,IN10,10,Southern Indiana Economic Development Commission,,159721,1,0,0,74,9,9,5,3,4,0,1,0,0,1,0,0,"a mutual forum to identify, discuss, study, and bring into focus challenges and opportunities facing the five county area"
+Indiana,IN11,11,West Central Indiana Economic Development District,,227727,1,0,0,65,1,37,7,3,2,0,0,0,4,6,22,0,help build strong communities
+Indiana,IN12,12,North Central Indiana Regional Planning Council,,195393,1,0,0,,2,,3,,,,,,,,,,provide impactful services and programs that support sustainable and competitive communities
+Indiana,IN13,13,Area Plan Commission of Tippecanoe County,,172780,0,0,1,,1,14,8,5, -   ,7,0,2,0,0,0,0,
+Indiana,IN14,14,River Hills Economic Development District and Regional Planning Commission,,276617,0,0,0,74,9,5,5,3,1,0,0,1,0,0,0,0,"provides guidance, information, advice, and coordination related to issues concerning local government"
+Indiana,IN15,15,,,144273,,0,0,,9,,,,,,,,,,,,
+Indiana,IN16,16,,,298805,,0,0,,2,,,,,,,,,,,,
+Indiana,IN50,50,Indianapolis Metropolitan Planning Organization,,1658600,0,0,0,,7,,,,,,,,,,,,
+Indiana,IN51,51,Columbus Area MPO,,76794,0,0,1,,7,,,,,,,,,,,,
+Indiana,IN52,52,Bloomington/Monroe County MPO,,137974,0,0,1,,7,,,,,,,,,,,,
+Indiana,IN99,99,Unattached,,167781,0,0,0,,0,,,,,,,,,,,,
+KN MO,KS01,1,Mid-America Regional Council,,1919089,1,1,0,,1,125,8,2,44,0,10,0,9,21,0,39,Identify regional challenges and act as a problem-solving forum. Promote consensus and commitment to regional solutions.
+Kansas,KS02,2,North Central Regional Planning Commission,,139603,1,0,0,,9,5,4,1, -   ,0,0,1,0,2,0,1,comprehensive planning and development service
+Kansas,KS03,3,South Central Kansas Economic Development District,Wichita Area MPO,802938,1,0,0,72,2,,4,,,,,,,,,, bring together communities and advocate economic growth
+Kansas,KS04,4,Southeast Kansas Regional Planning Commission,,201948,1,0,0,,9,4,3,2,1,1,0,0,0,0,0,0,"we offer professional development, planning and management services to local governments"
+Kansas,KS05,5,Great Plains Development Inc,,215895,1,0,0,,9,6,3,2,3,0,1,0,0,0,0,0,"programs that assist our cities and counties with community improvement, housing, and urgent need"
+Kansas,KS06,6,Northwest Kansan Planning and Development Commission,,96833,1,0,0,,9,,3,,,,,,,,,,
+Kansas,KS07,7,,,176537,1,0,0,,2,,,,,,,,,,,,
+Kansas,KS50,50,Lawrence-Douglas County Metropolitan Planning Office,,110826,0,0,1,,7,,,,,,,,,,,,
+Kansas,KS51,51,Metropolitan Topeka Planning Organization,,177934,0,0,1,,7,,,,,,,,,,,,
+Kansas,KS99,99,Unattached,,85053,0,0,0,,0,,,,,,,,,,,,
+KY IN,KY01,1,Kentuckiana Regional Development and Planning Commission,,959091,1,0,0,,1,92,8,12,3,15,1,9,28,1,23,0,"provides regional planning, review and technical services"
+Kentucky,KY02,2,Barren River Area Development District,,284195,1,0,0,68,2,45,6,8,8,5,1,0,23,0,0,0,convener for the region
+Kentucky,KY03,3,Big Sandy Area Development District,,114642,1,0,0,,9,38,6,5,6,2,3,2,19,0,0,1,
+Kentucky,KY04,4,Bluegrass Area Development District,,770404,1,0,0,72,2,114,8,16,20,16,0,0,43,0,19,0,"Enhance the economy of our communities through planning to maximize resources, projects to promote development, and programs to improve the quality of life for the citizens of the region."
+Kentucky,KY05,5,Buffalo Trace Area Development District,,56478,1,0,0,69,9,28,6,6,5,1,0,1,6,0,9,0,
+Kentucky,KY06,6,Cumberland Valley Area Development District,,236618,1,0,0,67,9,35,6,8,2,6,2,3,14,0,0,0,a forum for elected officials and citizens to reach a consensus 
+Kentucky,KY07,7,Fivco Area Development District,,137884,1,0,0,68,2,19,6,5,1,4,0,0,0,0,9,0,
+Kentucky,KY08,8,Gateway Area Development DIstrict,,81652,1,0,0,,9,21,7,4,1,0,4,1,11,0,0,0,
+Kentucky,KY09,9,Green River Area Development District,,213472,1,0,0,,1,69,7,12,13,5,0,2,37,0,0,0,a regional forum to identify issues and opportunities
+Kentucky,KY10,10,Kentucky River Area Development District,,114762,1,0,0,,9,30,6,8, -   ,0,6,1,15,0,0,0,
+Kentucky,KY11,11,Lake Cumberland Area Development District,,207256,1,0,0,,9,97,6,11,30,5,0,0,51,0,0,0,a regional forum to local governments and citizens in order to identify issues and opportunities and to then provide leadership in planning and implementing 
+Kentucky,KY12,12,Lincoln Trail Area Development District,,269117,1,0,0,68,1,38,7,8,9,3,1,2,15,0,0,0,"bring those local, civic and governmental leaders together to accomplish those objectives that could not be achieved by the governments acting separately"
+Kentucky,KY13,13,Pennyrile Area Development District,,219305,1,0,0,,9,42,5,6,21,2,0,3,10,0,0,0,"support regional strategies, solutions and partnerships that improve the overall quality of life"
+Kentucky,KY14,14,Purchase Area Development District,,196393,1,0,0,69,9,63,5,15,17,1,0,2,24,0,4,0,offers a diverse collection of services
+Kentucky,KY15,15,Northern Kentucky Area Development District,,109231,1,0,0,,9,4,4, -   ,3,0,0,0,1,0,0,0,
+Louisiana,LA01,1,Capital Region Planning Commission,,849652,1,0,0,,1,16,5,3,1,5,0,2,0,5,0,0,"Provide an effective means of coordination for resolving common problems resulting from shared air, water, transportation systems, drainage, communication systems, etc."
+Louisiana,LA02,2,New Orleans Regional Planning Commission,,1288861,0,0,0,,1,22,6,7,1,10,0,2,0,1,1,0,"a 31 member board of local elected officials and citizen members, appointed to represent you on regional issues. "
+Louisiana,LA03,3,South Central Planning and Development Commission,,308351,1,0,0,73,1,56,5,9,5,7,0,15,0,0,20,0,help member parishes and municipalities plan for the future
+Louisiana,LA04,4,Acadiana Planning Commission,,584118,0,0,0,,1,13,5,3, -   ,6,1,2,0,1,0,0,"plan the future of the Louisiana Parishes of Acadia, Evangeline, Iberia, Lafayette, St. Landry, St. Martin, and Vermilion"
+Louisiana,LA05,5,Imperial Calcasieu Regional Planning and Development District,,292619,1,0,0,,1,6,7,2,1,3,0,0,0,0,0,0,"coordination, objectivity, impartiality, and a comprehensive approach to a regional development - we are the only regional organization in Southwest Louisiana charged with these responsibilities"
+Louisiana,LA06,6,Kisatchie-Delta Regional Planning and Development District,,309761,1,0,0,67,2,4,3,2,1,0,0,1,0,0,0,0, the regional voice and convener
+Louisiana,LA07,7,Coordinating and Development District,Northwest Louisiana COG,590984,1,0,0,54,2,16,4,6,8,0,0,2,0,0,0,0,provide comprehensive development assistance to its membership and the private sector through a full range of services that help maintain public services and expand economic opportunities throughout the Region
+Louisiana,LA08,8,Northern Delta Regional Planning and Development District,,309026,1,0,0,69,1,59,8,4,4,2,0,0,40,4,5,0,a cost effective intergovernmental advantage to address common problems and issues
+Massachusetts,MA01,1,Cape Cod Commission,,215888,0,0,0,90,1,41,7,9,1,12,11,8,0,0,0,0,"manage growth on Cape Cod through planning, technical assistance to the towns, and regulation of large-scale and significant development proposals"
+Massachusetts,MA02,2,Berkshire Regional Planning Commission,,131219,0,0,0,66,1,19,7,5,1,10,0,1,0,1,1,0,
+Massachusetts,MA03,3,Franklin Regional Council of Governments,,71372,1,0,0,97,9,47,6,22, -   ,11,0,0,0,0,14,0,
+Massachusetts,MA04,4,Pioneer Valley Planning Commission,,621570,1,0,0,62,1,48,7,13,2,28,0,3,0,0,2,0,"support public and private efforts throughout the region to resolve issues, solve problems, meet needs, and exploit opportunities; advocate for the regional community as needs and circumstances dictate"
+Massachusetts,MA05,5,Central Massachesetts Regional Planning Commission,,556698,0,0,0,63,1,30,6,4,7,16,0,1,0,0,2,0,"collaborates with local, regional, state and federal officials, as well as with legislators, in order to bring a regional perspective and a coordinated approach to the planning and development that occurs in this region"
+Massachusetts,MA06,6,Northern Middlesex Regional Planning Commission,,286901,0,0,0,63,1,12,6,4, -   ,6,1,1,0,0,0,0,"support and enhance a wide range of planning objectives related to land use, environmental protection, energy, economic development, housing, public health, public safety, municipal service delivery and transportation"
+Massachusetts,MA07,7,Merrimack Valley Regional Planning Commission,,333748,1,0,0,59,1,15,7,3,2,5,2,3,0,0,0,0,"plan, develop and promote not only the sustainable development of the Valley through responsible and efficient use of regional resources, but also to rally and unify our communities to perpetuate the region’s vision"
+Massachusetts,MA08,8,Montachusetts Regional Planning Commission,,236475,1,0,0,,1,14,7,4,1,6,0,1,0,2,0,0, planning services to its municipal clients within the boundaries of the Massachusetts Regional Planning Law
+Massachusetts,MA09,9,Metropolitan Area Planning Council,Boston Region MPO,3161712,1,0,0,63,2,71,7,28,1,13,0,12,0,6,6,5,"promote smart growth and regional collaboration. Our regional plan, MetroFuture, guides our work as we engage the public in responsible stewardship of our region’s future."
+Massachusetts,MA10,10,Old Colony Planning Council,,288669,1,0,0,67,1,16,8,3,2,9,0,1,1,0,0,0,governmental mechanism available at the local level to effect municipal cooperation and coordination
+Massachusetts,MA11,11,Southeastern Regional Planning and Economic Development District,,616670,1,0,0,,1,26,7,5,2,15,0,2,0,0,1,1,"plan for our region by researching, providing technical assistance, preparing bylaws and ordinances, programming funds and preparing plans"
+Massachusetts,MA75,75,Martha's Vineyard Commission,,16535,0,0,0,74,9,10,6,3,2,4,0,1,0,0,0,0,"improve economic and social conditions through conservation, utilization, expansion and development of all accessible resources in the area"
+Massachusetts,MA99,99,Unattached,,10172,0,0,0,,0,,,,,,,,,,,,
+Maryland,MD01,1,Baltimore Metropolitan Council,,2710489,0,0,0,92,1,36,6,12, -   ,24,0,0,0,0,0,0,"identifies regional interests as well as collaborates on strategies, plans and programs relevant to the region."
+Maryland,MD02,2,Tri County Council for Western Maryland,,252614,1,0,0,71,2,5,3,4, -   ,1,0,0,0,0,0,0, a forum for local governments and citizens throughout Western Maryland to identify the issues and opportunities that are facing the region
+Maryland,MD03,3,Upper Shore Regional Council,Wilmington Area Planning Council  DE01 MD03,121305,0,0,0,1,2,,3,,,,,,,,,,a regional forum to identify issues and opportunities
+Maryland,MD04,4,Midshore Regional Council,,103466,1,0,0,1,9,,3,,,,,,,,,, initiates and coordinates plans and projects for the development of human and economic resources
+Maryland,MD05,5,Tri-County Council for the Lower Eastern Shore of Maryland,,176657,1,0,0,1,2,,4,,,,,,,,,,facilitate regional planning and development
+Maryland,MD99,99,Unattached,,193888,0,0,0,,0,,,,,,,,,,,,
+Maine,ME01,1,Greater Portland Council of Governments,,281674,1,0,1,69,1,18,7,7,1,7,3,0,0,0,0,0,Providing responsive service and leadership to our municipal members and community partners through regional cooperation and collaboration
+Maine,ME02,2,Kennebec Valley Council of Governments,,174379,1,0,0,67,9,8,6,2,1,3,2,0,0,0,0,0,"leader and catalyst for local and regional economic development and planning, supporting and expanding the capabilities of local government through regional collaboration and trust"
+Maine,ME03,3,Midcoast Council of Governments,,148272,,,,,,,,,,,,,,,,,
+Maine,ME04,4,Androscoggin Valley Council of Governments,,196303,1,0,0,,1,10,6,2,3,4,0,0,0,1,0,0,leader in the coordination and delivery of regional planning and municipal services
+Maine,ME06,6,Northern Maine Development Commission,,104726,1,0,0,,9,15,7,4,8,2,1,0,0,0,0,0,
+Maine,ME07,7,Southern Maine Planning and Development Commission,,197131,1,0,1,64,1,7,5,2,1,3,0,0,0,1,0,0," conducting economic development, environmental, land use and transportation planning "
+Maine,ME09,9,Eastern Maine Development Commission,,225876,1,0,0,,2,,6,,,,,,,,,,Leading Eastern Maine Communities to a Strong Economic Future
+Michigan,MI01,1,South East Michigan Council of Governments,,4704743,0,0,0,55,1,62,6,13, -   ,24,15,10,0,0,0,0,develop regional solutions that go beyond the boundaries of individual local governments
+Michigan,MI02,2,Region 2 Planning Commission,,306828,1,0,0,,1,5,6,2, -   ,3,0,0,0,0,0,0,discuss issues of regional interest
+Michigan,MI03,3,Southcentral Michigan Planning Council,,552193,0,0,0,,2,,5,,,,,,,,,,"a regional planning organization that aims to improve the economic, environmental, and fiscal health of member organizations through transportation, land use and environmental planning, economic development, and efficient local staffing"
+Michigan,MI04,4,Southwest Michigan Planning Commission,,285364,1,0,0,68,1,7,6,2, -   ,4,0,1,0,0,0,0,facilitating the development of intergovernmental cooperation and coordination
+Michigan,MI05,5,Western Upper Peninsula Regional Planning and Development Region,,82668,0,0,0,58,1,9,6,3, -   ,4,0,2,0,0,0,0,
+Michigan,MI06,6,Tri-County Regional Planning Commission,,464036,1,0,0,68,1,8,7,2,3,3,0,0,0,0,0,0,"promote intergovernmental cooperation, regional planning, and a vision for the future"
+Michigan,MI07,7,East Michigan Council of Governments,,780869,1,0,0,,2,5,6,2,2,1,0,0,0,0,0,0,a regional forum to discuss issues of mutual interest and concern and to develop recommendations and plans to address those issues
+Michigan,MI08,8,Grand Valley Metropolitan Council,,866423,0,0,0,90,1,21,7,4, -   ,7,4,5,0,1,0,0,"advance the current and future well-being of our metropolitan area by bringing together public and private sectors to cooperatively advocate, plan for, and coordinate the provision of services and investments which have environmental, economic and social impact"
+Michigan,MI09,9,Northeast Michigan Council of Governments,,136711,1,0,0,68,9,9,7,5, -   ,4,0,0,0,0,0,0,
+Michigan,MI10,10,Networks Northwest,,297912,1,0,0,74,9,19,7,9,3,4,0,2,0,0,1,0,build stronger communities and enhance the quality of life in Northwest Michigan
+Michigan,MI11,11,Central Upper Peninsula Planning and Development Commission,,172429,1,0,0,68,9,9,7,1,3,4,0,1,0,0,0,0,works through a consultation process with local governments
+Michigan,MI12,12,West Michigan Shoreline Regional Development Commission,,287462,1,0,0,,1,10,6,7, -   ,3,0,0,0,0,0,0,promote and foster regional development in West Michigan through cooperation amongst local governments and other regional partners
+Michigan,MI13,13,Western Michigan Regional Planning Commission,,304981,1,0,0,73,2,3,6,2, -   ,1,0,0,0,0,0,0, promote cooperative solutions to regional issues
+Michigan,MI14,14,Eastern Upper Peninsula Regional Planning and Development Commission,,56264,1,0,0,68,9,5,7,2,1,0,0,2,0,0,0,0,
+Michigan,MI50,50,Genesee County Metropolitan Planning Commission,,425790,0,0,0,,7,,,,,,,,,,,,
+Michigan,MI99,99,Unattached,,158967,0,0,0,,0,,,,,,,,,,,,
+Minnesota,MN01,1,Northwest Regional Development Commission,,86091,0,0,0,73,9,25,6,13,3,2,0,2,3,1,1,0,
+Minnesota,MN02,2,Region Nine Development Commission,,231302,1,0,0,72,2,9,7,4,2,3,0,0,0,0,0,0,promote the development of the region through intergovernmental cooperation
+Minnesota,MN03,3,Headwaters Regional Development Commission,,83023,1,0,0,71,9,10,5,5,3,0,2,0,0,0,0,0,
+Minnesota,MN04,4,Arrowhead Regional Development Commision,,326225,1,0,0,73,1,31,8,3,2,2,0,0,22,0,2,0,"providing local units of government and citizens groups a means to work cooperatively in identifying needs, solving problems and fostering local leadership"
+Minnesota,MN05,5,Region Five Cities and Counties,,163003,1,0,0,69,9,7,7,2,5,0,0,0,0,0,0,0,a variety of technical assistance services to the local units of government
+Minnesota,MN06,6,East Central Regional Development Commission,,163789,1,0,0,73,9,6,5,3,1,2,0,0,0,0,0,0, imitating projects and programs that lead to create solutions to regional problems
+Minnesota,MN07,7,Upper Minnesota Valley Regional Development Commission,,45190,1,0,0,73,9,8,5,4,2,2,0,0,0,0,0,0,
+Minnesota,MN08,8,Mid-Minnesota Development Commission,,117920,1,0,0,74,9,5,4,3,1,1,0,0,0,0,0,0,
+Minnesota,MN09,9,Southwest Regional Development Commission,,119151,1,0,0,73,9,8,3,6,1,0,0,1,0,0,0,0,
+Minnesota,MN50,50,St. Cloud Area Planning Organization,,150642,1,0,1,,7,,,,,,,,,,,,
+Minnesota,MN51,51,Rochester-Olmsted Council of Governments,,144248,0,0,1,,7,,,,,,,,,,,,
+Minnesota,MN75,75,Metropolitan Council,,2849567,0,0,0,,8,,,,,,,,,,,,
+Minnesota,MN76,76,West Central Initiative,,221688,1,0,0,,8,,,,,,,,,,,,
+Minnesota,MN99,99,Unattached,,602086,0,0,0,,0,,,,,,,,,,,,
+MO IL,MO01,1,East-West Gateway Council of Governments,,2571253,0,1,0,65,1,56,5,16,5,16,6,6,0,0,0,7,a forum for local governments of the bi-state St. Louis area to work together to solve problems that cross jurisdictional boundaries.
+Missouri,MO02,2,Lake of the Ozarks Council of Local Governments,,177160,1,0,0,69,9,5,5,4, -   ,1,0,0,0,0,0,0,working together to help provide the necessary resources to help build strong communities within our region
+Missouri,MO03,3,Northwest Missouri Regional Council of Governments,,42876,1,0,0,68,9,10,4,3,3,1,1,2,0,0,0,0,
+Missouri,MO04,4,Green Hills Regional Planning Commission,,97635,1,0,0,67,9,8,5,3,4,1,0,0,0,0,0,0,"foster improved quality of life throughout the 11 county ""Green Hills"" region"
+Missouri,MO05,5,Northeast Missouri Regional Planning Commission,,56362,1,0,0,69,9,6,5,1,4,1,0,0,0,0,0,0,
+MO KN,MO06,6,Mo-Kan Regional Council,St. Joseph Area Transportation Study Organization,174980,1,1,0,57,2,12,4,2,4,0,0,0,0,0,0,6,"a mutual forum to identify, discuss, study, and bring into focus regional challenges and opportunities"
+Missouri,MO07,7,Mark Twain Regional Council of Governments,,139186,1,0,0,68,9,4,6,2, -   ,2,0,0,0,0,0,0,
+Missouri,MO08,8,Pioneer Trails Regional Planning Commission,,151547,1,0,0,,9,7,5,2,2,0,0,1,0,1,0,1,a cooperative of the local governments of our four county region to coordinate and prioritize the community development needs of the region.
+Missouri,MO09,9,Mid-Missouri Regional Planning Commission,,326316,1,0,0,,2,5,4,3,1,1,0,0,0,0,0,0,a forum for local officials to discuss regional issues and concerns
+Missouri,MO10,10,Boonslick Regional Planning Commission,,97315,1,0,0,68,9,16,5,4,2,3,0,0,0,1,6,0,
+Missouri,MO11,11,Kaysinger Basin Regional Planning Commission,,112950,1,0,0,,9,10,6,4,4,2,0,0,0,0,0,0,
+Missouri,MO12,12,Meramec Regional Planning Commission,,148980,1,0,0,66,9,30,6,12,10,7,0,0,0,1,0,0,
+Missouri,MO13,13,Harry S. Truman Coordinating Council,,211003,1,0,0,,2,8,5,2,2,4,0,0,0,0,0,0,"provide community, economic and environmental planning and development"
+Missouri,MO14,14,Southwest Missouri Council of Governments,,602703,0,0,0,89,2,5,3,5, -   ,0,0,0,0,0,0,0,promote area-wide dissemination of information regarding issues and problems and to provide technical and advisory services for community betterment
+Missouri,MO15,15,South Central Ozark Council of Governments,,127952,1,0,0,,9,8,6,3,2,2,1,0,0,0,0,0,
+Missouri,MO16,16,Ozark Foothills Regional Planning Commission,,83376,1,0,0,67,9,19,6,6,5,0,4,0,0,1,3,0,
+Missouri,MO17,17,Southeast Missouri Regional Planning and Economic Development Commission,,213368,1,0,0,68,2,10,6,4,1,3,0,2,0,0,0,0,provides services to local governments
+Missouri,MO18,18,Bootheel Regional Planning and Economic Development Commission,,152722,1,0,0,67,9,9,6,3,3,3,0,0,0,0,0,0, guide the local units of government in a coordinated effort to develop the region
+Mississippi,MS01,1,Central Mississippi Planning and Development District,,615895,1,0,0,68,1,90,8,13,13,10,0,14,39,1,0,0,assist with creative regional solutions to relevant and emerging issues for our participating governments
+Mississippi,MS02,2,East Central Planning and Development District,,244467,1,0,0,68,9,,4,,,,,,,,,,assists the towns and counties with economic and community development efforts
+Mississippi,MS03,3,Golden Triangle Planning and Development District,,177627,1,0,0,71,9,21,4,1,4,0,2,2,12,0,0,0,improve and enlarge economic development and civic improvement
+Mississippi,MS04,4,North Central Planning and Development District,,127185,1,0,0,,9,49,5,7,1,3,0,1,10,0,27,0,
+Mississippi,MS05,5,North Delta Planning and Development District,,285375,1,0,0,,9,42,3,5,2,1,0,0,9,0,25,0,"promote overall economic development, foster responsible short and long term community planning, and to aid general civic, social, and economic development"
+Mississippi,MS06,6,Northeast Mississippi Planning and Development District,,150031,1,0,0,,9,43,5,6,6,0,0,1,3,0,27,0,
+Mississippi,MS07,7,South Delta Planning and Development Districts,,130429,1,0,0,,9,24,4,5,11,0,0,0,7,0,1,0,
+Mississippi,MS08,8,Southern Mississippi Planning and Development District,Gulf Regional Planning Commission,771793,1,0,0,67,2,,4,,,,,,,,,,providing the information and technical capacity needed for private and public sector leaders in Southern Mississippi to make informed decisions and to take effective action
+Mississippi,MS09,9,Southwest Mississippi Planning and Development District,,184399,1,0,0,,9,50,5,6, -   ,2,0,1,1,0,29,11,providing regional community and economic development services
+Mississippi,MS10,10,Three Rivers Planning and Development District,,280096,1,0,0,,9,54,6,7, -   ,5,0,0,20,0,20,2,"promote overall economic development, foster responsible short- and long-term community planning, and aid general civic, social, and economic development"
+Montana,MT01,1,Northern Rocky Mountain Economic Development District,,105149,1,0,0,6,9,,3,,,,,,,,,,
+Montana,MT02,2,Bear Paw Development Corporatioin of Nothern Montana,,34992,1,0,0,69,9,7,3,5, -   ,1,0,1,0,0,0,0,
+Montana,MT03,3,Eastern Plains Economic Development Corporation,,15212,1,0,0,91,9,2,3,1,1,0,0,0,0,0,0,0,
+Montana,MT04,4,Sweetgrass Development District,Great Falls Planning and Community Development Department,112276,1,0,0,4,2,2,6,2, -   ,0,0,0,0,0,0,0,
+Montana,MT05,5,Beartooth Resource Conservation and Development District,Yellowstone City/County Planning Board,183683,0,0,0,69,2,5,3,1,3,0,0,0,0,0,1,0,serves as a regional entity for the cooperative efforts of 5 counties in South Central Montana in rural and economic development
+Montana,MT06,6,Headwaters Resource Conservation and Development District,,70541,1,0,0,,9,5,4,2,2,0,0,0,0,0,1,0,
+Montana,MT07,7,Southeast Montana Development Corporation,,23393,1,0,0,97,9,5,3,2,2,0,0,0,0,0,1,0,
+Montana,MT08,8,Great Northern Development Corporation,,25869,1,0,0,,9,5,4,2,3,0,0,0,0,0,0,0,
+Montana,MT09,9,Snowy Mountain Development Corporation,,21742,1,0,0,1,9,4,3,2,2,0,0,0,0,0,0,0,
+Montana,MT10,10,Montana Business Assistance Connection,,82304,1,0,0,99,9,3,3,2,1,0,0,0,0,0,0,0,
+Montana,MT50,50,Missoula MPO,,109299,0,0,1,,7,,,,,,,,,,,,
+Montana,MT99,99,Unattached,,204955,0,0,0,,0,,,,,,,,,,,,
+North Carolina,NC01,1,Centralina Council of Governments,Charlotte Regional Transportation Planning Organization,1968680,1,0,0,68,2,38,6,8,10,6,0,0,14,0,0,0,"promote and encourage new and effective thinking and action in regional good governance, planning and collaboration;"
+North Carolina,NC02,2,Piedmont Triad Regional Council,,1640717,1,0,0,68,2,96,7,17,51,7,0,0,15,0,0,6,Identify and solve short and long-term problems best addressed at the regional level
+North Carolina,NC03,3,Triangle J Council of Governments,Capital Area MPO,1680877,1,0,0,59,2,22,6,5, -   ,9,0,0,8,0,0,0,addressing the tough issues that transcend political boundaries.
+North Carolina,NC04,4,Southwestern Commission,,194102,1,0,0,65,9,13,6,3,3,2,0,0,5,0,0,0," assist and provide technical support for local governments within the region, ensuring that they partner with one another toward regional goals"
+North Carolina,NC05,5,Land-of-Sky Regional Council,,398912,1,0,0,66,1,55,7,8,14,12,0,0,12,0,9,0,"make and implement joint regional decisions, provide management, planning and technical services to local governments, identify and solve short and long-term problems best addressed at the regional level, and bring together local elected officials "
+North Carolina,NC06,6,Isothermal Planning and Development Commission,,231394,0,0,0,66,9,35,4,6,15,1,0,0,6,0,7,0,fostering regional collaboration
+North Carolina,NC07,7,High Country Council of Governments,,210049,1,0,0,74,9,22,7,6,5,3,0,1,7,0,0,0,a forum for discussion of regional problems and interests
+North Carolina,NC08,8,Western Piedmont Council of Governments,,365497,1,0,0,67,1,48,7,9,22,7,0,5,5,0,0,0,"serve all local government members with professional, cost effective assistance on a variety of local, regional, state and federal issues and programs."
+North Carolina,NC09,9,Kerr-Tar Council of Governments,,226393,1,0,0,70,9,17,7,4,5,4,0,0,4,0,0,0,Promoting regionalism that provides opportunities for local governments to enhance and improve quality of life for our citizens
+North Carolina,NC10,10,Upper Coastal Plain Council of Governments,,310416,1,0,0,,2,30,7,9,8,3,0,1,8,0,1,0,a regional forum addressing concerns affecting everyone and for developing a cooperative effort to solve the problems and improve the quality of life for all the region’s citizens
+North Carolina,NC11,11,Mid-Carolina Council of Governments,Fayetteville Area MPO,497540,0,0,0,,2,10,6,3, -   ,0,0,1,5,1,0,0,the state-designated lead regional organization
+North Carolina,NC12,12,Lumber River Council of Governments,,299106,0,0,0,72,9,21,8,6,2,3,0,1,7,0,2,0,proactive in identifying local and regional needs and the resources to address those needs in an effective and fair manne
+North Carolina,NC13,13,Cape Fear Council of Governments,Wilmington Urban Area MPO,420413,0,0,0,,2,13,7,3,1,2,0,0,6,0,1,0,provide regional solutions that improve the quality of life for those we serve the leader in regional solutions to local challenges in the Lower Cape Fear Region
+North Carolina,NC14,14,Eastern Carolina Council of Governments,,633028,1,0,0,,2,12,7,3, -   ,5,0,0,4,0,0,0,forum where local officials determine priorities for the larger area in which their communities are an integral part
+North Carolina,NC15,15,Mid-East Commission,,286363,1,0,0,,2,17,6,4,2,3,0,1,7,0,0,0,Enhance the ability of local governments to successfully improve the quality of life for area citizens
+North Carolina,NC16,16,Albemarle Commission,,171996,1,0,0,69,9,22,4,1, -   ,0,0,0,8,1,12,0,Improve the ability of our member governments to enhance the quality of the lives of our citizens
+North Dakota,ND01,1,Lake Agassiz Regional Council,Fargo-Moorhead Metropolitan COG,185481,1,0,0,74,2,7,3,3,3,0,1,0,0,0,0,0, providing a wide-range of services
+North Dakota,ND02,2,Lewis and Clark Regional Development Council,Bismarck-Mandan MPO,141864,1,0,0,69,2,7,3,2,5,0,0,0,0,0,0,0, grants to cities and counties for infrastructure and other public improvements
+North Dakota,ND03,3,North Central Planning Council,,40672,1,0,0,72,9,3,3,2, -   ,1,0,0,0,0,0,0,
+North Dakota,ND04,4,Red River Regional Council,Grand Forks-East Grand Forks MPO,88519,1,0,0,73,2,6,4,2,2,1,1,0,0,0,0,0,
+North Dakota,ND05,5,Roosevelt-Custer Regional Council for Development,,38896,1,0,0,71,9,4,3,1,3,0,0,0,0,0,0,0,
+North Dakota,ND06,6,South Central Dakota Regional Council,,56363,1,0,0,,9,4,3,2,2,0,0,0,0,0,0,0,
+North Dakota,ND07,7,Souris Basin Planning Council,,89967,1,0,0,72,9,,3,,,,,,,,,,
+North Dakota,ND08,8,Tri-County Regional Development Council,,30829,1,0,0,,9,16,3,1,10,0,3,0,0,0,2,0,
+NE IA,NE01,1,Omaha-Council Bluffs Metropolitan Planning Agency,,696184,1,1,0,67,1,19,7,8,4,5,1,1,0,0,0,0, bring local government officials together to address mutual and overlapping concerns
+Nebraska,NE02,2,Panhandle Area Development District,,87789,1,0,0,,9,2,4,1, -   ,1,0,0,0,0,0,0,
+Nebraska,NE03,3,Central Nebraska Economic Development District,,48608,1,0,0,,9,4,5,2,1,1,0,0,0,0,0,0,
+Nebraska,NE04,4,West Central Nebraska Development District,,106374,1,0,0,74,9,5,5,1,3,0,0,1,0,0,0,0,
+Nebraska,NE05,5,South Central Economic Development District,,196495,1,0,0,,2,3,4,1, -   ,0,0,0,0,0,1,1,a consortium of thirteen rural Nebraska counties who see improving rural economies as a regional rather than purely local issue
+Nebraska,NE06,6,Southeast Nebraska Development District,,176359,1,0,0,,9,9,3,2,6,0,1,0,0,0,0,0," identify common problems, their solutions and to provide continuing support for efficient and effective government among its members"
+Nebraska,NE07,7,Northeast Nebraska Economic Developmet District,,208119,1,0,0,,9,10,6,4,3,3,0,0,0,0,0,0,"assist communities and individuals with economic development, housing and business loan opportunities"
+Nebraska,NE50,50,Lincoln Area MPO,,285407,0,0,1,,7,,,,,,,,,,,,
+New Hampshire,NH01,1,Rockingham Planning Commission,,188521,0,0,0,82,1,10,6,3, -   ,5,1,1,0,0,0,0,"serves in an advisory role to local governments in order to promote coordinated planning, orderly growth, efficient land use, transportation access and environmental protection"
+New Hampshire,NH02,2,Stratford Regional Planning Commission,,146895,0,0,0,70,1,7,7,2, -   ,5,0,0,0,0,0,0,
+New Hampshire,NH03,3,Central New Hampshire RPC,,115160,0,0,0,69,9,10,7,2, -   ,7,0,1,0,0,0,0,prepare a coordinated plan for the communities; mediate transportation needs and constraints
+New Hampshire,NH04,4,Southern New Hampshire Planning Commission,,266278,0,0,0,66,1,13,7,4, -   ,6,0,3,0,0,0,0,increase communication; promote intergovernmental cooperation and coordination 
+New Hampshire,NH05,5,North Country Council,,90599,1,0,0,73,9,9,6,2, -   ,7,0,0,0,0,0,0,
+New Hampshire,NH06,6,Upper Valley Lake Sunapee Regional Planning Commission,,89552,0,0,0,63,9,8,6,2, -   ,6,0,0,0,0,0,0,
+New Hampshire,NH07,7,Southwest Region Planning Commission,,102133,0,0,0,,9,9,6,3,1,4,0,1,0,0,0,0,
+New Hampshire,NH08,8,Nashua Regional Planning Commission,,204383,0,0,0,59,1,10,5,3, -   ,4,0,3,0,0,0,0,A FORUM to share information and coordinate efforts across our region
+New Hampshire,NH09,9,Lakes Region Planning Commission,,112735,0,0,0,68,9,6,5,3, -   ,3,0,0,0,0,0,0,
+New Jersey,NJ50,50,North Jersey Transportation Planning Authority,,6579907,0,0,0,,7,,,,,,,,,,,,
+New Jersey,NJ51,51,South Jersey Economic Development District,,594795,0,0,0,,7,,,,,,,,,,,,
+New Mexico,NM01,1,Mid-Region Council of Governments of New Mexico,,887077,1,0,0,,1,,6,,,,,,,,,,work together to meet the challenge of addressing issues from a regional perspective
+New Mexico,NM02,2,Northwest New Mexico Council of Governments,,228749,1,0,0,,2,,5,,,,,,,,,,"work with the region's local governments to support community development, promote strategic innovation and propel regional competitiveness"
+New Mexico,NM03,3,Eastern Plains Council of Governments,,89216,1,0,0,72,9,5,5,2, -   ,3,0,0,0,0,0,0,
+New Mexico,NM04,4,Southwest New Mexico Council of Governments,,63228,1,0,0,67,9,4,8,2,1,1,0,0,0,0,0,0,
+New Mexico,NM05,5,South Central Council of Governments,Mesilla Valley MPO,239087,1,0,0,75,2,28,5,7,3,0,0,0,13,3,2,0, assists our members with local and regional planning and development initiatives
+New Mexico,NM06,6,North Central New Mexico EDD and COG,,283327,1,0,0,,2,29,6,5,1,2,0,0,21,0,0,0, created to encourage and allow regional cooperation on a multitude of issues
+New Mexico,NM07,7,Southeastern New Mexico EDD and COG,,268495,1,0,0,71,9,5,5,3,1,1,0,0,0,0,0,0,
+Nevada,NV01,1,Western Nevada Development District,Regional Transportation Commission of Washoe County,632598,0,0,0,83,2,2,3,1,1,0,0,0,0,0,0,0,promote collaboration to address economic development issues throughout the region
+Nevada,NV50,50,Regional Transportation Commission of Southern Nevada,,1951269,0,0,1,,7,,,,,,,,,,,,
+Nevada,NV99,99,Unattached,,116684,0,0,0,,0,,,,,,,,,,,,
+New York,NY01,1,Capital District Planning Commission,Capital District Transportation Committee,837967,1,0,0,67,2,8,5,3,2,3,0,0,0,0,0,0,"facilitation and coordination of a variety of regionally administered programs that cover the topics of Economic Development, Sustainability, Land Use & Transportation, Water Quality, and Human Services."
+New York,NY02,2,Southern Tier Central Planning and Development Board,,206163,1,0,0,69,2,9,7,3,1,3,0,1,0,0,0,1,"identify issues and provide solutions that will improve the economy, the environment, and the quality of life"
+New York,NY03,3,Genesee Finger Lakes Regional Planning Council,Genesee Transportation Council,1217156,1,0,0,77,2,4,5,1, -   ,3,0,0,0,0,0,0,"provides forums for discussion, debate, and consensus building"
+New York,NY04,4,Central New York Regional Planning and Development Board,Syracuse Metropolitan Transportation Council,791939,1,0,0,66,2,25,5,3,2,3,0,0,0,12,0,5,a forum for the discussion of issues
+New York,NY05,5,Mohawk Valley Economic Development District,Herkimer-Oneida Counties Transportation Study,405147,1,0,0,66,2,2,3,2, -   ,0,0,0,0,0,0,0,partnered with its member counties and their local governments when asked for assistance
+New York,NY06,6,Southern Tier West Regional Planning and Development Board,,264168,1,0,0,69,9,8,5,3,3,1,0,0,0,0,1,0,help coordinate and enhance planning and development activities 
+New York,NY07,7,Lake Champlain-Lake George Regional Planning Board,Adirondack/Glen Falls Transportation Council,255257,1,0,0,67,2,6,4,3, -   ,3,0,0,0,0,0,0,aiding local efforts that promote sustained economic growth and essential community services
+New York,NY08,8,Southern Tier East Regional Planning Development Board,,546754,1,0,0,,2,5,5,3,2,0,0,0,0,0,0,0,"identify issues and provide solutions that will improve the economy, the environment, and the quality of life in the STC region"
+New York,NY50,50,Ulster County Transportation Council,,182493,0,0,1,,7,,,,,,,,,,,,
+New York,NY51,51,New York Metropolitan Transportation Council,,12368525,0,0,0,,7,,,,,,,,,,,,
+New York,NY52,52,Greater Buffalo-Niagara Regional Transportation Council,,1135509,0,0,0,,7,,,,,,,,,,,,
+New York,NY53,53,Watertown-Jefferson County Transportation Council,,116229,0,0,1,,7,,,,,,,,,,,,
+New York,NY54,54,Poughkeepsie-Dutchess County Transportation Council,,297488,0,0,1,,7,,,,,,,,,,,,
+New York,NY55,55,Orange County Transportation Council,,372813,0,0,1,,7,,,,,,,,,,,,
+New York,NY99,99,Unattached,,380494,0,0,0,,0,,,,,,,,,,,,
+OH KY IN,OH01,1,Ohio-Kentucky-Indiana Regional Council of Governments,,1949427,0,1,0,64,1,30,5,7, -   ,10,7,6,0,0,0,0,committed to developing collaborative strategies to improve the quality of life and the economic vitality of the region.
+Ohio,OH02,2,Northeast Ohio Four County Regional Planning and Development Organization,Akron Metropolitan Area Transportation Study,1193306,1,0,0,74,2,6,4,3,2,1,0,0,0,0,0,0,enable local officials to discuss problems facing the Region and to develop strategies to cope with them.
+Ohio,OH03,3,Northeast Ohio Areawide Coordinating Agency,,2077240,0,0,0,,1,36,4,8, -   ,5,9,2,0,8,4,0,STRENGTHEN regional cohesion
+Ohio,OH04,4,Mid-Ohio Regional Planning Commission,,2116910,0,0,0,69,1,,6,,,,,,,,,,committed to collaboration and developing bold new strategies that continue to make the region stand out both nationally and globally.
+Ohio,OH05,5,Miami Valley Regional Planning Commission,,894461,0,0,0,64,1,23,5,8,1,10,1,3,0,0,0,0,a forum and resource where the Board of Directors identifies priorities and develops public policy and collaborative strategies to improve quality of life
+Ohio,OH06,6,Toledo Metropolitan Area Council of Governments,,712373,0,1,0,62,1,18,5,5, -   ,2,0,1,0,8,2,0,"the governmental partner of choice to coordinate regional assets,opportunities, and challenges."
+Ohio,OH07,7,Eastgate Regional Council of Governments,,550632,1,0,0,,1,15,5,5, -   ,4,0,0,0,6,0,0,a regional forum to discuss issues of mutual interest and concern and to develop recommendations and plans to address those issues
+Ohio,OH08,8,Buckeye Hills - Hocking Valley Regional Development District,,260084,1,0,0,,9,13,6,3,7,0,0,2,0,1,0,0,improve the socioeconomic conditions of the region by promoting the interests and needs of our constituents to persons and agencies empowered to create positive change
+Ohio,OH09,9,Ohio Valley Regional Development Commission,,365237,1,0,0,67,2,10,4,5,4,0,0,0,0,1,0,0,
+Ohio,OH10,10,Maumee Valley Planning Organization,,124508,0,0,0,,9,8,4,3, -   ,3,0,0,0,0,2,0, makes and implements joint regional decisions
+Ohio,OH11,11,Ohio Mid-Eastern Governments Association,,590660,0,0,0,,9,8,7,2,4,2,0,0,0,0,0,0,"a collaborative body of member governments that serves as a facilitator between state and federal government agencies and local entities to provide opportunities in economic and community development through networking, education, planning, research, and allocation of resources"
+Ohio,OH50,50,Lima-Allen County Regional Planning Commission,,106331,0,0,1,,7,,,,,,,,,,,,
+Ohio,OH51,51,Clark County-Springfield Transportation Study,,138333,0,0,1,,7,,,,,,,,,,,,
+Ohio,OH52,52,Policy Committee of the Erie Regional Planning Commission,,77079,0,0,1,,7,,,,,,,,,,,,
+Ohio,OH53,53,Richland County Regional Planning Commission,,124475,1,0,1,,7,,,,,,,,,,,,
+Ohio,OH99,99,Unattached,,624315,0,0,0,,0,,,,,,,,,,,,
+Oklahoma,OK01,1,Association of Central Oklahoma Governments,,1131777,1,0,0,66,1,31,7,6,1,10,3,0,0,0,0,11,allow member entities to work in partnership to address issues or problems common to many jurisdictions. This regional cooperation serves to strengthen both the individual and collective capabilities of local governments.
+Oklahoma,OK02,2,Indian Nations Council of Governments,,880832,1,0,0,67,1,55,8,10,5,10,0,7,6,6,0,11,"assist in creating solutions to local and regional challenges in such areas as land use, transportation, community and economic development, environmental quality, public safety, and services for older adults"
+Oklahoma,OK03,3,Oklahoma Economic Development Authority,,70356,1,0,0,76,9,14,5,3, -   ,1,0,1,4,0,4,1,
+Oklahoma,OK04,4,South Western Oklahoma Development Authority,,109917,1,0,0,71,9,,6,,,,,,,,,,
+Oklahoma,OK05,5,Association of South Central Oklahoma Governments,,306340,1,0,0,69,2,37,5,5,3,1,1,1,25,0,1,0,strengthen our local governments’ individual and collective capacities
+Oklahoma,OK06,6,Southern Oklahoma Development Association,,224856,1,0,0,67,9,12,5,3,1,1,0,0,6,0,0,1,"a forum for consensus building, policy-making, and implementing regional policies, plans and programs"
+Oklahoma,OK07,7,Kiamichi Economic Development District of Oklahoma,,180072,1,0,0,67,9,10,5,5, -   ,0,0,1,1,0,1,2,will assist any local government in any way it can to aid in economic development or community improvement
+Oklahoma,OK08,8,Eastern Oklahoma Development District,,243372,1,0,0,67,9,19,5,4,2,1,0,0,10,0,0,2,serves as an extension of the staffs of local governments
+Oklahoma,OK09,9,Grsnd Gateway Economic Development Association,,191135,1,0,0,,9,,5,,,,,,,,,,"Serve as a forum for local governments to communicate, cooperate and act regionally to provide efficient governmental service"
+Oklahoma,OK10,10,Northern Oklahoma Development District,,163376,1,0,0,,9,2,5,1,1,0,0,0,0,0,0,0,provides intergovernmental cooperation and coordination which strengthens local governments
+Oklahoma,OK11,11,Central Oklahoma Economic Development District,,249318,1,0,0,,9,8,6, -   , -   ,0,0,0,8,0,0,0,assists in the development of solutions to local and regional challenges
+Oregon,OR02,2,Central Oregon Intergovernmental Council,,200431,1,0,0,72,2,8,4,3,2,0,2,0,0,1,0,0,"serves the local governments of Central Oregon, providing regional collaboration, efficiencies and service delivery for a strong local economy and quality of life"
+Oregon,OR03,3,Lane Council of Governments,,351715,0,0,1,50,1,47,6,6,2,15,0,20,4,0,0,0,"serving the needs of our member agencies through cooperative planning, program development, analyses and service delivery."
+Oregon,OR04,4,Mid-Columbia Council of Governments,,52636,0,0,0,79,9,,4,,,,,,,,,,
+Oregon,OR05,5,Mid-Willamette Valley Council of Governments,,489931,1,0,0,57,1,22,6,4,10,8,0,0,0,0,0,0,Expanding interaction and improving dialogue among local units of government; “Convenership” – enhancing collective awareness of major regional issues through seminars and workshops
+Oregon,OR06,6,Oregon Cascades West Council of Governments,,248285,1,0,0,,1,68,7,8,8,4,0,3,0,0,45,0,"helping the region’s communities collaborate to solve problems and connect member governments, businesses, and individuals "
+Oregon,OR07,7,Rogue Valley Council of Governments,,285919,0,0,0,,1,51,5,7, -   ,9,0,1,30,0,0,4,"a catalyst to promote quality of life, effective and efficient services, and leadership in regional communication, cooperation, planning, and action in Southern Oregon"
+Oregon,OR08,8,Greater Eastern Oregon Development Corporation,,133242,1,0,0,82,9,5,4,2,3,0,0,0,0,0,0,0,
+Oregon,OR09,9,Northeast Oregon Economic Development District,,48890,1,0,0,85,9,,3,,,,,,,,,,
+Oregon,OR10,10,Columbia-Pacific Economic Development District,,111640,1,0,0,,9,3,3,2,1,0,0,0,0,0,0,0,
+Oregon,OR11,11,South Central Oregon Economic Development District,,74275,1,0,0,99,9,3,3,1,2,0,0,0,0,0,0,0,
+Oregon,OR75,75,Portland Metro,,1641036,0,0,0,,8,,,,,,,,,,,,
+Oregon,OR99,99,Unattached,,193074,0,0,0,,0,,,,,,,,,,,,
+PA NJ,PA01,1,Delaware Valley Regional Planning Commission,,5626186,0,1,0,65,1,110,6,16,7,34,0,17,0,36,0,0,"foster regional cooperation in a nine-county, two state area … to address key issues, including transportation, land use, environmental protection and economic development."
+Pennsylvania,PA02,2,Southwestern Pennsylvania Commission,,2574959,1,0,0,,1,48,6,7,3,12,0,10,0,16,0,0," the cooperative forum for regional collaboration, planning,and public decision-making."
+Pennsylvania,PA03,3,Tri-County Regional Planning Commission ,,549475,0,0,0,66,1,11,4,5, -   ,4,0,2,0,0,0,0,"a forum for leaders of local government, and to develop a vision for the future by defining regional issues, setting goals, and cooperatively implementing plans. The Tri-County Regional Planning Commission is the “Steward of the Regional Vision.”"
+Pennsylvania,PA04,4,Lehigh Valley Planning Commission,,647232,0,0,0,61,1,13,5,3,3,6,0,1,0,0,0,0,"provide the orderly growth, development and redevelopment of the Lehigh Valley in accordance with the long-term objectives, principles and standards that are in the best interest and welfare of its inhabitants and political subdivisions"
+Pennsylvania,PA05,5,Southern Alleghenies Planning & Development Commission,,459030,1,0,0,,2,35,5,15,13,1,0,2,0,2,2,0,fostering cooperation among communities and the agencies that serve them
+Pennsylvania,PA06,6,SEDA Council of Governments,,645396,1,0,0,,1,92,7,21,30,3,0,6,0,3,1,28,enhance growth opportunities in an environmentally sensitive manner while retaining the region’s predominantly rural character
+Pennsylvania,PA07,7,Northeastern Pennsylvania Alliance,,1028926,1,0,0,,1,21,5,6,10,0,0,0,0,5,0,0,innovative and beneficial collaborations and partnerships to enhance the economic development and quality of life of the area.
+Pennsylvania,PA08,8,Northwest Commission,,630472,1,0,0,,2,19,3,5,13,1,0,0,0,0,0,0,provide leadership and assistance as well as collaborate or cooperate with our strategic partners
+Pennsylvania,PA09,9,North Central Pennsylvania Planning and Development Commission,,224780,1,0,0,,9,67,5,11,6,1,0,4,0,0,45,0,"work together to streamline state, federal and regional services"
+Pennsylvania,PA10,10,Northern Tier Regional Planning and Development Commission,,182663,1,0,0,70,9,16,3,6,4,1,0,1,0,0,4,0,"provides resources to help businesses and entrepreneurs, local governments and non-profits, and job seekers meet their challenges"
+Pennsylvania,PA50,50,Adams County Transportation Planning Organization,,101407,0,0,1,,7,,,,,,,,,,,,
+Pennsylvania,PA51,51,Reading Area Transportation Study,,411442,0,0,1,,7,,,,,,,,,,,,
+Pennsylvania,PA52,52,Franklin County MPO,,149618,0,0,1,,7,,,,,,,,,,,,
+Pennsylvania,PA53,53,Lancaster County Transportation Coordinating Committee,,519445,0,0,1,,7,,,,,,,,,,,,
+Pennsylvania,PA54,54,Lebanon County MPO,,133568,0,0,1,,7,,,,,,,,,,,,
+Pennsylvania,PA55,55,York Area MPO,,434972,0,0,1,,7,,,,,,,,,,,,
+Rhode Island,RI75,75,State Planning Council,,1052567,0,0,0,,8,,,,,,,,,,,,
+South Carolina,SC01,1,Central Midlands Council of Governments,,708359,1,0,0,69,1,61,6,6,1,4,0,2,8,1,35,4,assisting local governments develop local and regional plans
+South Carolina,SC02,2,Appalachian Council of Governments,,1171497,1,0,0,65,2,43,5,16, -   ,6,0,0,17,0,4,0,dual mission of tackling issues of regional significance and providing services to local governments.
+South Carolina,SC03,3,Berkeley-Charleston-Dorchester Council of Governments,,664607,1,0,0,76,1,33,6,10,2,5,0,0,0,1,0,15," strengthen both the individual and collective power of local governments and to help them recognize regional opportunities, eliminate unnecessary duplication, and make joint decisions"
+South Carolina,SC04,4,Catawba Regional Council of Governments,,364826,1,0,0,70,2,20,4,5,11,2,0,2,0,0,0,0,a forum for intergovernmental cooperation
+South Carolina,SC05,5,Lowcountry Council of Governments,,246992,1,0,0,,1,32,7,6,5,2,0,0,10,0,9,0,"work with the local governments to identify and coordinate regional development, strengthen services, and cooperate for the mutual benefit"
+South Carolina,SC06,6,Lower Savannah Council of Governments,,316802,1,0,0,,2,41,4,9,17,3,0,1,2,1,8,0,"work with and on behalf of local governments to develop, implement, and administer plans, programs and projects in cooperation with local, state and national stakeholders"
+South Carolina,SC07,7,Pee Dee Regional Council of Governments,,346357,1,0,0,,2,17,4,4,9,2,0,2,0,0,0,0,"An association of local governments in Lane County, Oregon, serving the needs of our member agencies through cooperative planning, program development, analyses and service delivery"
+South Carolina,SC08,8,Santee-Lynches Regional Council of Governments,,223344,1,0,0,71,2,28,5,6,12,0,0,0,0,0,0,10," a forum of governments, advocating a regional vision through identification of opportunities, effective courses of action, and appropriate resources"
+South Carolina,SC09,9,Upper Savannah Council of Governments,,218708,1,0,0,,9,26,6,8,3,0,0,0,5,0,9,1,identifies solutions and opportunities related to regional challenges
+South Carolina,SC10,10,Waccamaw Regional Council of Governments,,363872,1,0,0,69,1,53,7,8,13,5,0,1,9,0,17,0,fosters inter-governmental cooperation and innovative partnerships for the communities within the three-county region
+South Dakota,SD01,1,South Eastern Council of Governments,,256524,1,0,0,70,1,14,6,2,7,4,0,1,0,0,0,0,Facilitating responsible community planning and economic development
+South Dakota,SD02,2,Black Hills Council of Governments,Rapid City Area MPO,183567,1,0,0,72,2,5,3,2,1,1,0,1,0,0,0,0,provided professional planning services to our member communities
+South Dakota,SD03,3,Planning and Development District III,,101838,1,0,0,70,9,11,3,3,4,0,0,2,0,0,2,0,provide comprehensive development assistance to its membership and the private sector
+South Dakota,SD04,4,Northeast Council of Governments,,92268,1,0,0,,9,5,4,3,2,0,0,0,0,0,0,0,"professional development, planning and management services to local governments, and assist in the administration of local programs and projects."
+South Dakota,SD05,5,First District Association of Local Governments,,115878,1,0,0,71,9,14,7,3,6,1,0,4,0,0,0,0,
+South Dakota,SD06,6,Central South Dakota Enhancement District,,28755,1,0,0,,9,4,3,1, -   ,3,0,0,0,0,0,0,
+South Dakota,SD99,99,Unattached,,21764,0,0,0,,0,,,,,,,,,,,,
+Tennessee,TN01,1,East Tennessee Development District,Knoxville Regional Transportation Planning Organization,1176033,1,0,0,66,2,12,5,4,5,1,0,2,0,0,0,0,a forum for local governments to solve common problems associated with economic development and growth
+TN MS AR,TN02,2,Memphis Area Association of Governments,Memphis Urban Area MPO,1054953,1,0,0,68,2,7,6,3,3,0,0,1,0,0,0,0,"identify, craft and advocate for legislation and public policy that serves to improve the overall quality of life for all residents."
+Tennessee,TN03,3,Greater Nashville Regional Council ,Nashville Area MPO,1722648,1,0,0,,2,57,3,15, -   ,5,0,10,27,0,0,0,emphasize the importance of inter-governmental links and relationships in meeting regional infrastructure and service delivery needs and in achieving overall development goals and policies of the region.
+Tennessee,TN04,4,Northwest Tennessee Development District,,254605,1,0,0,71,9,32,6,6, -   ,4,0,0,19,1,2,0,provides a network for technical assistance and resources in response to request from local communities in our District
+Tennessee,TN05,5,Southwest Tennessee Development District,,253092,1,0,0,65,2,38,7,4,4,2,0,1,18,0,9,0,promoting rural/urban renewal and revitalization in our communities
+Tennessee,TN06,6,South Central Tennessee Development District,,423343,1,0,0,72,9,43,5,6,2,2,0,0,25,8,0,0,to advocate and promote economic and community development within the region
+Tennessee,TN07,7,Upper Cumberland Development District,,338158,1,0,0,,9,59,6,9,9,6,1,1,29,0,4,0,providing solutions through regional cooperation
+Tennessee,TN08,8,Southeast Tennessee Development District,Chattanooga-Hamilton County/North Georgia TPO,617007,1,1,0,,2,78,4,5,8,8,0,3,28,0,25,1, helping local governments plan for the future by coordinating the establishment of regional and local priorities
+Tennessee,TN09,9,First Tenessee Development District,,506266,1,0,0,,2,47,5,7,6,4,0,1,26,0,3,0,"a cooperative approach for making federal, state, and local governments within the region stronger and more efficient partners."
+Texas,TX01,1,Panhandle Regional Planning Commission,Amarillo MPO,427927,1,0,0,69,2,45,6,10,13,0,0,2,10,0,10,0,created based on the concept that more can be accomplished by local governments acting cooperatively rather than alone.
+Texas,TX02,2,South Plains Association of Governments,Lubbock MPO,411659,1,0,0,67,2,40,7,13,3,0,0,0,10,0,14,0,"representing the interests of local governments of the region and facilitating orderly development of the economic, social, and physical environment"
+Texas,TX03,3,Nortex Regional Planning Commission,,222860,1,0,0,,2,26,6,6,1,1,0,3,9,0,6,0, the instrument of local government cooperation and coordination
+Texas,TX04,4,North Central Texas Council of Governments,,6539950,0,0,0,66,1,,8,,,,,,,,,,"strengthen both the individual and collective power of local governments and to help them recognize regional opportunities, eliminate unnecessary duplication, and make joint decisions."
+Texas,TX05,5,Ark-Tex Area Council of Governments,,281947,0,0,0,68,2,86,7,13,13,1,0,0,6,45,0,8,promoting intergovernmental cooperation and strengthening local units of government
+Texas,TX06,6,East Texas Council of Governments,,829749,0,0,0,70,2,25,7,8,5,0,0,0,5,5,2,0,"assist local governments in planning for common needs, cooperating for mutual benefit and coordinating for sound regional development"
+Texas,TX07,7,West Central Texas Council of Governments,,327390,1,0,0,,2,36,6,12,1,2,0,0,9,0,12,0,"address issues such as regional planning, economic and community development, hazard mitigation and emergency planning, aging services, water use, pollution control, 9-1-1 services, law enforcement training, youth and community programs and transportation planning"
+TX NM,TX08,8,Rio Grande Council of Governments,El Paso MPO,825913,0,1,0,67,2,36,5,9, -   ,0,0,0,17,0,9,1,serve as a catalyst for this region in designing and identifying regional solutions.
+Texas,TX09,9,Permian Basin Regional Planning Commission,Midland-Odessa Transportation Organization,417679,1,0,0,,2,26,5,6, -   ,0,0,0,9,0,11,0,"solving area-wide problems through promoting intergovernmental cooperation and coordination, conducting comprehensive regional planning, and providing a forum for the study and resolution of area-wide problems"
+Texas,TX10,10,Concho Valley Area Council of Governments,San Angelo MPO,154192,1,0,0,,2,13,8, -   , -   ,1,0,0,7,0,5,0,"foster a cooperative effort in resolving problems, policies, and plans that are common and regional"
+Texas,TX11,11,Heart of Texas Council of Governments,Waco MPO,349273,1,0,0,96,2,27,6,6,8,0,0,0,11,2,0,0,an organization of local governments working together voluntarily to solve mutual problems and plan for the future of the six county area
+Texas,TX12,12,Capital Area Council of Governments,Capital Area MPO,1830003,1,0,0,70,2,55,5,9, -   ,6,0,3,23,0,14,0,"working as a regional advocate, planner, coordinator and service provider"
+Texas,TX13,13,Brazos Valley Council of Governments,Bryan-College Station MPO,319447,1,0,0,66,2,18,6,13, -   ,0,0,5,0,0,0,0,charged with addressing regional issues and opportunities
+Texas,TX14,14,Deep East Texas Council of Governments,,378477,1,0,0,,9,58,5,10,7,8,6,0,12,0,7,8,"by combining the resources of our local governments,  we provide a window of opportunity for helping its citizens improve their quality of life"
+Texas,TX15,15,South East Texas Regional Planning Commission,,388745,1,0,0,70,1,67,7,9, -   ,6,0,0,13,0,16,23,solving area wide problems by promoting intergovernmental cooperation and coordination
+Texas,TX16,16,Houston-Galveston Area Council,,6087133,1,0,0,,1,231,7,31, -   ,92,0,19,0,0,60,29,"serve as the instrument of local government cooperation, promoting the region's orderly development and the safety and welfare of its citizens."
+Texas,TX17,17,Golden Crescent Regional Planning Commission,,188626,1,0,0,68,2,,6,,,,,,,,,,planning for the development of the region and assisting local governments in carrying out regional plans and recommendations
+Texas,TX18,18,Alamo Area Council of Governments,,2249718,1,0,0,67,1,25,7,9,3,1,0,0,6,2,3,1,"enhance the quality of life of all residents of the Alamo Region in partnership with elected and appointed officials, funders, community partners and beneficiaries."
+Texas,TX19,19,South Texas Development Council,Laredo Urban Transportation Study,330590,0,0,0,56,2,45,5,3,2,0,8,0,8,0,22,2,Working Together for Our Community
+Texas,TX20,20,Coastal Bend Council of Governments,Corpus Christi MPO,571280,1,0,0,66,2,30,5,7, -   ,2,0,0,12,0,0,9,"a cost-effective way to plan, coordinate and implement regional projects"
+Texas,TX21,21,Lower Rio Grande Development Council,,1203123,1,0,0,67,1,,8,,,,,,,,,,"promotes and encourages cooperation among local units of government in order to improve the region's health, safety, and general welfare and to plan for future development."
+Texas,TX22,22,Texoma Council of Governments,,193229,1,0,0,68,2,60,4,12,19,1,0,16,1,0,8,3,work hand-in-hand with elected officials and community leaders to develop sustainable and economically viable community and regional development solutions
+Texas,TX23,23,Central Texas Council of Governments,,449641,1,0,0,,1,6,8,3, -   ,1,0,0,1,0,1,0,help local communities work cooperatively to improve the conditions and well-being of Central Texans
+Texas,TX24,24,Middle Rio Grande Development Council,,167010,1,0,0,70,9,26,6,1, -   ,5,5,0,7,0,0,8,planning and coordination of the region 
+Utah,UT01,1,Wasatch Front Regional Council,,1635057,1,0,0,73,1,25,6,6, -   ,13,4,2,0,0,0,0,"a forum for discussion and cooperation among elected representatives of local jurisdictions concerning region-wide problems, primarily transportation and growth planning, and to provide professional services for these areas of concern."
+Utah,UT02,2,Mountainland Association of Governments,,576418,1,0,0,72,1,43,7,5, -   ,12,0,0,26,0,0,0,"Serving Summit, Utah, and Wasatch counties, cities, and towns by providing Community and Economic Development, Regional Transportation Planning, and Aging and Adult services"
+Utah,UT03,3,Five County Association of Governments,,203204,1,0,0,72,1,49,7,5,15,3,0,2,12,1,11,0,a key player in aiding locally elected officials in coping with regional challenges
+Utah,UT04,4,Bear River Association of Governments,Cache MPO,164895,1,0,0,71,2,,5,,,,,,,,,,"facilitate intergovernmental cooperation and to insure the orderly and harmonious coordination of federal, state, and local programs for the solution of mutual problems of the region"
+Utah,UT05,5,Six County Association of Governments,,75707,1,0,0,69,9,24,6,3,6,7,0,0,8,0,0,0,"provide a common forum to identify, discuss, study, and resolve area wide problems"
+Utah,UT06,6,Southeastern Association of Governments,,56350,1,0,0,,9,27,4,3,7,1,0,0,3,0,13,0,
+Utah,UT07,7,Uintah Basin Association of Governments,,52254,0,0,0,,9,26,5,4,2,0,2,0,2,3,8,5,
+Virginia,VA01,1,Hampton Roads Planning District Commission,,1666310,0,0,0,90,1,59,7,10,5,38,5,1,0,0,0,0,a forum for local elected officials and chief administrators to deliberate and decide issues of regional importance
+Virginia,VA02,2,Richmond Regional Planning District,,1002696,0,0,0,69,1,24,6,7, -   ,12,3,1,0,1,0,0,serving as a regional forum of member local governments to address issues of regional significance
+Virginia,VA03,3,Lenowisco Planning District Commission,,94174,1,0,0,69,9,8,5,2,3,2,0,1,0,0,0,0,
+Virginia,VA04,4,Cumberland Plateau Planning District Commission,,113976,1,0,0,68,9,7,4,3, -   ,2,1,1,0,0,0,0,
+Virginia,VA05,5,Mount Rogers Planning District Commission,,186553,1,0,0,69,9,10,6,4, -   ,5,0,1,0,0,0,0,promotes regional cooperation and planning
+Virginia,VA06,6,New River Valley Regional Commission,,178237,1,0,0,,2,10,5,3, -   ,6,0,1,0,0,0,0, convenes community leaders to build relationships and capacity across the region
+Virginia,VA07,7,Roanoke Valley-Alleghany Regional Commission,,330918,0,0,0,99,1,11,6,4, -   ,2,0,1,0,3,1,0,"a regional leader in driving collaboration and strategy within our communities on issues that are critical to the economic growth, quality of life and sustainability of this region"
+Virginia,VA08,8,Central Shenandoah Planning District Commission,,286781,1,0,0,70,1,13,7,4,1,4,1,2,0,1,0,0,"works with its member jurisdictions, communities and agencies to provide high quality planning, technical assistance and facilitation of services that address local, regional and state needs in an innovative, timely and cooperative manner"
+Virginia,VA09,9,Northern Shenandoah Valley Regional Commission,,222152,0,0,0,72,1,9,6,3,1,4,0,0,0,0,1,0,"pursue  common goals,  work together on regional issues and find efficiencies through collaboration"
+Virginia,VA10,10,Rappahannock-Rapidan Regional Council,,166054,0,0,0,73,9,7,5,1,1,2,3,0,0,0,0,0,a concerted approach to regional cooperation and a forum for the interaction of appointed and elected local government officials and citizen members
+Virginia,VA11,11,Thomas Jefferson Planning District Commission,,234712,0,0,0,72,1,9,5,3, -   ,4,2,0,0,0,0,0,"providing regional vision, collaborative leadership and professional service to develop effective solutions"
+Virginia,VA12,12,Virginia's Region 2000 Local Government Council,,246412,0,0,0,,1,8,7,3, -   ,4,1,0,0,0,0,0,a dynamic public forum for matters of regional significance; to create regional solutions by coordinating regional plans and building coalitions
+Virginia,VA13,13,West Piedmont Planning District Commission,,193023,1,0,0,72,1,6,6,2, -   ,3,0,1,0,0,0,0,"charged with developing collaborative regional approaches to issues of greater than local impact including, but not limited to, economic development, transportation, and legislative priorities"
+Virginia,VA14,14,Southside Planning District Commission,,86402,1,0,0,,9,10,5,3, -   ,3,2,2,0,0,0,0,
+Virginia,VA15,15,Commonwealth Regional Council,,78704,0,0,0,68,9,,6,,,,,,,,,,
+Virginia,VA16,16,George Washington Regional Commission,,327773,0,0,0,61,1,13,5,3, -   ,8,1,1,0,0,0,0,"serve our local governments by providing collaborative, progressive leadership to determine the needs of the region and improve the livability of communities for the citizens of the region"
+Virginia,VA17,17,Northern Neck Plannning District Commision,,50429,1,0,0,68,9,,6,,,,,,,,,,
+Virginia,VA18,18,Middle Peninsula Planning District Commission,,53968,0,0,0,68,9,6,6,3, -   ,3,0,0,0,0,0,0,
+Virginia,VA19,19,Crater Planning District Commission,,166405,1,0,0,,1,19,5,4,8,4,2,0,0,1,0,0,"addresses regional transportation issues and assists localities in their transportation planning efforts; environmental issues, in response to local needs;"
+Virginia,VA20,20,Accomack-Northampton Planning District Commission,,33164,1,0,1,68,9,,7,,,,,,,,,,
+Virginia,VA99,99,Unattached,,25905,0,0,0,,0,,,,,,,,,,,,
+Vermont,VT01,1,Northwest Regional Planning Commission,,54716,0,0,0,97,9,9,7,3,1,4,0,1,0,0,0,0,
+Vermont,VT02,2,Rutland Regional Planning Commission,,61096,0,0,0,68,9,8,6,2, -   ,5,0,1,0,0,0,0,leadership and technical expertise to encourage cooperative planning within and among the region's communities and area wide interests
+Vermont,VT03,3,Windham Regional Commission,,46720,0,0,0,65,9,9,6,4, -   ,5,0,0,0,0,0,0,
+Vermont,VT04,4,Bennington County Regional Commission,,35484,0,0,0,,9,10,6,4,1,5,0,0,0,0,0,0,
+Vermont,VT05,5,Chittenden County Regional Planning Commission,,156545,0,0,0,66,1,18,7,5, -   ,12,0,1,0,0,0,0,"principal forum for planning, policy and community development in the region."
+Vermont,VT06,6,Northeastern Vermont Development Association,,64764,0,0,0,,9,11,7,4,1,4,1,1,0,0,0,0,
+Vermont,VT07,7,Lamoille County Planning Commission,,24475,0,0,0,,9,8,6,2, -   ,5,0,1,0,0,0,0,
+Vermont,VT08,8,Addison County Regional Planning Commission,,36200,0,0,0,67,9,6,6,3, -   ,3,0,0,0,0,0,0,
+Vermont,VT09,9,Central Vermont Regional Planning Commission,,65034,0,0,0,67,9,9,7,3, -   ,5,0,1,0,0,0,0,assist member municipalities in providing effective local government and to work cooperatively with them to address regional issues
+Vermont,VT10,10,Southern Windsor County Regional Planning Commission,,24711,0,0,0,60,9,7,7,3, -   ,4,0,0,0,0,0,0,
+Vermont,VT11,11,Two Rivers-Ottauquechee Regional Commission,,55996,0,0,0,,9,10,7,3, -   ,6,0,1,0,0,0,0,
+Washington,WA01,1,Puget Sound Regional Council,,3690942,1,0,0,,1,79,6,23,4,19,9,24,0,0,0,0,work together to develop policies and make decisions about regional issues.
+Washington,WA02,2,Benton-Franklin Council of Governments,,253340,1,0,0,66,1,8,6,2,2,4,0,0,0,0,0,0,Provides a regional forum and planning entity for the development of jurisdictional programs and decision-making
+Washington,WA03,3,Cowlitz-Wahkiakum Council of Governments,,106388,1,0,0,60,1,10,6,3, -   ,6,0,1,0,0,0,0,
+Washington,WA04,4,Gray Harbor Council of Governments,,72797,0,0,0,60,9,3,5,2, -   ,1,0,0,0,0,0,0,"serves the local governments and the citizens in the region by dealing with issues and needs that cross city, town, county, and even state boundaries"
+Washington,WA05,5,Thurston Regional Planning Council,,252264,0,0,1,67,1,17,5,4, -   ,8,1,4,0,0,0,0,"Act as a “convener” to build regional consensus on issues through information and citizen involvement; Build inteRIGOvernmental consensus on regional plans, policies, and issues, and advocate local implementation"
+Washington,WA06,6,Whatcom Council of Governments,,201140,0,0,1,66,1,10,5,3, -   ,6,0,0,0,1,0,0," jurisdictions come together regularly for the purposes of defining, discussing and planning the future of the region"
+Washington,WA07,7,Yakima Valley Conference of Governments,,243231,0,0,1,66,1,11,5,4, -   ,4,2,1,0,0,0,0,a forum to address an ever growing list of regional concerns
+Washington,WA08,8,North Central Washington Development District,,152004,1,0,0,,2,,3,,,,,,,,,, regional economic development strategy and planning and collaborates with various private and public agencies to accomplish this goal
+Washington,WA09,9,Skagit Council of Governments,,116901,0,0,1,,1,4,7,2, -   ,2,0,0,0,0,0,0,
+Washington,WA10,10,Tri County Economic Development District,,64083,1,0,0,69,9,9,3,5,2,1,0,0,0,1,0,0,
+Washington,WA50,50,Southwest Washington Regional Transportation Council,,456747,0,0,0,,7,,,,,,,,,,,,
+Washington,WA51,51,Spokane Regional Transportation Council,,471221,0,0,1,,7,,,,,,,,,,,,
+Washington,WA52,52,Walla Walla Valley Metropolitan Planning Organization,,58781,0,0,0,,7,,,,,,,,,,,,
+Washington,WA99,99,Unattached,,584701,0,0,0,,0,,,,,,,,,,,,
+Wisconsin,WI01,1,Southeastern Wisconsin Regional Planning Commission,,2019970,0,0,0,60,1,72,7,13,4,43,0,12,0,0,0,0, help solve problems and to focus regional attention on key issues of regional consequence.
+Wisconsin,WI02,2,Bay-Lake Regional Planning Commission,,577147,1,0,0,72,2,7,7,2,1,3,0,1,0,0,0,0,the official area-wide planning agency for northeastern Wisconsin
+Wisconsin,WI03,3,West Central Wisconsin Regional Planning Commission,,414118,1,0,0,71,2,12,6,3,3,6,0,0,0,0,0,0,provide technical assistance and advisory services on regional issues to the local governments and organizations within the region and often serve as a coordinating agency for local programs and activities.
+Wisconsin,WI04,4,Mississippi River Regional Planning Commission,,290208,1,0,0,64,2,4,4,2,1,1,0,0,0,0,0,0,providing advisory services on regional issues to local governments 
+Wisconsin,WI05,5,North Central Wisonsin Regional Planning Commission,,441822,1,0,0,73,2,8,5,2, -   ,4,0,2,0,0,0,0,"serve as a forum for communication, cooperation and coordination among federal, state, regional and local interests"
+Wisconsin,WI06,6,East Central Wisconsin Regional Planning Commission,,651835,1,0,0,72,2,8,6,1,2,3,0,1,0,1,0,0,provides the basic information and planning services necessary to solve problems which transcend the corporate boundaries and fiscal capabilities of individual governmental jurisdictions.
+Wisconsin,WI07,7,Southwestern Wisconsin Regional Planning Commission,,146594,1,0,0,70,9,8,6,1,2,3,0,1,0,1,0,0,
+Wisconsin,WI08,8,Capital Area Regional Planning Commission,Madison Area Transportation Planning Board,488073,0,0,1,7,2,9,4,1,4,3,0,1,0,0,0,0,serve as the regional planning and areawide water quality management planning entity for the Dane County region
+Wisconsin,WI09,9,Northwest Regional Planning Commission,,205634,1,0,0,59,9,15,6,5,4,2,0,3,0,0,1,0,"a leader in community development, coordination of government services, and educating the public on regional projects and impacts"
+Wisconsin,WI50,50,State Line Area Transportation Study,,160331,0,0,1,,7,,,,,,,,,,,,
+Wisconsin,WI99,99,Unattached,,291254,0,0,0,,0,,,,,,,,,,,,
+West Virginia,WV01,1,Regional Intergovernmental Council,,282564,1,0,0,68,1,9,6,3,2,4,0,0,0,0,0,0,provide a mechanism for dealing with planning and development issues on a multi-jurisdictional or regional basis
+West Virginia,WV02,2,Region I Planning and Development Commission,,214461,1,0,0,,2,9,5,2,3,4,0,0,0,0,0,0,provide comprehensive planning of all types
+West Virginia,WV03,3,Region II Planning and Development Council,,251426,1,0,0,,2,7,4,3,1,3,0,0,0,0,0,0,Elected officials collaborating to achieve optimal administration of planning and development
+West Virginia,WV04,4,Region 4 Planning and Development Council,,125625,1,0,0,71,2,7,5,4, -   ,0,3,0,0,0,0,0,
+West Virginia,WV05,5,Mid-Ohio Valley Regional Council,,171699,1,0,0,,1,15,6,2,7,3,0,0,0,0,3,0,Together we work on regional concerns that affect all of our communities
+West Virginia,WV06,6,Region VI Planning and Development Council,,280323,1,0,0,,2,,4,,,,,,,,,,low-key facilitators in a systematic and synergistic process
+West Virginia,WV07,7,Region VII Planning and Development Council,,116977,1,0,0,72,9,6,4,3,2,0,0,1,0,0,0,0,
+West Virginia,WV08,8,Region 8 Planning and Development Council,,85833,1,0,0,72,9,23,4,14,6,0,0,0,0,1,2,0,
+West Virginia,WV09,9,The Eastern Panhandle Regional Planning and Development Council,,175208,1,0,0,71,2,7,5,5,2,0,0,0,0,0,0,0,"assist local governments in resolving their common problems, engage in area-wide comprehensive and functional planning,  and provide a regional focus in regard to multiple programs undertaken on an area-wide basis"
+WV OH,WV10,10,Belomar Regional Council,,94133,1,1,0,69,1,12,5,6,2,0,0,1,1,2,0,0,"foster a cooperative effort in planning, programming, implementation and development of local and regional plans, programs and project"
+WV OH,WV11,11,Brooke-Hancock Regional Council,,54745,1,1,0,,1,7,4,4,1,1,0,0,0,1,0,0,
+Wyoming,WY01,1,North East Wyoming Economic Development Coalition,,76741,1,0,0,,9,,3,,,,,,,,,,
+Wyoming,WY02,2,Southeast Wyoming Economic Development District,Cheyenne MPO,149953,1,0,0,,2,,3,,,,,,,,,, enhance and regionalize the economic development efforts in the four counties
+Wyoming,WY50,50,Casper Area Metropolitan Planning Organization,Casper Area Metropolitan Planning Organization,75450,0,0,1,,7,,,,,,,,,,,,
+Wyoming,WY99,99,Unattached,,261482,0,0,0,,0,,,,,,,,,,,,
