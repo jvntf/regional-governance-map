@@ -24,7 +24,14 @@
         text-align: center;
       }
       
-      
+
+      .page-header{
+        padding-top:4%;
+      }
+
+      #page_content{
+        padding: 0 5%;
+      }
       #national-info {
         text-align:center ; 
         display:block;
@@ -58,20 +65,22 @@
       #state-info{
         display: inline-block;
       }
-      
+    
       /*  Dashboard Layout/Appearence CSS */
         #dashboard {
-            width: 75%;
+            /*width: 90%;*/
+            padding:0 3%;
             height: 300px;
             margin-left: auto;
             margin-right: auto;
-      padding-top: 20px;
+            padding-top: 20px;
         }
         
         /* Instructions and explaination accordion */
         #instructions {
             margin-left: 10px;
-            width: 300px;
+            margin-right:50px;
+            /*width: 300px;*/
             height: 100%;
             float: left;
             font-size: 14px;
@@ -137,21 +146,22 @@
         
         /* Animated statistics section */
         #comparison {
-            width: 300px;
+            /*width: 300px;*/
             height: 100%;
-            float: left;
+            /*float: left;*/
             padding-top: 10px;
-      margin-left:80px;
+            text-align: right;
 
         }
         
         .stats {
-        margin-left: 35%;
+        /*margin-left: 35%;*/
 
         }
         
         .counter {
             font-size:50px;
+            /*right:0;*/
             margin-left: 27%;
         }
         
@@ -170,7 +180,7 @@
             float: left;
             text-align: center;
             font-size: 100%;
-      margin-left:100px;
+            margin-left:100px;
         }
         
          #donutChart {
@@ -206,6 +216,12 @@
               padding: 3px;
               margin: 1px;
               color: white;
+          }
+
+          path{
+            stroke-width:0.5px;
+          
+          }
 
     </style>
 	</head>
@@ -219,7 +235,7 @@
 			</div>
 		</div>
 			<div class="row" id="dashboard">
-   <script type="text/javascript">
+        <script type="text/javascript">
         
         window.onload=dashboardUpdate();
 
@@ -247,16 +263,17 @@
                     // Increase County Tally
                     totalCounties++;
                     // One RIGO and MSA Affiliation
-                    if (d.RIGOCodeNo != 99 && d.RIGO2 == 0 && d.Muni == 1) {
+                    // if (d.RIGOCodeNo != 99 && d.RIGO2 == 0 && d.Muni == 1) {
+                    if (d.RIGOCodeNo <50 && d.RIGO2 == 0 && d.Muni == 1) {
                         singleRIGOandMSA++
                     // Multiple RIGO and MSA Affiliation    
-                    } else if (d.RIGOCodeNo != 99 && d.RIGO2 != 0 && d.Muni == 1) {
+                    } else if (d.RIGOCodeNo <50 && d.RIGO2 != 0 && d.Muni == 1) {
                         multipleRIGOandMSA++   
                     // Single RIGO Affiliation    
-                    } else if (d.RIGOCodeNo != 99 && d.RIGO2 == 0 && d.Muni == 0) {
+                    } else if (d.RIGOCodeNo <50 && d.RIGO2 == 0 && d.Muni == 0) {
                         singleRIGO++
                     // Multiple RIGO Affiliation    
-                    } else if (d.RIGOCodeNo != 99 && d.RIGO2 != 0 && d.Muni == 0) {
+                    } else if (d.RIGOCodeNo <50 && d.RIGO2 != 0 && d.Muni == 0) {
                         multipleRIGO++  
                     // Single MSA Affiliation    
                     } else if (d.RIGOCodeNo == 99 && d.RIGO2 == 0 && d.Muni == 1) {
@@ -362,62 +379,61 @@
             var legendSpacing = 4;
             
             var legend = svg.selectAll('.legend')
-              .data(color.domain())
-              .enter()
-              .append('g')
-              .attr('class', 'legend')
-              .attr('transform', function(d, i) {
-                var height = legendRectSize + legendSpacing;
-                var offset =  height * color.domain().length / 2;
-                var horz = -3 * legendRectSize;
-                var vert = i * height - offset;
-                return 'translate(' + horz + ',' + vert + ')';
-              });    
+                .data(color.domain())
+                .enter()
+                .append('g')
+                .attr('class', 'legend')
+                .attr('transform', function(d, i) {
+                    var height = legendRectSize + legendSpacing;
+                    var offset =  height * color.domain().length / 2;
+                    var horz = -3 * legendRectSize;
+                    var vert = i * height - offset;
+                    return 'translate(' + horz + ',' + vert + ')';
+                });    
                 
-             legend.append('rect')
-                  .attr('width', legendRectSize)
-                  .attr('height', legendRectSize)
-                  .style('fill', color)
-                  .style('stroke', color)
-                  .on("click", function(countName) {
-                      var rect = d3.select(this);
-                      var enabled = true;
-                      var totalEnabled = d3.sum(countsJSON.map(function(d) {
+            legend.append('rect')
+                .attr('width', legendRectSize)
+                .attr('height', legendRectSize)
+                .style('fill', color)
+                .style('stroke', color)
+                .on("click", function(countName) {
+                    var rect = d3.select(this);
+                    var enabled = true;
+                    var totalEnabled = d3.sum(countsJSON.map(function(d) {
                         return (d.enabled) ? 1 : 0;
-                      }));
+                    }));
 
-                      if (rect.attr('class') === 'disabled') {
+                    if (rect.attr('class') === 'disabled') {
                         rect.attr('class', '');
-                      } else {
+                    } else {
                         if (totalEnabled < 2) return;
                         rect.attr('class', 'disabled');
                         enabled = false;
-                      }
+                    }
 
-                      pie.value(function(d) {
+                    pie.value(function(d) {
                         if (d.countName === countName) d.enabled = enabled;
                         return (d.enabled) ? d.count : 0;
-                      });
+                    });
 
-                      path = path.data(pie(countsJSON));
+                    path = path.data(pie(countsJSON));
 
-                      path.transition()
+                    path.transition()
                         .duration(750)
                         .attrTween('d', function(d) {
-                          var interpolate = d3.interpolate(this._current, d);
-                          this._current = interpolate(0);
-                          return function(t) {
-                            return arc(interpolate(t));
-                          };
+                            var interpolate = d3.interpolate(this._current, d);
+                            this._current = interpolate(0);
+                            return function(t) {
+                                return arc(interpolate(t));
+                            };
                         });       
-             });
+                });
                 
             
             legend.append('text')
-              .attr('x', legendRectSize + legendSpacing)
-              .attr('y', legendRectSize - legendSpacing)
-              .text(function(d) { return d; });
-  
+                .attr('x', legendRectSize + legendSpacing)
+                .attr('y', legendRectSize - legendSpacing)
+                .text(function(d) { return d; });
             });  // End of Donut Chart
             
             
@@ -446,8 +462,7 @@
               $("#rigoCounter").attr("data-count", 477);  
               $("#msaCounter").attr("data-count", 398)    
               
-                
-               $('.counter').each(function() {
+              $('.counter').each(function() {
                   var $this = $(this),
                       countTo = $this.attr('data-count');
 
@@ -506,7 +521,7 @@
         
     </script>
 				
-        <div class="col-xs-4" id="instructions">
+        <div class="col-md-7" id="instructions">
              <div class="accordion-container">
           <div class="set">
             <a href="#">
@@ -568,7 +583,7 @@
         
        
         
-        <div class="col-xs-4" id="comparison"> 
+        <div class="col-md-4" id="comparison"> 
             <div class="stats">
                 Total Number of RIGOs
                 <div id="rigoCounter" class="counter" data-count="0">0</div>
@@ -580,14 +595,14 @@
             
         </div>
         
-        <div class="col-xs-4" id="affiliation">
+        <!-- <div class="col-xs-4" id="affiliation">
           <div id="donutChart"></div>
-        </div>
+        </div> -->
 	</div>	
 		</div>
-		<div class="container-fluid">
+		<div class="container-fluid" id="page_content">
 			<div class="row">
-				<div class="col-md-8">					
+				<div class="col-md-12" id="countrymap">					
 					<div class="card" >
 						<div class="card-header">
 							<h4>The U.S. Map</h4>
@@ -613,414 +628,9 @@
 									</ul>
 								</div><!--end of information column-->
 								<div class="col-sm-8"id="national-map">
-									<script>
+									<script type="text/javascript" src="rigo_sc1.js"></script>
 										
-										var margin = {top: 10, right: 0, bottom: 10, left: 0};
-										var width = $("#national-map").width();
-										var mapRatio = .5;
-										var height = width * mapRatio;
-										var w = 100;
-										var h = 10;
-
-										var svg = d3.select("#national-map").append("svg")
-											.attr("width", width)
-											.attr("height", height + margin.top + margin.bottom)
-											.append("g")
-											//.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-										
-										var g1 = svg.append('g');
-
-										var projection =  d3.geoAlbersUsa()
-											.scale(width)
-											.translate([width / 2, height / 2]);
-
-                    states = d3.map();
-                    rigosname =d3.map();
-                    rigos = {};
-                    population =d3.map();
-                    overlapped = [];
-                    rigo_information={};
-
-                    function insertAfter(referenceNode, newNode) {
-                        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-                    }
-
-                    var color = d3.scaleThreshold()
-                      .domain([10000,100000, 500000, 1000000,5000000,10000000])
-                      .range(["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe","#045a8d"]);
-                    var color_c= ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe","#045a8d"]; 
-
-                    var path = d3.geoPath()
-                      .projection(projection);
-
-    //var svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
-
-                    d3.csv("County and Muni RIGO Boundaries.csv", function(overrigo) {
-                      overrigo.forEach(function(row) { 
-                        if(row.RIGOCode!=0&&row.RIGO2!=0){
-                          overlapped.push(parseInt(row.Code));
-                        }
-                      });
-                    });
-
-                    d3.csv("CrossBoundary Org Data Rigo.csv", function(csvpop) {
-
-                    csvpop.forEach(function(row) {
-                        population.set(row.Code, row.POPULATION);
-                      });
-                    });
-
-    d3.csv("CrossBoundary Org Data Rigo.csv", function(csvinfo) {
-
-      csvinfo.forEach(function(row) 
-                {
-                  
-                    if(rigo_information[row.Code]==null)
-                    {
-                      rigo_information[row.Code]=new Array();
-                      rigo_information[row.Code].push(row.State);
-                      rigo_information[row.Code].push(row.RIGOName);
-                      rigo_information[row.Code].push(parseInt(row.POPULATION));
-
-                    }
-                  });
-    });
-
-
-
-
-    d3.csv("County and Muni RIGO Boundaries.csv", function(csv) {
-
-    csv.forEach(function(row) {
-        states.set(row.Code, row.RIGO);
-      });
-
-
-
-
-
-      csv.forEach(function(row) 
-                {
-                  if(row.RIGOCodeNo != 99)
-                  {
-                    if(rigos[row.RIGOCode]==null)
-                    {
-                      rigos[row.RIGOCode]=new Array();
-                      rigos[row.RIGOCode].push(parseInt(row.Code));
-                    }
-                    else
-                    {
-                      rigos[row.RIGOCode].push(parseInt(row.Code));
-                    }
-
-                    if(rigosname.get(row.Rigo)==undefined)
-                    {
-                      rigosname.set(row.RIGOCode,row.RIGO);
-                    }
-                  }
-                  });
-      });
-
-
-
-
-
-
-                  d3.queue()
-                      .defer(d3.json, 'us.topo.json')
-                      .defer(d3.json, 'vt.topo.json')
-                      .defer(d3.json, 'ma.topo.json')
-                      .defer(d3.json, 'nh.topo.json')
-                      .defer(d3.json, 'ri.topo.json')
-                      .defer(d3.json, 'ct.topo.json')
-                      .await(USARigo);  
-
-                  
-
-      function USARigo(error, json1, vt, ma, nh, ri, ct){
-
-         const texture =
-      textures.lines()
-      .size(3)
-      .strokeWidth(1);
-
-        const texture1 =
-      textures.lines()
-      .size(4)
-        .stroke("gray")
-      .strokeWidth(1);
-    svg.call(texture);
-
-
-    function clicked()
-    {
-    d3.select(this).attr("stroke","red");
-     d3.select("#info_rigo_state").html(rigo_information[d3.select(this).attr('id')][0]);
-      d3.select("#info_rigo_name").html(rigo_information[d3.select(this).attr('id')][1]);
-        d3.select("#info_rigo_population").html(rigo_information[d3.select(this).attr('id')][2]);
-    } 
-
-    function hover()
-    {
-    d3.select(this).attr("stroke","red");
-    } 
-
-    function nohover()
-    {
-    d3.select(this).attr("stroke","black");
-    }
-
-
-        g1.append("path")
-          .datum(topojson.merge(json1, json1.objects.collection.geometries.filter(function(d) { 
-              var temp=parseInt(d.properties.fips);
-            if(overlapped.includes(temp))
-            {
-              return true; 
-            }
-            else
-            {
-              return false;
-            }
-
-          })))
-          .attr("d", path)
-          .attr("fill", texture.url())
-          .attr("stroke-linejoin","round")
-          .attr("stroke-linecap","round");
-
-    g1.append("path")
-          .datum(topojson.feature(json1, json1.objects.collection))
-          .attr("fill", "none")
-          .attr("d", path)
-          .attr("stroke-width",0.3)
-          .attr("stroke","gray");
-
-    g1.append("path")
-          .datum(topojson.merge(json1, json1.objects.collection.geometries.filter(function(d) { 
-              var temp=parseInt(d.properties.fips);
-            if(overlapped.includes(temp))
-            {
-              return true; 
-            }
-            else
-            {
-              return false;
-            }
-
-          })))
-          .attr("d", path)
-          .attr("fill", texture.url())
-          .attr("stroke-linejoin","round")
-          .attr("stroke-linecap","round");
-
-    //texture.url()
-    for(keys in rigos){
-
-       g1.append("path")
-          .datum(topojson.merge(json1, json1.objects.collection.geometries.filter(function(d) {
-            return rigos[keys].includes(parseInt(d.properties.fips));
-          })))
-          .attr("d", path)
-          .attr("stroke","black")
-          .style("fill", function(d){ return color(population.get(keys))})
-          .attr("fill-opacity", 0.7)
-          .attr("stroke-width", "0.7")
-          .attr("stroke-linejoin","round")
-          .attr("stroke-linecap","round")
-          .attr("id", function(d){   
-                    return keys;
-                })
-                .style("cursor", "pointer")
-          .on('click', zoom)
-          .on('mouseover',clicked)
-          .on('mouseout', nohover);
-    }
-
-
-    for(keys in rigos){
-                       g1.append("path")
-                          .datum(topojson.merge(vt, vt.objects.vt.geometries.filter(function(d) {
-                            return rigos[keys].includes(parseInt(d.id));})))
-                          .attr("d", path)
-                          .attr("stroke","black")
-                          .style("fill", function(d){return color(population.get(keys))})
-                          .attr("fill-opacity", 0.7)
-                          .attr("stroke-width", "1.5")
-                          .attr("stroke-linejoin","round")
-                          .attr("stroke-linecap","round")
-                          .attr("id", function(d){   
-                                    return keys;
-                                })
-                                .style("cursor", "pointer")
-                          .on('click', zoom)
-          .on('mouseover',clicked)
-          .on('mouseout', nohover);;
-                    }
-
-                    g1.append("path")
-                          .data(topojson.feature(ma, ma.objects.ma).features)
-                          .attr("fill", "lightgray")
-                          .attr("d", path)
-                          .attr("stroke-width",0.5)
-                          .attr("stroke","white");
-
-
-
-                    for(keys in rigos){
-                       g1.append("path")
-                          .datum(topojson.merge(ma, ma.objects.ma.geometries.filter(function(d) {
-                            return rigos[keys].includes(parseInt(d.id));})))
-                          .attr("d", path)
-                          .attr("stroke","black")
-                          .style("fill", function(d){return color(population.get(keys))})
-                          .attr("fill-opacity", 0.7)
-                          .attr("stroke-width", "1.5")
-                          .attr("stroke-linejoin","round")
-                          .attr("stroke-linecap","round")
-                          .attr("id", function(d){   
-                                    return keys;
-                                }) 
-                                .style("cursor", "pointer")
-                          .on('click', zoom)
-          .on('mouseover',clicked)
-          .on('mouseout', nohover);;
-                    }
-
-                    g1.append("path")
-                          .data(topojson.feature(nh, nh.objects.nh).features)
-                          .attr("fill", "lightgray")
-                          .attr("d", path)
-                          .attr("stroke-width",0.5)
-                          .attr("stroke","white");
-
-                    for(keys in rigos){
-                       g1.append("path")
-                          .datum(topojson.merge(nh, nh.objects.nh.geometries.filter(function(d) {
-                            return rigos[keys].includes(parseInt(d.id));})))
-                          .attr("d", path)
-                          .attr("stroke","black")
-                          .style("fill", function(d){return color(population.get(keys))})
-                          .attr("fill-opacity", 0.7)
-                          .attr("stroke-width", "1.5")
-                          .attr("stroke-linejoin","round")
-                          .attr("stroke-linecap","round")
-                          .attr("id", function(d){   
-                                    return keys;
-                                })  
-                                .style("cursor", "pointer")
-                          .on('click', zoom)
-          .on('mouseover',clicked)
-          .on('mouseout', nohover);;
-                    }
-
-                    g1.append("path")
-                          .data(topojson.feature(ri, ri.objects.ri).features)
-                          .attr("fill", "lightgray")
-                          .attr("d", path)
-                          .attr("stroke-width",0.5)
-                          .attr("stroke","white");
-
-                    for(keys in rigos){
-                       g1.append("path")
-                          .datum(topojson.merge(ri, ri.objects.ri.geometries.filter(function(d) {
-                            return rigos[keys].includes(parseInt(d.id));})))
-                          .attr("d", path)
-                          .attr("stroke","black")
-                          .style("fill", function(d){return color(population.get(keys))})
-                          .attr("fill-opacity", 0.7)
-                          .attr("stroke-width", "1.5")
-                          .attr("stroke-linejoin","round")
-                          .attr("stroke-linecap","round")
-                          .attr("id", function(d){   
-                                    return keys;
-                                })  
-                                .style("cursor", "pointer")
-                          .on('click', zoom)
-          .on('mouseover',clicked)
-          .on('mouseout', nohover);;
-                    }
-
-                    g1.append("path")
-                          .data(topojson.feature(ct, ct.objects.ct).features)
-                          .attr("fill", "lightgray")
-                          .attr("d", path)
-                          .attr("stroke-width",0.5)
-                          .attr("stroke","white");
-
-                    for(keys in rigos){
-                       g1.append("path")
-                          .datum(topojson.merge(ct, ct.objects.ct.geometries.filter(function(d) {
-                            return rigos[keys].includes(parseInt(d.id));})))
-                          .attr("d", path)
-                          .attr("stroke","black")
-                          .style("fill", function(d){return color(population.get(keys))})
-                          .attr("fill-opacity", 0.7)
-                          .attr("stroke-width", "1.5")
-                          .attr("stroke-linejoin","round")
-                          .attr("stroke-linecap","round")
-                          .attr("id", function(d){   
-                                    return keys;
-                                }) .on('click', zoom)
-                                .style("cursor", "pointer")
-          .on('mouseover',clicked)
-          .on('mouseout', nohover);
-                    }
-
-                    d3.json("drawStateBorders.json", function(drawStateBorders){
-      g1.append("path")
-          .datum(topojson.feature(drawStateBorders, drawStateBorders.objects.us))
-          .attr("fill", "none")
-          .attr("stroke-width","1.7")
-          .attr("d", path)
-          .attr("stroke","black");
-        });
-                       
-
-    var div1=document.getElementById("national_map");
-    var div2=document.getElementById("us_state_div");
-    insertAfter(div1, div2);
-
-    var centered;
-
-
-                          function zoom(d){
-                            console.log(d);
-                            var x;
-                            var y;
-                            var zoomLevel;
-
-                            if(d && centered !== d){
-                              var centroid = path.centroid(d);
-                              x = centroid [0];
-                              y = centroid [1];
-
-							  var zoomSettings = {
-                            duration: 300,
-                            ease: d3.easeCubicOut,
-                            zoomLevel: 4
-                          }; 
-						  
-                              zoomLevel=zoomSettings.zoomLevel;
-                              centered = d;
-                            }else{
-                              x = width/2;
-                              y = height / 2;
-                              zoomLevel = 1;
-                              centered = null;
-                            }
-							
-
-                            g1.transition()
-                             .duration(zoomSettings.duration)
-                             .ease(zoomSettings.ease)
-                             .attr("transform", "translate(" + width/2 +","+ height/2 +")scale(" + zoomLevel + ")translate("+ -x +","+ -y +")");
-                          }
-						  
-						  
-						  
-						  };
+									
 
     
 
@@ -1036,684 +646,94 @@
 					</div><!--end of card-->
 				</div>
 
-			<div class="col-md-4" >
-			
+        <!-- col-md-4 -->
+			<div class="col-md-12" >
 				<div  class="card" >
 					<div class="card-header">
 						<h4>State Map</h4>
 					</div>
 					<div class="card-body" >
-												</div>
-						<div class="row col-md-12" id="state-info">
-							<select id="stateview">
-								<option value="01">Alabama</option>
-								<option value="02">Alaska</option>
-								<option value="04">Arizona</option>
-								<option value="05">Arkansas</option>
-								<option value="06">California</option>
-								<option value="08">Colorado</option>
-								<option value="09">Connecticut</option>
-								<option value="10">Delaware</option>
-								<option value="11">District Of Columbia</option>
-								<option value="12">Florida</option>
-								<option value="13">Georgia</option>
-								<option value="15">Hawaii</option>
-								<option value="16">Idaho</option>
-								<option value="17">Illinois</option>
-								<option value="18">Indiana</option>
-								<option value="19">Iowa</option>
-								<option value="20">Kansas</option>
-								<option value="21">Kentucky</option>
-								<option value="22">Louisiana</option>
-								<option value="23">Maine</option>
-								<option value="24">Maryland</option>
-								<option value="25">Massachusetts</option>
-								<option value="26">Michigan</option>
-								<option value="27">Minnesota</option>
-								<option value="28">Mississippi</option>
-								<option value="29">Missouri</option>
-								<option value="30">Montana</option>
-								<option value="31">Nebraska</option>
-								<option value="32">Nevada</option>
-								<option value="33">New Hampshire</option>
-								<option value="34">New Jersey</option>
-								<option value="35">New Mexico</option>
-								<option value="36">New York</option>
-								<option value="37">North Carolina</option>
-								<option value="38">North Dakota</option>
-								<option value="39">Ohio</option>
-								<option value="40">Oklahoma</option>
-								<option value="41">Oregon</option>
-								<option value="42">Pennsylvania</option>
-								<option value="44">Rhode Island</option>
-								<option value="45">South Carolina</option>
-								<option value="46">South Dakota</option>
-								<option value="47">Tennessee</option>
-								<option value="48">Texas</option>
-								<option value="49">Utah</option>
-								<option value="50">Vermont</option>
-								<option value="51">Virginia</option>
-								<option value="53">Washington</option>
-								<option value="54">West Virginia</option>
-								<option value="55">Wisconsin</option>
-								<option value="56">Wyoming</option>
-							</select>
-							</br>
-							</br>
-							<!-- <div class="btn-group" data-toggle="buttons-radio" > -->
-								<!-- <div class="buttons"> -->
-									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="RIGO">RIGO</button>  -->
-									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="MSA">MSA</button> -->
-									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="Both">Both</button>  -->
-								<!-- </div> -->
-							<!-- </div> -->
-							
-							<h6>County Information</h6>
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item">State Name: <span id="StateName"></span></li>
-								<li class="list-group-item">County Name: <span id="CountyName"></span></li>
-								<li class="list-group-item">RIGO Affiliation #1 Name: <span id="RIGOAffiliation1"></span></li>
-								<li class="list-group-item">RIGO Affiliation #2 Name: <span id="RIGOAffiliation2"></span></li>
-							</ul>	
-						</div>
-						<div class="row" >
-						<div class="col-md-12" id="us_state_div" >
-						<script>
-var margin = {top: 10, right: 10, bottom: 10, left: 10};
-								var width = $("#us_state_div").width();
-								var mapRatio = .5;
-								var height = width*mapRatio;
-								var w = 100;
-								var h = 10;
-
-								var svg = d3.select("#us_state_div").append("svg")
-									.attr("width", width + margin.left + margin.right)
-									.attr("height", height + margin.top + margin.bottom)
-									.append("g")
-									.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-    var color = d3.scaleThreshold()
-                    .domain([10000,100000, 500000, 1000000,5000000,10000000])
-                          .range(["#f1eef6", "#bdc9e1", "#74a9cf", "#2b8cbe", "#045a8d"]);
-
-
-    rigosname = d3.map();
-            rigos = {};
-            population = d3.map();
-            overlapped = [];
-            countyRIGOAffiliationName = {};
-
-
-            <!-- var svg = d3.select("#us_state_div").append("svg") -->
-                <!-- .attr("width", width) -->
-                <!-- .attr("height", height); -->
-
-            var g = svg.append('g');
-
-
-            d3.csv("County and Muni RIGO Boundaries.csv", function(overrigo) {
-                          
-                            overrigo.forEach(function(row) { 
-                            if(row.RIGOCode!=0&&row.RIGO2!=0)
-                            {
-                                overlapped.push(parseInt(row.Code));
-                            }
-
-                            var code=parseInt(row.Code);
-                            code=""+code;
-
-
-                                
-                                if(countyRIGOAffiliationName[code]==null)
-                              {
-                                countyRIGOAffiliationName[code]=new Array();
-                                countyRIGOAffiliationName[code].push((row.RIGOCode));
-                                countyRIGOAffiliationName[code].push((row.RIGO2));
-                                countyRIGOAffiliationName[code].push((row.Place));
-                                countyRIGOAffiliationName[code].push((row.RIGO));
-                                countyRIGOAffiliationName[code].push((row.Code));
-                                countyRIGOAffiliationName[code].push((row.RIGOCodeSt));
-
-                              }
-
-                              
-                            });
-                          });
-
-
-                          d3.csv("CrossBoundary Org Data Rigo.csv", function(csvpop) {
-
-                          csvpop.forEach(function(row) {
-
-                              population.set(row.Code, row.POPULATION);
-                              
-                            });
-                          });
-
-                          d3.csv("County and Muni RIGO Boundaries.csv", function(csv) {
-
-                          csv.forEach(function(row) 
-                          {
-                            if(row.RIGOCodeNo != 99)
-                            {
-                              if(rigos[row.RIGOCode]==null)
-                              {
-                                rigos[row.RIGOCode]=new Array();
-                                rigos[row.RIGOCode].push(parseInt(row.Code));
-                              }
-                              else
-                              {
-                                rigos[row.RIGOCode].push(parseInt(row.Code));
-                              }
-
-                              if(rigosname.get(row.Rigo)==undefined)
-                              {
-                                rigosname.set(row.RIGOCode,row.RIGO);
-                              }
-                            }
-                            });
-                           });
-/* ========================================================== End the Stoing Data Section =========================================================*/
-
-/* ========================================================== Start the jquery Section ============================================================*/
-                        
-                          var selected = localStorage.getItem('selected');
-                          if (selected) {
-                            $("#stateview").val(selected);
-                          }
-
-                          $("#stateview").change(function() {
-                            localStorage.setItem('selected', $(this).val());
-                            location.reload();
-                          });
-/* ========================================================== End the jquery Section ==============================================================*/
-
-          var vt1=50,ma1=25,nh1=33,ri1=44,ct1=09;              
-           queue()
-                  .defer(d3.json, 'us.topo.json')
-                  .defer(d3.json, 'vt.topo.json')
-                  .defer(d3.json, 'ma.topo.json')
-                  .defer(d3.json, 'nh.topo.json')
-                  .defer(d3.json, 'ri.topo.json')
-                  .defer(d3.json, 'ct.topo.json')
-                  .await(USARigo);  
-
-              
-
-              function USARigo(error, json, vt, ma, nh, ri, ct){
-/* =============================================== Start Texture and Projection Section ===========================================================*/
-                     const texture =
-                      textures.lines()
-                      .size(3)
-                      .strokeWidth(1);
-                     const texture1 =
-                      textures.lines()
-                      .size(4)
-                      .stroke("gray")
-                      .strokeWidth(1);
-                     svg.call(texture);
-
-                      var myData = topojson.feature(json, {
-                        type: "GeometryCollection",
-                        geometries: json.objects.collection.geometries.filter(function(d) { return parseInt(d.properties.state_fips) == selected;
-                        })});
-
-                      var projection = d3.geoAlbersUsa()
-                        .fitExtent([[20, 20], [width, height]], myData);
-
-                      var path = d3.geoPath()
-                        .projection(projection);
-/* =============================================== End Texture and Projection Section ============================================================= */
-
-/* =============================================== Start Merge and Texture Section ================================================================ */
-
-              
-              g.append("path")
-                 .datum(topojson.merge(json, json.objects.collection.geometries.filter(function(d) { 
-                        var temp=parseInt(d.properties.fips);
-                      if(d.properties.state_fips == selected || vt1 == selected || ma1 == selected || nh1 == selected || ri1 == selected || ct1 == selected )
-                        {
-                              if(overlapped.includes(temp))
-                              {
-                                return true; 
-                              }
-                              else
-                              {
-                                return false;
-                              }
-                        }
-                      })))
-                 .attr("d", path)
-                 .attr("fill", texture.url());
-/* =============================================== End Merge and Texture Section ================================================================== */
-
-/* ======================================================== Start New England Section ==============================================================*/
-
-// Vermont State
-      if(selected == vt1){
-
-                for(keys in rigos){
-                   g.append("path")
-                      .datum(topojson.merge(vt, vt.objects.vt.geometries.filter(function(d) {
-                    if(vt1 == selected)
-                    {
-                    return rigos[keys].includes(parseInt(d.id));
-                  }
-                  })))
-                      .attr("d", path)
-                      .attr("stroke","black")
-                      .style("fill", function(d){ return color(population.get(keys))})
-                      .attr("fill-opacity", 0.7)
-                      .attr("stroke-width", "1.5")
-                      .attr("stroke-linejoin","round")
-                      .attr("stroke-linecap","round")
-                      .attr("id", function(d){   
-                                return keys;
-                            }); 
-                }
-                 g.append("g")
-                   .attr("id", "state")
-                   .selectAll("path")
-                   .data(topojson.feature(vt, vt.objects.vt).features)
-                   .enter().append("path")
-                   .attr("d", path)
-                   .attr("id",function(d) { return d.id; })
-                   .attr("stroke","black")
-                   .attr("stroke-width", "0.5")
-                   .attr("fill-opacity", 0.000009)
-                   .attr("fill", "white")
-                   .on("click", clicked)
-                   .on('mouseover',hover)
-                   .on('mouseout', nohover)
-                                               .style("cursor", "pointer")
-;
-                }
-                                // Massachusetts State
-     else if(selected == ma1){
-
-      console.log(rigos[keys]);
-     
-
-                for(keys in rigos){
-                   g.append("path")
-                      .datum(topojson.merge(ma, ma.objects.ma.geometries.filter(function(d) {
-                    if(ma1 == selected)
-                    {
-                    return rigos[keys].includes(parseInt(d.id));
-                  }
-                  })))
-                      .attr("d", path)
-                      .attr("stroke","black")
-                      .style("fill", function(d){return color(population.get(keys))})
-                      .attr("fill-opacity", 0.7)
-                      .attr("stroke-width", "1.5")
-                      .attr("stroke-linejoin","round")
-                      .attr("stroke-linecap","round")
-                      .attr("id", function(d){   
-                                return keys;
-                            });
-                }
-                 g.append("g")
-                   .attr("id", "state")
-                   .selectAll("path")
-                   .data(topojson.feature(ma, ma.objects.ma).features)
-                   .enter().append("path")
-                   .attr("d", path)
-                   .attr("id",function(d) { return d.id; })
-                   .attr("stroke","black")
-                   .attr("stroke-width", "0.5")
-                   .attr("fill-opacity", 0.000009)
-                   .attr("fill", "white")
-                   .on("click", clicked)
-                   .on('mouseover',hover)
-                   .on('mouseout', nohover)
-                                               .style("cursor", "pointer")
-;
-
-
-              }
-                        // New Hampshire State
-      else if(selected == nh1){
-                for(keys in rigos){
-                   g.append("path")
-                      .datum(topojson.merge(nh, nh.objects.nh.geometries.filter(function(d) {
-                    if(nh1 == selected)
-                    {
-                    return rigos[keys].includes(parseInt(d.id));
-                  }
-                  })))
-                      .attr("d", path)
-                      .attr("stroke","black")
-                      .style("fill", function(d){return color(population.get(keys))})
-                      .attr("fill-opacity", 0.7)
-                      .attr("stroke-width", "1.5")
-                      .attr("stroke-linejoin","round")
-                      .attr("stroke-linecap","round")
-                      .attr("id", function(d){   
-                                return keys;
-                            });
-                }
-                  g.append("g")
-                   .attr("id", "state")
-                   .selectAll("path")
-                   .data(topojson.feature(nh, nh.objects.nh).features)
-                   .enter().append("path")
-                   .attr("d", path)
-                   .attr("id",function(d) { return d.id; })
-                   .attr("stroke","black")
-                   .attr("stroke-width", "0.5")
-                   .attr("fill-opacity", 0.000009)
-                   .attr("fill", "white")
-                   .on("click", clicked)
-                   .on('mouseover',hover)
-                   .on('mouseout', nohover)
-                                               .style("cursor", "pointer")
-;
-                            
-              }
-                                        // Rhode Island State
-      else if(selected == ri1){
-                for(keys in rigos){
-                   g.append("path")
-                      .datum(topojson.merge(ri, ri.objects.ri.geometries.filter(function(d) {
-                    if(ri1 == selected)
-                    {
-                    return rigos[keys].includes(parseInt(d.id));
-                  }
-                  })))
-                      .attr("d", path)
-                      .attr("stroke","black")
-                      .style("fill", function(d){return color(population.get(keys))})
-                      .attr("fill-opacity", 0.7)
-                      .attr("stroke-width", "1.5")
-                      .attr("stroke-linejoin","round")
-                      .attr("stroke-linecap","round")
-                      .attr("id", function(d){   
-                                return keys;
-                            });
-                }
-                  g.append("g")
-                   .attr("id", "state")
-                   .selectAll("path")
-                   .data(topojson.feature(ri, ri.objects.ri).features)
-                   .enter().append("path")
-                   .attr("d", path)
-                   .attr("id",function(d) { return d.id; })
-                   .attr("stroke","black")
-                   .attr("stroke-width", "0.5")
-                   .attr("fill-opacity", 0.000009)
-                   .attr("fill", "white")
-                   .on("click", clicked)
-                   .on('mouseover',hover)
-                   .on('mouseout', nohover)
-                                               .style("cursor", "pointer")
-;   
-      }
-                                        // Connecticut State
-    else if(selected == ct1){
-
-                
-
-              for(keys in rigos){
-                 g.append("path")
-                    .datum(topojson.merge(ct, ct.objects.ct.geometries.filter(function(d) {
-                  if(ct1 == selected)
-                  {
-                  return rigos[keys].includes(parseInt(d.id));
-                }
-                })))
-                    .attr("d", path)
-                    .attr("stroke","black")
-                    .style("fill", function(d){return color(population.get(keys))})
-                    .attr("fill-opacity", 0.7)
-                    .attr("stroke-width", "1.5")
-                    .attr("stroke-linejoin","round")
-                    .attr("stroke-linecap","round")
-                    .attr("id", function(d){   
-                              return keys;
-                          });
-              }
-
-                g.append("g")
-                   .selectAll("path")
-                   .data(topojson.feature(ct, ct.objects.ct).features)
-                   .enter().append("path")
-                   .attr("d", path)
-                   .attr("id",function(d) {  return d.id; })
-                   .attr("stroke","black")
-                   .attr("stroke-width", "0.5")
-                   .attr("fill-opacity", 0.000009)
-                   .attr("fill", "white")
-                   .on("click", clicked)
-                   .on('mouseover',hover)
-                   .on('mouseout', nohover)
-                                               .style("cursor", "pointer")
-;    
-            }
-/* ======================================================== End New England Section ======================================================== */
-/* ======================================================  Final Layer =====================================================================*/
-          else
-          {
-           
-            var beyond=[];
-                g.append("g")
-                   .selectAll("path")
-                   .data(topojson.feature(json, json.objects.collection).features.filter(function(d) { return d.properties.state_fips == selected; }))
-                   .enter()
-                   .append("path")
-                   .attr("d", path)
-                   .attr("id",function(d) { 
-                    beyond.push(parseInt(d.properties.fips));
-                    return d.properties.fips; })
-                   .attr("stroke","black")
-                   .attr("stroke-width", "0.3")
-                   .style("fill", function(d){
-                    var id=parseInt(d.properties.fips);
-                    id=""+id;
-                    return color(population.get(countyRIGOAffiliationName[id][0]));
-                  })
-                    .attr("fill-opacity", 0.7)
-
-                   .on("click", clicked)
-                   .on('mouseover',hover)
-                   .on('mouseout', nohover)
-                                               .style("cursor", "pointer")
-; 
-
-                   for(keys in rigos){
-               g.append("path")
-                  .datum(topojson.merge(json, json.objects.collection.geometries.filter(function(d) {
-                    if(d.properties.state_fips == selected)
-                    {
-                    return rigos[keys].includes(parseInt(d.properties.fips));
-                  }
-                  })))
-                  .attr("d", path)
-                  .attr("stroke","black")
-                  .style("fill", "none")
-                  .attr("fill-opacity", 0.7)
-                  .attr("stroke-width", "2");
-
-            }              
-
-                   //console.log(beyond);
-                   var myRigo=[];
-                   
-                  for (i = 0; i < beyond.length; i++) {
-
-                  if(!myRigo.includes(countyRIGOAffiliationName[beyond[i]][0])) 
-                  {
-                    myRigo.push(countyRIGOAffiliationName[beyond[i]][0]);
-                    if(countyRIGOAffiliationName[beyond[i]][1]!=0){ 
-                    myRigo.push(countyRIGOAffiliationName[beyond[i]][1]);
-                  }
-                  }
-                  }
-
-                 // console.log(countyRIGOAffiliationName);
-
-                  var redraw=[];
-                  for (key in countyRIGOAffiliationName) {
-                    if(myRigo.includes(countyRIGOAffiliationName[key][0])||myRigo.includes(countyRIGOAffiliationName[key][1]))
-                    {
-                      if(!beyond.includes(countyRIGOAffiliationName[key][4]))
-                      {
-                        redraw.push(countyRIGOAffiliationName[key][4]);
-                       }
-                      }   
-                    }
-
-
-
-
-
-            g.append("g")
-                   .selectAll("path")
-                   .data(topojson.feature(json, json.objects.collection).features.filter(function(d) { return redraw.includes(parseInt(d.properties.fips)); }))
-                   .enter()
-                   .append("path")
-                   .attr("d", path)
-                   .style("fill", function(d){
-                    var id=parseInt(d.properties.fips);
-                    id=""+id;
-                    return color(population.get(countyRIGOAffiliationName[id][1]));
-                  })
-                   .attr("id",function(d) {
-                      return d.properties.fips; })
-                   .attr("stroke","black")
-                   .attr("fill-opacity", 0.7)
-                   .attr("stroke-width", "0.5")
-                   .on("click", clicked)
-                   .on('mouseover',hover)
-                   .on('mouseout', nohover)
-                   .style("cursor", "pointer");
-
-                   g.append("g")
-                   .selectAll("path")
-                   .data(topojson.feature(json, json.objects.collection).features.filter(function(d) { return redraw.includes(parseInt(d.properties.fips)); }))
-                   .enter()
-                   .append("path")
-                   .attr("d", path)
-                   .style("fill", function(d){
-                        var id=parseInt(d.properties.fips);
-                    id=""+id;
-                    return color(population.get(countyRIGOAffiliationName[id][0]));
-                  })
-                   .attr("id",function(d) {
-                      return d.properties.fips; })
-                   .attr("stroke","black")
-                   .attr("fill-opacity", 0.7)
-                   .attr("stroke-width", "0.5")
-                   .on("click", clicked)
-                   .on('mouseover',hover)
-                   .on('mouseout', nohover)
-                   .style("cursor", "pointer");               
-}               
-/* ====================================================== Hover Section ====================================================== */
-
-var states_names={
-    "AL": "Alabama",
-    "AK": "Alaska",
-    "AS": "American Samoa",
-    "AZ": "Arizona",
-    "AR": "Arkansas",
-    "CA": "California",
-    "CO": "Colorado",
-    "CT": "Connecticut",
-    "DE": "Delaware",
-    "DC": "District Of Columbia",
-    "FM": "Federated States Of Micronesia",
-    "FL": "Florida",
-    "GA": "Georgia",
-    "GU": "Guam",
-    "HI": "Hawaii",
-    "ID": "Idaho",
-    "IL": "Illinois",
-    "IN": "Indiana",
-    "IA": "Iowa",
-    "KS": "Kansas",
-    "KY": "Kentucky",
-    "LA": "Louisiana",
-    "ME": "Maine",
-    "MH": "Marshall Islands",
-    "MD": "Maryland",
-    "MA": "Massachusetts",
-    "MI": "Michigan",
-    "MN": "Minnesota",
-    "MS": "Mississippi",
-    "MO": "Missouri",
-    "MT": "Montana",
-    "NE": "Nebraska",
-    "NV": "Nevada",
-    "NH": "New Hampshire",
-    "NJ": "New Jersey",
-    "NM": "New Mexico",
-    "NY": "New York",
-    "NC": "North Carolina",
-    "ND": "North Dakota",
-    "MP": "Northern Mariana Islands",
-    "OH": "Ohio",
-    "OK": "Oklahoma",
-    "OR": "Oregon",
-    "PW": "Palau",
-    "PA": "Pennsylvania",
-    "PR": "Puerto Rico",
-    "RI": "Rhode Island",
-    "SC": "South Carolina",
-    "SD": "South Dakota",
-    "TN": "Tennessee",
-    "TX": "Texas",
-    "UT": "Utah",
-    "VT": "Vermont",
-    "VI": "Virgin Islands",
-    "VA": "Virginia",
-    "WA": "Washington",
-    "WV": "West Virginia",
-    "WI": "Wisconsin",
-    "WY": "Wyoming"
-};
-
-console.log(countyRIGOAffiliationName);
-                    function clicked() {
-
-                      var id = parseInt(d3.select(this).attr('id'));
-                      id = ""+id;
-                      console.log(countyRIGOAffiliationName);
-                      console.log(id);
-                          d3.select("#StateName").html(states_names[countyRIGOAffiliationName[id][5]]);
-                          d3.select("#CountyName").html(countyRIGOAffiliationName[id][2]);
-                          d3.select("#RIGOAffiliation1").html(rigosname.get(countyRIGOAffiliationName[id][0]));
-                          if(countyRIGOAffiliationName[id][1] != "0")
-                          {
-                             d3.select("#RIGOAffiliation2").html(rigosname.get(countyRIGOAffiliationName[id][1]));
-                          }
-                          else
-                          {
-                            d3.select("#RIGOAffiliation2").html("NA");
-                          }
-                   }
-
-                   function hover()
-{
-d3.select(this).attr("stroke","red");
-
-} 
-
-function nohover()
-{
-d3.select(this).attr("stroke","black");
-
-}
-
-
- };
- 
-
-</script> 
+            <div class="row">
+  						<div class="col-md-7" id="state-info">
+  							<select id="stateview">
+  								<option value="01">Alabama</option>
+  								<option value="02">Alaska</option>
+  								<option value="04">Arizona</option>
+  								<option value="05">Arkansas</option>
+  								<option value="06">California</option>
+  								<option value="08">Colorado</option>
+  								<option value="09">Connecticut</option>
+  								<option value="10">Delaware</option>
+  								<option value="11">District Of Columbia</option>
+  								<option value="12">Florida</option>
+  								<option value="13">Georgia</option>
+  								<option value="15">Hawaii</option>
+  								<option value="16">Idaho</option>
+  								<option value="17">Illinois</option>
+  								<option value="18">Indiana</option>
+  								<option value="19">Iowa</option>
+  								<option value="20">Kansas</option>
+  								<option value="21">Kentucky</option>
+  								<option value="22">Louisiana</option>
+  								<option value="23">Maine</option>
+  								<option value="24">Maryland</option>
+  								<option value="25">Massachusetts</option>
+  								<option value="26">Michigan</option>
+  								<option value="27">Minnesota</option>
+  								<option value="28">Mississippi</option>
+  								<option value="29">Missouri</option>
+  								<option value="30">Montana</option>
+  								<option value="31">Nebraska</option>
+  								<option value="32">Nevada</option>
+  								<option value="33">New Hampshire</option>
+  								<option value="34">New Jersey</option>
+  								<option value="35">New Mexico</option>
+  								<option value="36">New York</option>
+  								<option value="37">North Carolina</option>
+  								<option value="38">North Dakota</option>
+  								<option value="39">Ohio</option>
+  								<option value="40">Oklahoma</option>
+  								<option value="41">Oregon</option>
+  								<option value="42">Pennsylvania</option>
+  								<option value="44">Rhode Island</option>
+  								<option value="45">South Carolina</option>
+  								<option value="46">South Dakota</option>
+  								<option value="47">Tennessee</option>
+  								<option value="48">Texas</option>
+  								<option value="49">Utah</option>
+  								<option value="50">Vermont</option>
+  								<option value="51">Virginia</option>
+  								<option value="53">Washington</option>
+  								<option value="54">West Virginia</option>
+  								<option value="55">Wisconsin</option>
+  								<option value="56">Wyoming</option>
+  							</select>
+  							</br>
+  							</br>
+  							<!-- <div class="btn-group" data-toggle="buttons-radio" > -->
+  								<!-- <div class="buttons"> -->
+  									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="RIGO">RIGO</button>  -->
+  									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="MSA">MSA</button> -->
+  									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="Both">Both</button>  -->
+  								<!-- </div> -->
+  							<!-- </div> -->
+  							
+  							<h6>County Information</h6>
+  							<ul class="list-group list-group-flush">
+  								<li class="list-group-item">State Name: <span id="StateName"></span></li>
+  								<li class="list-group-item">County Name: <span id="CountyName"></span></li>
+  								<li class="list-group-item">RIGO Affiliation #1 Name: <span id="RIGOAffiliation1"></span></li>
+  								<li class="list-group-item">RIGO Affiliation #2 Name: <span id="RIGOAffiliation2"></span></li>
+  							</ul>	
+  						</div>
+  <!-- 						<div class="rowNOT" > -->
+  						<div class="col-md-4" id="us_state_div" >
+  						<script type="text/javascript" src="rigo_sc2.js"></script>
 						
-						</div>
-					</div>
+						  </div>
+            </div>
+          </div>
+					<!-- </div> -->
 				</div>          
 			</div>
 		</div>
