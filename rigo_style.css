@@ -27,6 +27,9 @@ p {
       #countrymap{
         margin-bottom:7%;
       }
+      #state_map{
+        margin-bottom: 7%;
+      }
       #us-state-div {
         text-align: center; 
         display:inline-block;
