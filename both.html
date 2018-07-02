@@ -1,30 +1,27 @@
 <!DOCTYPE html>
-
 <!--http://localhost:8080/RIGO/design.html-->
 <html lang="en">
 
-
-	<head>
-		<meta charset="utf-8">
-		<title>US Map</title>
-		<script src="https://d3js.org/d3.v4.js"></script>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<link rel="stylesheet" href="bootstrap.min.css">
-		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-		<script src="bootstrap.min.js"></script>
-		<script src="textures.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>US Map</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="textures.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
-		<script type="javascript" src="topojson.v2.min.js"></script>
-		<script src="https://d3js.org/queue.v1.min.js"></script>
-		<script type="text/javascript" src="d3-tip.js"></script>
+    <script type="javascript" src="topojson.v2.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script type="text/javascript" src="d3-tip.js"></script>
     <link rel="stylesheet" type="text/css" href="rigo_style.css">
+</head>
 
-	</head>
-
-	<body>
-		<div class="container">
+<body>
+    <div class="container">
         <div class="page-header">
             <center>
                 <h1>Exploring Regional Governance in the United States</h1>
@@ -110,680 +107,671 @@
         </div> -->
     </div>
     </div>
-
-		<div class="container-fluid" id="page_content">
-			<div class="row">
-				<div class="col-md-12" id="countrymap>					
-					<div class="card" >
-						<div class="card-header">
-							<h4>The U.S. Map</h4>
-						</div>
-						<div class="card-body" >
-							<div class="row">
-								<div class="col-sm-4" id="national-info">
-									<span class="glyphicon glyphicon-info-sign"> </span> 
-									<div class="btn-group" data-toggle="buttons-radio" >
-										<div class="buttons">
-											<a href="rigo.html" class="btn btn-primary" data-toggle="button" type="button">RIGO</a> 
-											<a href="msa.html" class="btn btn-primary" data-toggle="button" type="button">MSA</a>
-											<a href="both.html" class="btn btn-primary" data-toggle="button" type="button">Both</a> 
-										</div>
-									</div>
-									
-									<h6>RIGO Information</h6>
-									<ul class="list-group list-group-flush">
-										<li class="list-group-item">State <span id="info_rigo_state"  style="color:#B0E689"><em>Select RIGO</em></span> </li>
-                <li class="list-group-item">RIGO Name <span id="info_rigo_name"  style="color:#B0E689"><em>Select RIGO</em></span></li>
-                <li class="list-group-item">RIGO Population <span id="info_rigo_population"  style="color:#B0E689"><em>Select RIGO</em></span></li>      
-                <li class="list-group-item">RIGO Website <span id="info_rigo_website"  style="color:#B0E689"><em>Not Avaliable</em></span></li>
-									</ul>
-								</div><!--end of information column-->
-								<div class="col-sm-8"id="national-map">
-									<script>
-										
-										var margin = { top: 10, right: 0, bottom: 10, left: 0 };
-                    var width = $("#national-map").width();
-                    var mapRatio = .5;
-                    var height = width * mapRatio;
-                    var w = 100;
-                    var h = 10;
-
-                    var svg = d3.select("#national-map").append("svg")
-                        .attr("width", width)
-                        .attr("height", height + margin.top + margin.bottom)
-                        .append("g")
-                    // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-                    var projection = d3.geoAlbersUsa()
-                        .scale(width)
-                        .translate([width / 2, height / 2]);
-
-                    var path = d3.geoPath()
-                        .projection(projection);
-
-                    var g1 = svg.append('g');
-
-                    MsaName = d3.map();
-                    msaDic = {};
-                    population = d3.map();
-
-                    //------Rigo-----//
-                    states = d3.map();
-                    rigosname = d3.map();
-                    rigos = {};
-                    population = d3.map();
-                    overlapped = [];
-                    rigo_information = {};
-
-
-
-                    function insertAfter(referenceNode, newNode) {
-                        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-                    }
-
-
-
-                    d3.csv("County and Muni RIGO Boundaries.csv", function(overrigo) {
-                        overrigo.forEach(function(row) {
-                            if (row.RIGOCode != 0 && row.RIGO2 != 0) {
-                                overlapped.push(parseInt(row.Code));
-                            }
-                        });
-                    });
-
-                    d3.csv("CrossBoundary Org Data Rigo.csv", function(csvinfo) {
-
-                        csvinfo.forEach(function(row) {
-
-                            if (rigo_information[row.Code] == null) {
-                                rigo_information[row.Code] = new Array();
-                                rigo_information[row.Code].push(row.State);
-                                rigo_information[row.Code].push(row.RIGOName);
-                                rigo_information[row.Code].push(parseInt(row.POPULATION));
-
-                            }
-                        });
-                    });
-
-
-                    d3.csv("CrossBoundary Org Data RIGO.csv", function(csvpop) {
-
-                        csvpop.forEach(function(row) {
-                            population.set(row.Code, row.POPULATION);
-                        });
-                    });
-
-
-
-                    d3.csv("County and Muni RIGO Boundaries.csv", function(csv) {
-
-                        csv.forEach(function(row) {
-                            states.set(row.Code, row.RIGO);
-                        });
-
-
-
-
-                        csv.forEach(function(row) {
-                            if (row.RIGOCodeNo != 99) {
-                                if (rigos[row.RIGOCode] == null) {
-                                    rigos[row.RIGOCode] = new Array();
-                                    rigos[row.RIGOCode].push(parseInt(row.Code));
-                                } else {
-                                    rigos[row.RIGOCode].push(parseInt(row.Code));
-                                }
-
-                                if (rigosname.get(row.Rigo) == undefined) {
-                                    rigosname.set(row.RIGOCode, row.RIGO);
-                                }
-                            }
-                        });
-                    });
-
-
-
-                    var color = d3.scaleThreshold()
-                        .domain([10000, 100000, 500000, 1000000, 5000000, 10000000])
-                        .range(["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe", "#045a8d"]);
-                    var color_c = ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe", "#045a8d"];
-
-
-                    var svg = d3.select("body").append("svg").attr("height", height).attr("width", width);
-
-
-
-                    d3.csv("County and Muni MSA.csv", function(csv) {
-
-                        csv.forEach(function(row) {
-
-                            population.set(row.MSA, row.MSAPOP);
-
-                        });
-
-                        csv.forEach(function(row) {
-                            if (row.MSA != "Not Applicable") {
-                                if (msaDic[row.MSA] == null) {
-                                    msaDic[row.MSA] = new Array();
-                                    msaDic[row.MSA].push(parseInt(row.Code));
-                                } else {
-                                    msaDic[row.MSA].push(parseInt(row.Code));
-                                }
-
-                                if (MsaName.get(row.MSA) == undefined) {
-
-                                    MsaName.set(row.MSA, row.MSA);
-                                }
-                            }
-                        });
-
-                    });
-
-                    d3.json("drawStateBorders.json", function(drawStateBorders) {
-
-                        g1.append("path")
-                            .datum(topojson.feature(drawStateBorders, drawStateBorders.objects.us))
-                            .attr("fill", "none")
-                            .attr("stroke-width", "2.5")
-                            .attr("d", path)
-                            .attr("stroke", "black")
-                    });
-
-
-                    queue()
-                        .defer(d3.json, 'us.topo.json')
-                        .defer(d3.json, 'vt.topo.json')
-                        .defer(d3.json, 'ma.topo.json')
-                        .defer(d3.json, 'nh.topo.json')
-                        .defer(d3.json, 'ri.topo.json')
-                        .defer(d3.json, 'ct.topo.json')
-                        .await(USAMSA);
-
-                    function USAMSA(error, us, vt, ma, nh, ri, ct) {
-                        const texture1 =
-                            textures.lines()
-                            .size(4)
-                            .stroke("gray")
-                            .strokeWidth(1);
-                        g1.call(texture1);
-
-                        g1.append("path")
-                            .datum(topojson.feature(us, us.objects.collection))
-                            .attr("fill", "none")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "gray");
-
-                        for (keys in msaDic) {
-
-                            g1.append("path")
-                                .datum(topojson.merge(us, us.objects.collection.geometries.filter(function(d) {
-                                    return msaDic[keys].includes(parseInt(d.properties.fips));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#f1fc37")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                });
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(vt, vt.objects.vt).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in msaDic) {
-                            g1.append("path")
-                                .datum(topojson.merge(vt, vt.objects.vt.geometries.filter(function(d) {
-                                    return msaDic[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#f1fc37")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                });
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(ma, ma.objects.ma).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in msaDic) {
-                            g1.append("path")
-                                .datum(topojson.merge(ma, ma.objects.ma.geometries.filter(function(d) {
-                                    return msaDic[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#f1fc37")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                });
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(nh, nh.objects.nh).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in msaDic) {
-                            g1.append("path")
-                                .datum(topojson.merge(nh, nh.objects.nh.geometries.filter(function(d) {
-                                    return msaDic[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#f1fc37")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                });
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(ri, ri.objects.ri).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in msaDic) {
-                            g1.append("path")
-                                .datum(topojson.merge(ri, ri.objects.ri.geometries.filter(function(d) {
-                                    return msaDic[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#f1fc37")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                });
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(ct, ct.objects.ct).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in msaDic) {
-                            g1.append("path")
-                                .datum(topojson.merge(ct, ct.objects.ct.geometries.filter(function(d) {
-                                    return msaDic[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#f1fc37")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                });
-                        }
-
-
-                        //--------Rigo---------//
-
-
-                        g1.append("path")
-                            .datum(topojson.feature(us, us.objects.collection))
-                            .attr("fill", "none")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.3)
-                            .attr("stroke", "gray");
-
-
-
-                        for (keys in rigos) {
-
-                            g1.append("path")
-                                .datum(topojson.merge(us, us.objects.collection.geometries.filter(function(d) {
-                                    return rigos[keys].includes(parseInt(d.properties.fips));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#6dcedf")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "0.8")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                })
-                                .on('click', zoom)
-                                .on('mouseover', clicked)
-                                .on('mouseout', nohover);
-                        }
-
-
-                        for (keys in rigos) {
-                            g1.append("path")
-                                .datum(topojson.merge(vt, vt.objects.vt.geometries.filter(function(d) {
-                                    return rigos[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#6dcedf")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                })
-                                .on('click', zoom)
-                                .on('mouseover', clicked)
-                                .on('mouseout', nohover);
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(ma, ma.objects.ma).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in rigos) {
-                            g1.append("path")
-                                .datum(topojson.merge(ma, ma.objects.ma.geometries.filter(function(d) {
-                                    return rigos[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#6dcedf")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                })
-                                .on('click', zoom)
-                                .on('mouseover', clicked)
-                                .on('mouseout', nohover);
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(nh, nh.objects.nh).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in rigos) {
-                            g1.append("path")
-                                .datum(topojson.merge(nh, nh.objects.nh.geometries.filter(function(d) {
-                                    return rigos[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#6dcedf")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                })
-                                .on('click', zoom)
-                                .on('mouseover', clicked)
-                                .on('mouseout', nohover);
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(ri, ri.objects.ri).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in rigos) {
-                            g1.append("path")
-                                .datum(topojson.merge(ri, ri.objects.ri.geometries.filter(function(d) {
-                                    return rigos[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#6dcedf")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                })
-                                .on('click', zoom)
-                                .on('mouseover', clicked)
-                                .on('mouseout', nohover);
-                        }
-
-                        g1.append("path")
-                            .data(topojson.feature(ct, ct.objects.ct).features)
-                            .attr("fill", "lightgray")
-                            .attr("d", path)
-                            .attr("stroke-width", 0.5)
-                            .attr("stroke", "white");
-
-                        for (keys in rigos) {
-                            g1.append("path")
-                                .datum(topojson.merge(ct, ct.objects.ct.geometries.filter(function(d) {
-                                    return rigos[keys].includes(parseInt(d.id));
-                                })))
-                                .attr("d", path)
-                                .attr("stroke", "black")
-                                .style("fill", "#6dcedf")
-                                .attr("fill-opacity", 0.7)
-                                .attr("stroke-width", "1.5")
-                                .attr("stroke-linejoin", "round")
-                                .attr("stroke-linecap", "round")
-                                .attr("id", function(d) {
-                                    return keys;
-                                })
-                                .on('click', zoom)
-                                .on('mouseover', clicked)
-                                .on('mouseout', nohover);
-                        }
-
-
-
-                        function clicked() {
-                            d3.select(this).attr("stroke", "red");
-                            d3.select("#info_rigo_state").html(rigo_information[d3.select(this).attr('id')][0]);
-                            d3.select("#info_rigo_name").html(rigo_information[d3.select(this).attr('id')][1]);
-                            d3.select("#info_rigo_population").html(rigo_information[d3.select(this).attr('id')][2]);
-                        }
-
-                        function nohover() {
-                            d3.select(this).attr("stroke", "black");
-                        }
-
-                        var div1 = document.getElementById("national_map");
-                        var div2 = document.getElementById("us_state_div");
-                        insertAfter(div1, div2);
-
-                        var centered;
-
-
-                        function zoom(d) {
-                            var zoomSettings = {
-                                duration: 300,
-                                ease: d3.easeCubicOut,
-                                zoomLevel: 4
-                            };
-                            var x;
-                            var y;
-                            var zoomLevel;
-
-                            if (d && centered !== d) {
-                                var centroid = path.centroid(d);
-                                x = centroid[0];
-                                y = centroid[1];
-
-                                zoomLevel = zoomSettings.zoomLevel;
-                                centered = d;
-                            } else {
-                                x = width / 2;
-                                y = height / 2;
-                                zoomLevel = 1;
-                                centered = null;
-                            }
-
-                            g1.transition()
-                                .duration(zoomSettings.duration)
-                                .ease(zoomSettings.ease)
-                                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + zoomLevel + ")translate(" + -x + "," + -y + ")");
-                        }
-
-
-
-                    };
-
-									</script>
-								</div><!--end of map column-->
-							</div><!--end of map row-->
-							</div>
-                            <div class="card-footer" id="legend">
-                                <div class="row" id="shapes">
-                                    <div class="col" style="">
-                                        Rigo Boundaries
-                                        
-                                    </div>
-                                    <div class="col">Overlapped Rigos & MSAs
-                                        
-                                    </div>
-                                    <div class="col">MSA Counties
-                                        
-                                    </div>
-                                    <div class="col">Unattached Counties
-                                        
+    <div class="container-fluid" id="page_content">
+        <div class="row">
+            <div class="col-md-12" id="countrymap">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>The U.S. Map</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4" id="national-info">
+                                <span class="glyphicon glyphicon-info-sign"> </span>
+                                <div class="btn-group" data-toggle="buttons-radio">
+                                    <div class="buttons">
+                                        <a href="rigo.html" class="btn btn-primary" data-toggle="button" type="button">RIGO</a>
+                                        <a href="msa.html" class="btn btn-primary" data-toggle="button" type="button">MSA</a>
+                                        <a href="both.html" class="btn btn-primary" data-toggle="button" type="button">Both</a>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <img style="width: 50px" src="legend/both/rigo_bound.png">
-                                    <img style="width: 50px" src="legend/both/overlap.png">
-                                    <img style="width: 50px" src="legend/both/msa.png">
-                                    <img style="width: 50px" src="legend/both/unattached.png">
-                                </div>
+                                <h6>RIGO Information</h6>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">State <span id="info_rigo_state" style="color:#B0E689"><em>Select RIGO</em></span> </li>
+                                    <li class="list-group-item">RIGO Name <span id="info_rigo_name" style="color:#B0E689"><em>Select RIGO</em></span></li>
+                                    <li class="list-group-item">RIGO Population <span id="info_rigo_population" style="color:#B0E689"><em>Select RIGO</em></span></li>
+                                    <li class="list-group-item">RIGO Website <span id="info_rigo_website" style="color:#B0E689"><em>Not Avaliable</em></span></li>
+                                </ul>
                             </div>
-						</div><!--end of card-body-->
+                            <!--end of information column-->
+                            <div class="col-sm-8" id="national-map">
+                            <script>
+                                var margin = { top: 10, right: 0, bottom: 10, left: 0 };
+                                var width = $("#national-map").width();
+                                var mapRatio = .5;
+                                var height = width * mapRatio;
+                                var w = 100;
+                                var h = 10;
 
-        
-        </div>
+                                var svg = d3.select("#national-map").append("svg")
+                                    .attr("width", width)
+                                    .attr("height", height + margin.top + margin.bottom)
+                                    .attr("viewBox", "0 0 "+width/2 + " "+ (height+margin.top + margin.bottom)/2 )
+                                    .append("g")
+                                // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-			<div class="col-md-12" id="state_map" >
-			
-				<div  class="card" >
-					<div class="card-header">
-						<h4>State Map</h4>
-					</div>
-					<div class="card-body" >
-            <div class="row">
-						<div class="col-md-7" id="state-info">
-							<select id="stateview">
-								<option value="01">Alabama</option>
-								<option value="02">Alaska</option>
-								<option value="04">Arizona</option>
-								<option value="05">Arkansas</option>
-								<option value="06">California</option>
-								<option value="08">Colorado</option>
-								<option value="09">Connecticut</option>
-								<option value="10">Delaware</option>
-								<option value="11">District Of Columbia</option>
-								<option value="12">Florida</option>
-								<option value="13">Georgia</option>
-								<option value="15">Hawaii</option>
-								<option value="16">Idaho</option>
-								<option value="17">Illinois</option>
-								<option value="18">Indiana</option>
-								<option value="19">Iowa</option>
-								<option value="20">Kansas</option>
-								<option value="21">Kentucky</option>
-								<option value="22">Louisiana</option>
-								<option value="23">Maine</option>
-								<option value="24">Maryland</option>
-								<option value="25">Massachusetts</option>
-								<option value="26">Michigan</option>
-								<option value="27">Minnesota</option>
-								<option value="28">Mississippi</option>
-								<option value="29">Missouri</option>
-								<option value="30">Montana</option>
-								<option value="31">Nebraska</option>
-								<option value="32">Nevada</option>
-								<option value="33">New Hampshire</option>
-								<option value="34">New Jersey</option>
-								<option value="35">New Mexico</option>
-								<option value="36">New York</option>
-								<option value="37">North Carolina</option>
-								<option value="38">North Dakota</option>
-								<option value="39">Ohio</option>
-								<option value="40">Oklahoma</option>
-								<option value="41">Oregon</option>
-								<option value="42">Pennsylvania</option>
-								<option value="44">Rhode Island</option>
-								<option value="45">South Carolina</option>
-								<option value="46">South Dakota</option>
-								<option value="47">Tennessee</option>
-								<option value="48">Texas</option>
-								<option value="49">Utah</option>
-								<option value="50">Vermont</option>
-								<option value="51">Virginia</option>
-								<option value="53">Washington</option>
-								<option value="54">West Virginia</option>
-								<option value="55">Wisconsin</option>
-								<option value="56">Wyoming</option>
-							</select>
-							</br>
-							</br>
-							
-							
-							<h6>County Information</h6>
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item">State Name: <span id="StateName" style="color:#B0E689"></span></li>
-								<li class="list-group-item">County Name: <span id="CountyName" style="color:#B0E689"></span></li>
-								<li class="list-group-item">RIGO Affiliation #1 Name: <span id="RIGOAffiliation1" style="color:#B0E689"></span></li>
-								<li class="list-group-item">RIGO Affiliation #2 Name: <span id="RIGOAffiliation2" style="color:#B0E689"></span></li>
-							</ul>	
-						</div>
-						<div class="col-md-4" id="us_state_div" >
-  						<script type="text/javascript" src="both_sc3.js">
-              </script> 
-						</div>
+
+                                var projection = d3.geoAlbersUsa()
+                                    .scale(width)
+                                    .translate([width / 2, height / 2]);
+
+                                var path = d3.geoPath()
+                                    .projection(projection);
+
+                                var g1 = svg.append('g');
+
+                                MsaName = d3.map();
+                                msaDic = {};
+                                population = d3.map();
+
+                                //------Rigo-----//
+                                states = d3.map();
+                                rigosname = d3.map();
+                                rigos = {};
+                                population = d3.map();
+                                overlapped = [];
+                                rigo_information = {};
+
+
+
+                                function insertAfter(referenceNode, newNode) {
+                                    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+                                }
+
+
+
+                                d3.csv("County and Muni RIGO Boundaries.csv", function(overrigo) {
+                                    overrigo.forEach(function(row) {
+                                        if (row.RIGOCode != 0 && row.RIGO2 != 0) {
+                                            overlapped.push(parseInt(row.Code));
+                                        }
+                                    });
+                                });
+
+                                d3.csv("CrossBoundary Org Data Rigo.csv", function(csvinfo) {
+
+                                    csvinfo.forEach(function(row) {
+
+                                        if (rigo_information[row.Code] == null) {
+                                            rigo_information[row.Code] = new Array();
+                                            rigo_information[row.Code].push(row.State);
+                                            rigo_information[row.Code].push(row.RIGOName);
+                                            rigo_information[row.Code].push(parseInt(row.POPULATION));
+
+                                        }
+                                    });
+                                });
+
+
+                                d3.csv("CrossBoundary Org Data RIGO.csv", function(csvpop) {
+
+                                    csvpop.forEach(function(row) {
+                                        population.set(row.Code, row.POPULATION);
+                                    });
+                                });
+
+
+
+                                d3.csv("County and Muni RIGO Boundaries.csv", function(csv) {
+
+                                    csv.forEach(function(row) {
+                                        states.set(row.Code, row.RIGO);
+                                    });
+
+
+
+
+                                    csv.forEach(function(row) {
+                                        if (row.RIGOCodeNo != 99) {
+                                            if (rigos[row.RIGOCode] == null) {
+                                                rigos[row.RIGOCode] = new Array();
+                                                rigos[row.RIGOCode].push(parseInt(row.Code));
+                                            } else {
+                                                rigos[row.RIGOCode].push(parseInt(row.Code));
+                                            }
+
+                                            if (rigosname.get(row.Rigo) == undefined) {
+                                                rigosname.set(row.RIGOCode, row.RIGO);
+                                            }
+                                        }
+                                    });
+                                });
+
+
+
+                                var color = d3.scaleThreshold()
+                                    .domain([10000, 100000, 500000, 1000000, 5000000, 10000000])
+                                    .range(["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe", "#045a8d"]);
+                                var color_c = ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe", "#045a8d"];
+
+
+                                var svg = d3.select("body").append("svg").attr("height", height).attr("width", width);
+
+
+
+                                d3.csv("County and Muni MSA.csv", function(csv) {
+
+                                    csv.forEach(function(row) {
+
+                                        population.set(row.MSA, row.MSAPOP);
+
+                                    });
+
+                                    csv.forEach(function(row) {
+                                        if (row.MSA != "Not Applicable") {
+                                            if (msaDic[row.MSA] == null) {
+                                                msaDic[row.MSA] = new Array();
+                                                msaDic[row.MSA].push(parseInt(row.Code));
+                                            } else {
+                                                msaDic[row.MSA].push(parseInt(row.Code));
+                                            }
+
+                                            if (MsaName.get(row.MSA) == undefined) {
+
+                                                MsaName.set(row.MSA, row.MSA);
+                                            }
+                                        }
+                                    });
+
+                                });
+
+                                d3.json("drawStateBorders.json", function(drawStateBorders) {
+
+                                    g1.append("path")
+                                        .datum(topojson.feature(drawStateBorders, drawStateBorders.objects.us))
+                                        .attr("fill", "none")
+                                        .attr("stroke-width", "2.5")
+                                        .attr("d", path)
+                                        .attr("stroke", "black")
+                                });
+
+
+                                queue()
+                                    .defer(d3.json, 'us.topo.json')
+                                    .defer(d3.json, 'vt.topo.json')
+                                    .defer(d3.json, 'ma.topo.json')
+                                    .defer(d3.json, 'nh.topo.json')
+                                    .defer(d3.json, 'ri.topo.json')
+                                    .defer(d3.json, 'ct.topo.json')
+                                    .await(USAMSA);
+
+                                function USAMSA(error, us, vt, ma, nh, ri, ct) {
+                                    const texture1 =
+                                        textures.lines()
+                                        .size(4)
+                                        .stroke("gray")
+                                        .strokeWidth(1);
+                                    g1.call(texture1);
+
+                                    g1.append("path")
+                                        .datum(topojson.feature(us, us.objects.collection))
+                                        .attr("fill", "none")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "gray");
+
+                                    for (keys in msaDic) {
+
+                                        g1.append("path")
+                                            .datum(topojson.merge(us, us.objects.collection.geometries.filter(function(d) {
+                                                return msaDic[keys].includes(parseInt(d.properties.fips));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#f1fc37")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            });
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(vt, vt.objects.vt).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in msaDic) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(vt, vt.objects.vt.geometries.filter(function(d) {
+                                                return msaDic[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#f1fc37")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            });
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(ma, ma.objects.ma).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in msaDic) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(ma, ma.objects.ma.geometries.filter(function(d) {
+                                                return msaDic[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#f1fc37")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            });
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(nh, nh.objects.nh).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in msaDic) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(nh, nh.objects.nh.geometries.filter(function(d) {
+                                                return msaDic[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#f1fc37")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            });
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(ri, ri.objects.ri).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in msaDic) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(ri, ri.objects.ri.geometries.filter(function(d) {
+                                                return msaDic[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#f1fc37")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            });
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(ct, ct.objects.ct).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in msaDic) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(ct, ct.objects.ct.geometries.filter(function(d) {
+                                                return msaDic[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#f1fc37")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            });
+                                    }
+
+
+                                    //--------Rigo---------//
+
+
+                                    g1.append("path")
+                                        .datum(topojson.feature(us, us.objects.collection))
+                                        .attr("fill", "none")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.3)
+                                        .attr("stroke", "gray");
+
+
+
+                                    for (keys in rigos) {
+
+                                        g1.append("path")
+                                            .datum(topojson.merge(us, us.objects.collection.geometries.filter(function(d) {
+                                                return rigos[keys].includes(parseInt(d.properties.fips));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#6dcedf")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "0.8")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            })
+                                            .on('click', zoom)
+                                            .on('mouseover', clicked)
+                                            .on('mouseout', nohover);
+                                    }
+
+
+                                    for (keys in rigos) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(vt, vt.objects.vt.geometries.filter(function(d) {
+                                                return rigos[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#6dcedf")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            })
+                                            .on('click', zoom)
+                                            .on('mouseover', clicked)
+                                            .on('mouseout', nohover);
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(ma, ma.objects.ma).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in rigos) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(ma, ma.objects.ma.geometries.filter(function(d) {
+                                                return rigos[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#6dcedf")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            })
+                                            .on('click', zoom)
+                                            .on('mouseover', clicked)
+                                            .on('mouseout', nohover);
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(nh, nh.objects.nh).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in rigos) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(nh, nh.objects.nh.geometries.filter(function(d) {
+                                                return rigos[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#6dcedf")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            })
+                                            .on('click', zoom)
+                                            .on('mouseover', clicked)
+                                            .on('mouseout', nohover);
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(ri, ri.objects.ri).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in rigos) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(ri, ri.objects.ri.geometries.filter(function(d) {
+                                                return rigos[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#6dcedf")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            })
+                                            .on('click', zoom)
+                                            .on('mouseover', clicked)
+                                            .on('mouseout', nohover);
+                                    }
+
+                                    g1.append("path")
+                                        .data(topojson.feature(ct, ct.objects.ct).features)
+                                        .attr("fill", "lightgray")
+                                        .attr("d", path)
+                                        .attr("stroke-width", 0.5)
+                                        .attr("stroke", "white");
+
+                                    for (keys in rigos) {
+                                        g1.append("path")
+                                            .datum(topojson.merge(ct, ct.objects.ct.geometries.filter(function(d) {
+                                                return rigos[keys].includes(parseInt(d.id));
+                                            })))
+                                            .attr("d", path)
+                                            .attr("stroke", "black")
+                                            .style("fill", "#6dcedf")
+                                            .attr("fill-opacity", 0.7)
+                                            .attr("stroke-width", "1.5")
+                                            .attr("stroke-linejoin", "round")
+                                            .attr("stroke-linecap", "round")
+                                            .attr("id", function(d) {
+                                                return keys;
+                                            })
+                                            .on('click', zoom)
+                                            .on('mouseover', clicked)
+                                            .on('mouseout', nohover);
+                                    }
+
+
+
+                                    function clicked() {
+                                        d3.select(this).attr("stroke", "red");
+                                        d3.select("#info_rigo_state").html(rigo_information[d3.select(this).attr('id')][0]);
+                                        d3.select("#info_rigo_name").html(rigo_information[d3.select(this).attr('id')][1]);
+                                        d3.select("#info_rigo_population").html(rigo_information[d3.select(this).attr('id')][2]);
+                                    }
+
+                                    function nohover() {
+                                        d3.select(this).attr("stroke", "black");
+                                    }
+
+                                    // var div1 = document.getElementById("national_map");
+                                    // var div2 = document.getElementById("us_state_div");
+                                    // insertAfter(div1, div2);
+
+                                    var centered;
+
+
+                                    function zoom(d) {
+                                        var zoomSettings = {
+                                            duration: 300,
+                                            ease: d3.easeCubicOut,
+                                            zoomLevel: 4
+                                        };
+                                        var x;
+                                        var y;
+                                        var zoomLevel;
+
+                                        if (d && centered !== d) {
+                                            var centroid = path.centroid(d);
+                                            x = centroid[0];
+                                            y = centroid[1];
+
+                                            zoomLevel = zoomSettings.zoomLevel;
+                                            centered = d;
+                                        } else {
+                                            x = width / 2;
+                                            y = height / 2;
+                                            zoomLevel = 1;
+                                            centered = null;
+                                        }
+
+                                        g1.transition()
+                                            .duration(zoomSettings.duration)
+                                            .ease(zoomSettings.ease)
+                                            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")scale(" + zoomLevel + ")translate(" + -x + "," + -y + ")");
+                                    }
+
+
+
+                                };
+                            </script>
+                            </div>
+                            <!--end of map column-->
+                        </div>
+                        <!--end of map row-->
+                    </div>
+                    <div class="card-footer" id="legend">
+                        <div class="row" id="shapes">
+                            <div class="col" style="">
+                                Rigo Boundaries
+                            </div>
+                            <div class="col">Overlapped Rigos & MSAs
+                            </div>
+                            <div class="col">MSA Counties
+                            </div>
+                            <div class="col">Unattached Counties
+                            </div>
+                        </div>
+                        <div class="row">
+                            <img style="width: 50px" src="legend/both/rigo_bound.png">
+                            <img style="width: 50px" src="legend/both/overlap.png">
+                            <img style="width: 50px" src="legend/both/msa.png">
+                            <img style="width: 50px" src="legend/both/unattached.png">
+                        </div>
+                    </div>
+                </div>
+                <!--end of card-body-->
             </div>
-					</div>
-				</div>          
-			</div>
+            <div class="col-md-12" id="state_map">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>State Map</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7" id="state-info">
+                                <select id="stateview">
+                                    <option value="01">Alabama</option>
+                                    <option value="02">Alaska</option>
+                                    <option value="04">Arizona</option>
+                                    <option value="05">Arkansas</option>
+                                    <option value="06">California</option>
+                                    <option value="08">Colorado</option>
+                                    <option value="09">Connecticut</option>
+                                    <option value="10">Delaware</option>
+                                    <option value="11">District Of Columbia</option>
+                                    <option value="12">Florida</option>
+                                    <option value="13">Georgia</option>
+                                    <option value="15">Hawaii</option>
+                                    <option value="16">Idaho</option>
+                                    <option value="17">Illinois</option>
+                                    <option value="18">Indiana</option>
+                                    <option value="19">Iowa</option>
+                                    <option value="20">Kansas</option>
+                                    <option value="21">Kentucky</option>
+                                    <option value="22">Louisiana</option>
+                                    <option value="23">Maine</option>
+                                    <option value="24">Maryland</option>
+                                    <option value="25">Massachusetts</option>
+                                    <option value="26">Michigan</option>
+                                    <option value="27">Minnesota</option>
+                                    <option value="28">Mississippi</option>
+                                    <option value="29">Missouri</option>
+                                    <option value="30">Montana</option>
+                                    <option value="31">Nebraska</option>
+                                    <option value="32">Nevada</option>
+                                    <option value="33">New Hampshire</option>
+                                    <option value="34">New Jersey</option>
+                                    <option value="35">New Mexico</option>
+                                    <option value="36">New York</option>
+                                    <option value="37">North Carolina</option>
+                                    <option value="38">North Dakota</option>
+                                    <option value="39">Ohio</option>
+                                    <option value="40">Oklahoma</option>
+                                    <option value="41">Oregon</option>
+                                    <option value="42">Pennsylvania</option>
+                                    <option value="44">Rhode Island</option>
+                                    <option value="45">South Carolina</option>
+                                    <option value="46">South Dakota</option>
+                                    <option value="47">Tennessee</option>
+                                    <option value="48">Texas</option>
+                                    <option value="49">Utah</option>
+                                    <option value="50">Vermont</option>
+                                    <option value="51">Virginia</option>
+                                    <option value="53">Washington</option>
+                                    <option value="54">West Virginia</option>
+                                    <option value="55">Wisconsin</option>
+                                    <option value="56">Wyoming</option>
+                                </select>
+                                </br>
+                                </br>
+                                <h6>County Information</h6>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">State Name: <span id="StateName" style="color:#B0E689"></span></li>
+                                    <li class="list-group-item">County Name: <span id="CountyName" style="color:#B0E689"></span></li>
+                                    <li class="list-group-item">RIGO Affiliation #1 Name: <span id="RIGOAffiliation1" style="color:#B0E689"></span></li>
+                                    <li class="list-group-item">RIGO Affiliation #2 Name: <span id="RIGOAffiliation2" style="color:#B0E689"></span></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4" id="us_state_div">
+                                <script type="text/javascript" src="both_sc3.js">
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
 
-		</div>
-	</body>
 </html>
