@@ -20,6 +20,10 @@
     <script src="https://d3js.org/queue.v1.min.js"></script>
     <script type="text/javascript" src="d3-tip.js"></script>
     <link rel="stylesheet" type="text/css" href="rigo_style.css">
+    <script type="text/javascript" src="master.js"></script>
+
+    <script type="text/javascript" src="msa_sc1.js"></script>
+    <script type="text/javascript" src="msa_sc3.js"></script>
 	</head>
 
 	<body>
@@ -125,9 +129,11 @@
 									<span class="glyphicon glyphicon-info-sign"> </span> 
 									<div class="btn-group" data-toggle="buttons-radio" >
 										<div class="buttons">
-											<a href="rigo.html" class="btn btn-primary" data-toggle="button" type="button">RIGO</a> 
+											<!-- <a href="rigo.html" class="btn btn-primary" data-toggle="button" type="button">RIGO</a> 
 											<a href="msa.html" class="btn btn-primary" data-toggle="button" type="button">MSA</a>
-											<a href="both.html" class="btn btn-primary" data-toggle="button" type="button">Both</a> 
+											<a href="both.html" class="btn btn-primary" data-toggle="button" type="button">Both</a> -->
+                      <button class="btn btn-primary" type="button" onclick="doRIGO()">RIGO</button>
+                      <button class="btn btn-primary" type="button" onclick="doMSA()">MSA</button>
 										</div>
 									</div>
 									
@@ -195,7 +201,7 @@
 					<div class="card-body" >
             <div class="row">
   						<div class="col-md-7" id="state-info">
-  							<select id="stateview">
+  							<select id="stateview" onchange="loadState()">
   								<option value="01">Alabama</option>
   								<option value="02">Alaska</option>
   								<option value="04">Arizona</option>
