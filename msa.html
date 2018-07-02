@@ -1,440 +1,279 @@
 <!DOCTYPE html>
-
 <!--http://localhost:8080/RIGO/design.html-->
 <html lang="en">
 
-
-	<head>
-		<meta charset="utf-8">
-		<title>US Map</title>
-		<script src="https://d3js.org/d3.v4.js"></script>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<link rel="stylesheet" href="bootstrap.min.css">
-		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-		<script src="bootstrap.min.js"></script>
-		<script src="textures.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>US Map</title>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script src="textures.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
-		<script type="text/javascript" src="topojson.v2.min.js"></script>
-		<script src="https://d3js.org/queue.v1.min.js"></script>
-		<script type="text/javascript" src="d3-tip.js"></script>
-<style>
-			p {
-				text-align: center;
-			}
-			
-			
-			#national-info {
-				text-align:center ; 
-				display:block;
-			}
-			
-			.buttons {
-				margin-right: 15px;
-				margin-bottom:20px;
-			}
-			
-			.list-group-item {
-				color:#045a8d;
-			}
-			
-			#us-state-div {
-				text-align: center; 
-				display:inline-block;
-			}
-			
-			#state-info {
-				text-align:center; 
-				display:block;
-			}
-			
+    <script type="text/javascript" src="topojson.v2.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script type="text/javascript" src="d3-tip.js"></script>
+    <link rel="stylesheet" type="text/css" href="rigo_style.css">
+</head>
 
-			
-			#legend {
-				padding-top: 20px;
-			}
-			
-			#state-info{
-				display: inline-block;
-			}
-			
-			/*  Dashboard Layout/Appearence CSS */
-        #dashboard {
-            width: 75%;
-            height: 300px;
-            margin-left: auto;
-            margin-right: auto;
-			padding-top: 20px;
-        }
-        
-        /* Instructions and explaination accordion */
-        #instructions {
-            margin-left: 10px;
-            width: 300px;
-            height: 100%;
-            float: left;
-            font-size: 14px;
-        }
-        
-       .accordion-container{
-          position: relative;
-
-          height: auto;
-          margin: 20px auto;
-        }
-        .accordion-container > h2{
-          text-align: center;
-          color: #fff;
-          padding-bottom: 5px;
-          margin-bottom: 30px;
-          border-bottom: 1px solid #ddd;
-        }
-        .set{
-          position: relative;
-          width: 100%;
-          
-          background-color: #f5f5f5;
-        }
-        .set > a{
-          display: block;
-          padding: 10px 15px;
-          text-decoration: none;
-          color: #555;
-          font-weight: 600;
-          border-bottom: 1px solid #ddd;
-          -webkit-transition:all 0.2s linear;
-          -moz-transition:all 0.2s linear;
-          transition:all 0.2s linear;
-        }
-        .set > a i{
-          position:relative;
-          float: right;
-          margin-top:4px;
-          color: #666;
-        }
-        .set > a.active{
-          background-color:#3399cc;
-          color: #fff;
-        }
-        .set > a.active i{
-          color: #fff;
-        }
-        .content{
-          position:relative;
-          width: 100%;
-          overflow-y: scroll;
-          max-height: 100px;
-          background-color: #fff;
-          border-bottom: 1px solid #ddd;
-          display:none;
-        }
-        .content p{
-          padding: 10px 15px;
-          margin: 0;
-          color: #333;
-        }
-        
-        /* Animated statistics section */
-        #comparison {
-            width: 300px;
-            height: 100%;
-            float: left;
-            padding-top: 10px;
-			margin-left:80px;
-
-        }
-        
-        .stats {
-		    margin-left: 35%;
-
-        }
-        
-        .counter {
-            font-size:50px;
-            margin-left: 27%;
-        }
-        
-        #msaCounter {
-            color: #facb00;
-        }
-        
-        #rigoCounter {
-           color: #00aaf9; 
-        }
-        
-        /* Donut chart section */
-        #affiliation {
-           width: 300px;
-            height: 100%;
-            float: left;
-            text-align: center;
-            font-size: 100%;
-			margin-left:100px;
-        }
-        
-         #donutChart {
-             margin: 12px auto 0 auto;
-            position: relative;
-        }
-
-        .legend {
-            font-size: 8px;
-        }
-        
-           
-        
-        .tooltip {
-                  background: #eee;
-                  box-shadow: 0 0 5px #999999;
-                  color: #333;
-                  display: none;
-                  font-size: 8px;
-                  left: 130px;
-                  padding: 10px;
-                  position: absolute;
-                  text-align: center;
-                  top: 95px;
-                  width: 80px;
-                  z-index: 10;
-         }
-        
-            .chart div {
-              font-size: 14px;
-              font-weight: 600;
-              text-align: left;
-              padding: 3px;
-              margin: 1px;
-              color: white;
-
-		</style>
-	</head>
-
-	<body>
-		<div class="container"> 
-			<div class="page-header">
-				<center>
-					<h1>Exploring Regional Governance in the United States</h1>
-				</center>
-			</div>
-		</div>
-			<div class="col-md-12" id="dashboard">
-   <script type="text/javascript" src="rigo_dash.js">
-        
-       
-        
-    </script>
-				
-        <div id="instructions">
-             <div class="accordion-container">
-          <div class="set">
-            <a href="#">
-              How to Use the Map 
-              <i class="fa fa-plus"></i>
-            </a>
-            <div class="content scrollable">
-              <p>
-                    The left pane contains a national view. You can view the national distribution of RIGOs, MSAs, or a combined RIGO and MSA view by clicking the corresponding buttons.
-                </p>
-                <p>
-                    The right pane features a state view with a dropdown menu to select a specific state. You can also select to view either RIGOs, MSAs, or both in this section
-                </p>
-                <p>
-                     Hovering your mouse over a county (or municipality in New England) gives you information about the RIGO/MSA to which it belongs.
-                </p>
-            </div>
-          </div>
-          <div class="set">
-            <a href="#">
-              What is a RIGO? 
-              <i class="fa fa-plus"></i>
-            </a>
-            <div class="content">
-               <p>
-                   <u>Regional Intergovernmental Organization (RIGO)</u> <br/><br/>
-                    An organization constituted by the local governments within that region and supported by active engagement of that region’s civic sector, its’ business community, and citizens and citizen groups.
-                </p>
-            </div>
-          </div>
-          <div class="set">
-            <a href="#">
-              What is an MSA? 
-              <i class="fa fa-plus"></i>
-            </a>
-            <div class="content">
-                <p>
-                   <u>Metropolitan Statistical Area (MSA)</u> <br/><br/>
-                    A region designated by the U.S. federal government for the purpose of grouping counties on the basis of economic, commuting, and population patterns.
-                </p>
-            </div>
-          </div>
-          <div class="set">
-            <a href="#">
-              More Information 
-              <i class="fa fa-plus"></i> 
-            </a>
-            <div class="content">
-                <p>
-                 If you are interested in learning more about RIGOs check out the  <a href="http://www.metrostudies.pitt.edu/RIGO"  target="_blank">Center for Metorpolitan Studies</a> main page. <br/><br/>
-                  Have ideas for updates, additions, or revisions?<br/>
-                    Please share them with us by contacting Jay Rickabaugh at <a href="mailto:jar140@pitt.edu"> jar140@pitt.edu</a>    
-                </p>
-                   .
-            </div>
-          </div>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <center>
+                <h1>Exploring Regional Governance in the United States</h1>
+            </center>
         </div>
+    </div>
+    <div class="row" id="dashboard">
+        <script type="text/javascript" src="rigo_dash.js"></script>
+        <div class="col-md-7" id="instructions">
+            <div class="accordion-container">
+                <div class="set">
+                    <a href="#">
+                  How to Use the Map 
+                  <i class="fa fa-plus"></i>
+                </a>
+                    <div class="content scrollable">
+                        <p>
+                            The left pane contains a national view. You can view the national distribution of RIGOs, MSAs, or a combined RIGO and MSA view by clicking the corresponding buttons.
+                        </p>
+                        <p>
+                            The right pane features a state view with a dropdown menu to select a specific state. You can also select to view either RIGOs, MSAs, or both in this section
+                        </p>
+                        <p>
+                            Hovering your mouse over a county (or municipality in New England) gives you information about the RIGO/MSA to which it belongs.
+                        </p>
+                    </div>
+                </div>
+                <div class="set">
+                    <a href="#">
+                  What is a RIGO? 
+                  <i class="fa fa-plus"></i>
+                </a>
+                    <div class="content">
+                        <p>
+                            <u>Regional Intergovernmental Organization (RIGO)</u>
+                            <br/>
+                            <br/> An organization constituted by the local governments within that region and supported by active engagement of that region’s civic sector, its’ business community, and citizens and citizen groups.
+                        </p>
+                    </div>
+                </div>
+                <div class="set">
+                    <a href="#">
+                  What is an MSA? 
+                  <i class="fa fa-plus"></i>
+                </a>
+                    <div class="content">
+                        <p>
+                            <u>Metropolitan Statistical Area (MSA)</u>
+                            <br/>
+                            <br/> A region designated by the U.S. federal government for the purpose of grouping counties on the basis of economic, commuting, and population patterns.
+                        </p>
+                    </div>
+                </div>
+                <div class="set">
+                    <a href="#">
+                  More Information 
+                  <i class="fa fa-plus"></i> 
+                </a>
+                    <div class="content">
+                        <p>
+                            If you are interested in learning more about RIGOs check out the <a href="http://www.metrostudies.pitt.edu/RIGO" target="_blank">Center for Metorpolitan Studies</a> main page.
+                            <br/>
+                            <br/> Have ideas for updates, additions, or revisions?
+                            <br/> Please share them with us by contacting Jay Rickabaugh at <a href="mailto:jar140@pitt.edu"> jar140@pitt.edu</a>
+                        </p>
+                        .
+                    </div>
+                </div>
+            </div>
         </div>
-        
-       
-        
-        <div id="comparison"> 
+        <div class="col-md-4" id="comparison">
             <div class="stats">
                 Total Number of RIGOs
                 <div id="rigoCounter" class="counter" data-count="0">0</div>
             </div>
-             <div class="stats">
+            <div class="stats">
                 Total Number of MSAs
                 <div id="msaCounter" class="counter" data-count="0">0</div>
             </div>
-            
         </div>
-       <!--  
+        <!--  
         <div id="affiliation">
           <div id="donutChart"></div>
         </div> -->
-	</div>	
-		</div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-8">					
-					<div class="card" >
-						<div class="card-header">
-							<h4>The U.S. Map</h4>
-						</div>
-						<div class="card-body" >
-							<div class="row">
-								<div class="col-sm-4" id="national-info">
-									<span class="glyphicon glyphicon-info-sign"> </span> 
-									<div class="btn-group" data-toggle="buttons-radio" >
-										<div class="buttons">
-											<a href="rigo.html" class="btn btn-primary" data-toggle="button" type="button">RIGO</a> 
-											<a href="msa.html" class="btn btn-primary" data-toggle="button" type="button">MSA</a>
-											<a href="both.html" class="btn btn-primary" data-toggle="button" type="button">Both</a> 
-										</div>
-									</div>
-									
-									<h6>MSA Infromation</h6>
-									<ul class="list-group list-group-flush">
-    <li class="list-group-item">State Name: <br> <span id="info_MSA_state" style="color:#ED9A2A" ><em>Select MSA</em>
+    </div>
+    </div>
+    <div class="container-fluid" id="page_content">
+        <div class="row">
+            <div class="col-md-12" id="countrymap">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>The U.S. Map</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-4" id="national-info">
+                                <span class="glyphicon glyphicon-info-sign"> </span>
+                                <div class="btn-group" data-toggle="buttons-radio">
+                                    <div class="buttons">
+                                        <a href="rigo.html" class="btn btn-primary" data-toggle="button" type="button">RIGO</a>
+                                        <a href="msa.html" class="btn btn-primary" data-toggle="button" type="button">MSA</a>
+                                        <a href="both.html" class="btn btn-primary" data-toggle="button" type="button">Both</a>
+                                    </div>
+                                </div>
+                                <h6>MSA Infromation</h6>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">State Name:
+                                        <br> <span id="info_MSA_state" style="color:#ED9A2A"><em>Select MSA</em>
                                     </span> </li>
-    <li class="list-group-item">MSA Name: <br> <span id="info_MSA_name" style="color:#ED9A2A" ><em>Select MSA</em>
+                                    <li class="list-group-item">MSA Name:
+                                        <br> <span id="info_MSA_name" style="color:#ED9A2A"><em>Select MSA</em>
                                     </span></li>
-    <li class="list-group-item">MSA Population: <br><span id="info_MSA_population" style="color:#ED9A2A" ><em>Select MSA</em>
+                                    <li class="list-group-item">MSA Population:
+                                        <br><span id="info_MSA_population" style="color:#ED9A2A"><em>Select MSA</em>
                                     </span></li>
-        
-  </ul>
-								</div><!--end of information column-->
-								<div class="col-sm-8"id="national-map">
-									<script type="text/javascript" src="msa_sc1.js"></script>
-								</div><!--end of map column-->
-							</div><!--end of map row-->
-							</div>
-						</div><!--end of card-body-->
-						<div class="row">
-								<div class="col-md-12" id="legend">
-								<script type="text/javascript" src="msa_sc2.js">
-								
-									</script>
-								</div>
-					</div><!--end of card-->
-				</div>
+                                </ul>
+                            </div>
+                            <!--end of information column-->
+                            <div class="col-sm-8" id="national-map">
+                                <script type="text/javascript" src="msa_sc1.js"></script>
+                            </div>
+                            <!--end of map column-->
+                        </div>
+                        <!--end of map row-->
+                    </div>
+                    <div class="card-footer" id="legend">
+                        <!--    <div class="col-sm-12" id="legend"> -->
+                        <!-- <img src="rigo-legend.PNG"></img> -->
+                        <div class="row">
+                            <h5>MSA Population</h5>
+                        </div>
+                        <div class="row" id="scale">
+                            <div class="col" style="background: #fffcdc"></div>
+                            <div class="col" style="background: #fff9a4"></div>
+                            <div class="col" style="background: #ffff68"></div>
+                            <div class="col" style="background: #ffe364"></div>
+                            <div class="col" style="background: #f3df61"></div>
+                            <div class="col" style="background: #f3b962"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="text-align: left">Low Population</div>
+                            <div class="col" style="text-align: right">HighPopulation</div>
+                        </div>
+                        <div class="row" id="shapes">
+                            <div class="col" >
+                                MSA Boundaries
+                                
+                            </div>
+                            <div class="col">Counties Boundaries
+                                
+                            </div>
+                            <div class="col">Not Applicable Counties
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                          <img style="width:50px" src="legend/msa/msa_bound.png">
+                          <img style="width:50px" src="legend/msa/county_bound.png">
+                          <img style="width:50px" src="legend/msa/not_applic.png">
+                        
+                        </div>
+                    </div>
+                <!--end of card-body-->
+            </div>
 
-			<div class="col-md-4" >
-			
-				<div  class="card" >
-					<div class="card-header">
-						<h4>State Map</h4>
-					</div>
-					<div class="card-body" >
-												</div>
-						<div class="row col-md-12" id="state-info">
-							<select id="stateview">
-								<option value="01">Alabama</option>
-								<option value="02">Alaska</option>
-								<option value="04">Arizona</option>
-								<option value="05">Arkansas</option>
-								<option value="06">California</option>
-								<option value="08">Colorado</option>
-								<option value="09">Connecticut</option>
-								<option value="10">Delaware</option>
-								<option value="11">District Of Columbia</option>
-								<option value="12">Florida</option>
-								<option value="13">Georgia</option>
-								<option value="15">Hawaii</option>
-								<option value="16">Idaho</option>
-								<option value="17">Illinois</option>
-								<option value="18">Indiana</option>
-								<option value="19">Iowa</option>
-								<option value="20">Kansas</option>
-								<option value="21">Kentucky</option>
-								<option value="22">Louisiana</option>
-								<option value="23">Maine</option>
-								<option value="24">Maryland</option>
-								<option value="25">Massachusetts</option>
-								<option value="26">Michigan</option>
-								<option value="27">Minnesota</option>
-								<option value="28">Mississippi</option>
-								<option value="29">Missouri</option>
-								<option value="30">Montana</option>
-								<option value="31">Nebraska</option>
-								<option value="32">Nevada</option>
-								<option value="33">New Hampshire</option>
-								<option value="34">New Jersey</option>
-								<option value="35">New Mexico</option>
-								<option value="36">New York</option>
-								<option value="37">North Carolina</option>
-								<option value="38">North Dakota</option>
-								<option value="39">Ohio</option>
-								<option value="40">Oklahoma</option>
-								<option value="41">Oregon</option>
-								<option value="42">Pennsylvania</option>
-								<option value="44">Rhode Island</option>
-								<option value="45">South Carolina</option>
-								<option value="46">South Dakota</option>
-								<option value="47">Tennessee</option>
-								<option value="48">Texas</option>
-								<option value="49">Utah</option>
-								<option value="50">Vermont</option>
-								<option value="51">Virginia</option>
-								<option value="53">Washington</option>
-								<option value="54">West Virginia</option>
-								<option value="55">Wisconsin</option>
-								<option value="56">Wyoming</option>
-							</select>
-							</br>
-							</br>
-							<!-- <div class="btn-group" data-toggle="buttons-radio" > -->
-								<!-- <div class="buttons"> -->
-									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="RIGO">RIGO</button>  -->
-									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="MSA">MSA</button> -->
-									<!-- <button class="btn btn-primary" data-toggle="button" type="button" value="Both">Both</button>  -->
-								<!-- </div> -->
-							<!-- </div> -->
-							
-							<h6>County Information</h6>
-							<ul class="list-group list-group-flush">
-								<li class="list-group-item">County Name:<br> <span id="CountyName" style="color:#ED9A2A">Select County</span></li>
-							<li class="list-group-item">MSA Name: <br> <span id="MSAName" style="color:#ED9A2A">Select County</span></li>
-							</ul>	
-						</div>
-						<div class="row" >
-						<div class="col-md-12" id="us_state_div" >
-						<script type="text/javascript" src="msa_sc3.js"></script> 
-						
-						</div>
-					</div>
-				</div>          
-			</div>
-		</div>
-	</body>
+
+            <div class="col-md-12" id="state_map" style="margin-top:7%">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>State Map</h4>
+                    </div>
+                    <div class="card-body">
+                    
+                    <div class="row">
+                      <div class="col-md-7" id="state-info">
+                          <select id="stateview">
+                              <option value="01">Alabama</option>
+                              <option value="02">Alaska</option>
+                              <option value="04">Arizona</option>
+                              <option value="05">Arkansas</option>
+                              <option value="06">California</option>
+                              <option value="08">Colorado</option>
+                              <option value="09">Connecticut</option>
+                              <option value="10">Delaware</option>
+                              <option value="11">District Of Columbia</option>
+                              <option value="12">Florida</option>
+                              <option value="13">Georgia</option>
+                              <option value="15">Hawaii</option>
+                              <option value="16">Idaho</option>
+                              <option value="17">Illinois</option>
+                              <option value="18">Indiana</option>
+                              <option value="19">Iowa</option>
+                              <option value="20">Kansas</option>
+                              <option value="21">Kentucky</option>
+                              <option value="22">Louisiana</option>
+                              <option value="23">Maine</option>
+                              <option value="24">Maryland</option>
+                              <option value="25">Massachusetts</option>
+                              <option value="26">Michigan</option>
+                              <option value="27">Minnesota</option>
+                              <option value="28">Mississippi</option>
+                              <option value="29">Missouri</option>
+                              <option value="30">Montana</option>
+                              <option value="31">Nebraska</option>
+                              <option value="32">Nevada</option>
+                              <option value="33">New Hampshire</option>
+                              <option value="34">New Jersey</option>
+                              <option value="35">New Mexico</option>
+                              <option value="36">New York</option>
+                              <option value="37">North Carolina</option>
+                              <option value="38">North Dakota</option>
+                              <option value="39">Ohio</option>
+                              <option value="40">Oklahoma</option>
+                              <option value="41">Oregon</option>
+                              <option value="42">Pennsylvania</option>
+                              <option value="44">Rhode Island</option>
+                              <option value="45">South Carolina</option>
+                              <option value="46">South Dakota</option>
+                              <option value="47">Tennessee</option>
+                              <option value="48">Texas</option>
+                              <option value="49">Utah</option>
+                              <option value="50">Vermont</option>
+                              <option value="51">Virginia</option>
+                              <option value="53">Washington</option>
+                              <option value="54">West Virginia</option>
+                              <option value="55">Wisconsin</option>
+                              <option value="56">Wyoming</option>
+                          </select>
+                          </br>
+                          </br>
+                        
+                          <h6>County Information</h6>
+                          <ul class="list-group list-group-flush">
+                              <li class="list-group-item">County Name:
+                                  <br> <span id="CountyName" style="color:#ED9A2A">Select County</span></li>
+                              <li class="list-group-item">MSA Name:
+                                  <br> <span id="MSAName" style="color:#ED9A2A">Select County</span></li>
+                          </ul>
+                      </div>
+                      <div class="col-md-4" id="us_state_div">
+                          
+                          <script type="text/javascript" src="msa_sc3.js">
+                            
+
+
+                          </script>
+                      </div>
+                    </div>
+         
+                </div>
+            </div>
+        </div>
+</body>
+
 </html>

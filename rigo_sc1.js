@@ -1,42 +1,41 @@
-    var margin = {top: 10, right: 0, bottom: 10, left: 0};
-    var width = $("#national-map").width();
-    var mapRatio = .5;
-    var height = width * mapRatio;
-    var w = 100;
-    var h = 10;
+  var margin = {top: 10, right: 0, bottom: 10, left: 0};
+                    var width = $("#national-map").width();
+                    var mapRatio = .5;
+                    var height = width * mapRatio;
+                    var w = 100;
+                    var h = 10;
 
-    var svg = d3.select("#national-map").append("svg")
-      .attr("width", width)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      //.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                    var svg = d3.select("#national-map").append("svg")
+                      .attr("width", width)
+                      .attr("height", height + margin.top + margin.bottom)
+                      .append("g")
+                      //.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+                    
+                    var g1 = svg.append('g');
 
-    var g1 = svg.append('g');
+                    var projection =  d3.geoAlbersUsa()
+                      .scale(width)
+                      .translate([width / 2, height / 2]);
 
-    var projection =  d3.geoAlbersUsa()
-      .scale(width)
-      .translate([width / 2, height / 2]);
+                    states = d3.map();
+                    rigosname =d3.map();
+                    rigos = {};
+                    population =d3.map();
+                    overlapped = [];
+                    rigo_information={};
 
+                    function insertAfter(referenceNode, newNode) {
+                        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+                    }
 
-    var states = d3.map();
-    var rigosname =d3.map();
-    var rigos = {};
-    var population =d3.map();
-    var overlapped = [];
-    var rigo_information={};
+                    var color = d3.scaleThreshold()
+                      .domain([10000,100000, 500000, 1000000,5000000,10000000])
+                      .range(["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe","#045a8d"]);
+                    var color_c= ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe","#045a8d"]; 
 
-    function insertAfter(referenceNode, newNode) {
-        referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-    }
-
-    var color = d3.scaleThreshold()
-      .domain([10000,100000, 500000, 1000000,5000000,10000000])
-      .range(["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe","#045a8d"]);
-    var color_c= ["#f1eef6", "#d0d1e6", "#a6bddb", "#74a9cf", "#2b8cbe","#045a8d"]; 
-
-    var path = d3.geoPath()
-      .projection(projection);
+                    var path = d3.geoPath()
+                      .projection(projection);
 
     //var svg = d3.select("body").append("svg").attr("height",height).attr("width",width);
 
@@ -363,9 +362,9 @@
         });
                        
 
-    // var div1=document.getElementById("national-map");
-    // var div2=document.getElementById("us_state_div");
-    // insertAfter(div1, div2);
+    var div1=document.getElementById("national_map");
+    var div2=document.getElementById("us_state_div");
+    insertAfter(div1, div2);
 
     var centered;
 
@@ -406,4 +405,3 @@
               
               
               };
-  rigo2();

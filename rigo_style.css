@@ -58,7 +58,8 @@ p {
       #legend img{
         text-align: center;
         width:50px;
-        margin:5px 20px 0px 20px;
+        /*margin:5px 20px 0px 20px;*/
+        margin: 5px auto;
       }
 
       #scale .col{
