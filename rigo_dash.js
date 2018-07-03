@@ -221,7 +221,7 @@ function dashboardUpdate() {
         //Hard coded value because .tsv formatting 
         //results in an incorrect value
         $("#rigoCounter").attr("data-count", 477);  
-        $("#msaCounter").attr("data-count", 398);    
+        $("#msaCounter").attr("data-count", 338);    
               
         $(".counter").each(function() {
             var $this = $(this),
