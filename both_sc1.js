@@ -1,3 +1,5 @@
+// CREATES THE COUNTRY MAP
+
 var margin = { top: 10, right: 0, bottom: 10, left: 0 };
 var width = $("#national-map").width();
 var mapRatio = .5;
@@ -8,6 +10,7 @@ var h = 10;
 var svg = d3.select("#national-map").append("svg")
     .attr("width", width)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("viewBox", "0 0 "+width/2 + " "+ (height+margin.top + margin.bottom)/2 )
     .append("g")
 // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -42,7 +45,7 @@ function insertAfter(referenceNode, newNode) {
 
 
 d3.csv("County and Muni RIGO Boundaries.csv", function(overrigo) {
-    overrigo.forEach(function(row) {
+    overrigo.forEach(function(row)   {
         if (row.RIGOCode != 0 && row.RIGO2 != 0) {
             overlapped.push(parseInt(row.Code));
         }
@@ -83,7 +86,7 @@ d3.csv("County and Muni RIGO Boundaries.csv", function(csv) {
 
 
     csv.forEach(function(row) {
-        if (row.RIGOCodeNo != 99) {
+        if (row.RIGOCodeNo < 50) {
             if (rigos[row.RIGOCode] == null) {
                 rigos[row.RIGOCode] = new Array();
                 rigos[row.RIGOCode].push(parseInt(row.Code));
@@ -186,7 +189,10 @@ function USAMSA(error, us, vt, ma, nh, ri, ct) {
             .attr("stroke-linecap", "round")
             .attr("id", function(d) {
                 return keys;
-            });
+            })
+            .on('click', zoom)
+            .on('mouseover', clicked)
+            .on('mouseout', nohover);
     }
 
     g1.append("path")
@@ -210,7 +216,10 @@ function USAMSA(error, us, vt, ma, nh, ri, ct) {
             .attr("stroke-linecap", "round")
             .attr("id", function(d) {
                 return keys;
-            });
+            })
+            .on('click', zoom)
+            .on('mouseover', clicked)
+            .on('mouseout', nohover);
     }
 
     g1.append("path")
@@ -234,7 +243,10 @@ function USAMSA(error, us, vt, ma, nh, ri, ct) {
             .attr("stroke-linecap", "round")
             .attr("id", function(d) {
                 return keys;
-            });
+            })
+            .on('click', zoom)
+            .on('mouseover', clicked)
+            .on('mouseout', nohover);
     }
 
     g1.append("path")
@@ -258,7 +270,10 @@ function USAMSA(error, us, vt, ma, nh, ri, ct) {
             .attr("stroke-linecap", "round")
             .attr("id", function(d) {
                 return keys;
-            });
+            })
+            .on('click', zoom)
+            .on('mouseover', clicked)
+            .on('mouseout', nohover);
     }
 
     g1.append("path")
@@ -282,7 +297,10 @@ function USAMSA(error, us, vt, ma, nh, ri, ct) {
             .attr("stroke-linecap", "round")
             .attr("id", function(d) {
                 return keys;
-            });
+            })
+            .on('click', zoom)
+            .on('mouseover', clicked)
+            .on('mouseout', nohover);
     }
 
     g1.append("path")
@@ -306,7 +324,10 @@ function USAMSA(error, us, vt, ma, nh, ri, ct) {
             .attr("stroke-linecap", "round")
             .attr("id", function(d) {
                 return keys;
-            });
+            })
+            .on('click', zoom)
+            .on('mouseover', clicked)
+            .on('mouseout', nohover);
     }
 
 
@@ -487,7 +508,7 @@ function USAMSA(error, us, vt, ma, nh, ri, ct) {
 
     var div1 = document.getElementById("national_map");
     var div2 = document.getElementById("us_state_div");
-    insertAfter(div1, div2);
+    // insertAfter(div1, div2);
 
     var centered;
 
@@ -525,3 +546,4 @@ function USAMSA(error, us, vt, ma, nh, ri, ct) {
 
 
 };
+

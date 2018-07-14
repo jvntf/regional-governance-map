@@ -1,3 +1,5 @@
+// CREATES THE LEGEND. THIS IS UNUSED NOW.
+
 var margin2 = { top: 0, right: 0, bottom: 0, left: 0 };
 var width2 = $("#legend").width();
 var mapRatio2 = .3;
