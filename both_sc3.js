@@ -43,6 +43,7 @@ population = d3.map();
 overlapped = [];
 rigo_information = {};
 countyRIGOAffiliationName = {};
+
 d3.csv("County and Muni RIGO Boundaries.csv", function(overrigo) {
     overrigo.forEach(function(row) {
         if (row.RIGOCode != 0 && row.RIGO2 != 0) {
