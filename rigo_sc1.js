@@ -117,7 +117,7 @@
 
       const texture =
           textures.lines()
-          .size(3)
+          .size(4)
           .strokeWidth(1);
 
       const texture1 =
@@ -214,7 +214,7 @@
               .attr("stroke", "black")
               .style("fill", function(d) { return color(population.get(keys)) })
               .attr("fill-opacity", 0.7)
-              .attr("stroke-width", "1.5")
+              .attr("stroke-width", "0.5")
               .attr("stroke-linejoin", "round")
               .attr("stroke-linecap", "round")
               .attr("id", function(d) {
@@ -244,7 +244,7 @@
               .attr("stroke", "black")
               .style("fill", function(d) { return color(population.get(keys)) })
               .attr("fill-opacity", 0.7)
-              .attr("stroke-width", "1.5")
+              .attr("stroke-width", "0.5")
               .attr("stroke-linejoin", "round")
               .attr("stroke-linecap", "round")
               .attr("id", function(d) {
@@ -272,7 +272,7 @@
               .attr("stroke", "black")
               .style("fill", function(d) { return color(population.get(keys)) })
               .attr("fill-opacity", 0.7)
-              .attr("stroke-width", "1.5")
+              .attr("stroke-width", "0.5")
               .attr("stroke-linejoin", "round")
               .attr("stroke-linecap", "round")
               .attr("id", function(d) {
@@ -300,7 +300,7 @@
               .attr("stroke", "black")
               .style("fill", function(d) { return color(population.get(keys)) })
               .attr("fill-opacity", 0.7)
-              .attr("stroke-width", "1.5")
+              .attr("stroke-width", "0.5")
               .attr("stroke-linejoin", "round")
               .attr("stroke-linecap", "round")
               .attr("id", function(d) {
@@ -328,7 +328,7 @@
               .attr("stroke", "black")
               .style("fill", function(d) { return color(population.get(keys)) })
               .attr("fill-opacity", 0.7)
-              .attr("stroke-width", "1.5")
+              .attr("stroke-width", "0.5")
               .attr("stroke-linejoin", "round")
               .attr("stroke-linecap", "round")
               .attr("id", function(d) {
@@ -343,7 +343,7 @@
           g1.append("path")
               .datum(topojson.feature(drawStateBorders, drawStateBorders.objects.us))
               .attr("fill", "none")
-              .attr("stroke-width", "1.7")
+              .attr("stroke-width", "1  ")
               .attr("d", path)
               .attr("stroke", "black");
       });
@@ -351,7 +351,7 @@
 
       var div1 = document.getElementById("national_map");
       var div2 = document.getElementById("us_state_div");
-      insertAfter(div1, div2);
+      // insertAfter(div1, div2);
 
       var centered;
 

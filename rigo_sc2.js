@@ -113,7 +113,7 @@
                           const texture =
                           textures.lines()
                           .size(3)
-                          .strokeWidth(1);
+                          .strokeWidth(2);
                          const texture1 =
                           textures.lines()
                           .size(4)

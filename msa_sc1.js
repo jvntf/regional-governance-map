@@ -44,7 +44,7 @@ d3.json("drawStateBorders.json", function(drawStateBorders){
     g1.append("path")
         .datum(topojson.feature(drawStateBorders, drawStateBorders.objects.us))
         .attr("fill", "none")
-        .attr("stroke-width","2.5")
+        .attr("stroke-width","1")
         .attr("d", path)
         .attr("stroke","black");
 });
@@ -109,8 +109,8 @@ function USAMSA(error, us, vt, ma, nh, ri, ct){
         .datum(topojson.feature(us, us.objects.collection))
         .attr("fill", "none")
         .attr("d", path)
-        .attr("stroke-width",0.5)
-        .attr("stroke","gray");
+        .attr("stroke-width",0.3)
+        .attr("stroke","grey");
                 
                 
 
@@ -124,7 +124,7 @@ function USAMSA(error, us, vt, ma, nh, ri, ct){
             .attr("stroke","black")
             .style("fill", function(d){return color(population.get(keys));})
             .attr("fill-opacity", 0.7)
-            .attr("stroke-width", "1.5")
+            .attr("stroke-width", "0.5")
             .attr("stroke-linejoin","round")
             .attr("stroke-linecap","round")
             .attr("id", function(d){  
@@ -179,7 +179,7 @@ function USAMSA(error, us, vt, ma, nh, ri, ct){
             .attr("stroke","black")
             .style("fill", function(d){return color(population.get(keys));})
             .attr("fill-opacity", 0.7)
-            .attr("stroke-width", "1.5")
+            .attr("stroke-width", "0.5")
             .attr("stroke-linejoin","round")
             .attr("stroke-linecap","round")
             .attr("id", function(d){   
@@ -206,7 +206,7 @@ function USAMSA(error, us, vt, ma, nh, ri, ct){
             .attr("stroke","black")
             .style("fill", function(d){return color(population.get(keys));})
             .attr("fill-opacity", 0.7)
-            .attr("stroke-width", "1.5")
+            .attr("stroke-width", "0.5")
             .attr("stroke-linejoin","round")
             .attr("stroke-linecap","round")
             .attr("id", function(d){   
@@ -233,7 +233,7 @@ function USAMSA(error, us, vt, ma, nh, ri, ct){
             .attr("stroke","black")
             .style("fill", function(d){return color(population.get(keys));})
             .attr("fill-opacity", 0.7)
-            .attr("stroke-width", "1.5")
+            .attr("stroke-width", "0.5")
             .attr("stroke-linejoin","round")
             .attr("stroke-linecap","round")
             .attr("id", function(d){   
@@ -260,7 +260,7 @@ function USAMSA(error, us, vt, ma, nh, ri, ct){
             .attr("stroke","black")
             .style("fill", function(d){return color(population.get(keys));})
             .attr("fill-opacity", 0.7)
-            .attr("stroke-width", "1.5")
+            .attr("stroke-width", "0.5")
             .attr("stroke-linejoin","round")
             .attr("stroke-linecap","round")
             .attr("id", function(d){   

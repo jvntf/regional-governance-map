@@ -1,4 +1,6 @@
-window.onload=dashboardUpdate();
+$(function(){
+    dashboardUpdate();
+})
 
 function dashboardUpdate() {
             
