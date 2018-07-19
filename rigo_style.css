@@ -43,22 +43,24 @@ p {
 
       
       #legend {
- /*       padding-top: 20px;*/
+
         height: 10%;
         background: #ffffff;
-        padding:3%;
-        /*border: 1px solid black;*/
+        padding: 1.5% 3%;
+
       }
 
 
-      #legend #shapes{
+      #shape_labels{
         text-align: center;
-        padding-top:4%;
+        padding-top:1%;
       }
-      #legend img{
+
+
+      #shapes img{
         text-align: center;
         width:50px;
-        /*margin:5px 20px 0px 20px;*/
+        height:30px;
         margin: 5px auto;
       }
 
